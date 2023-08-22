@@ -11,6 +11,8 @@ module.exports = {
         whiteApp: "#FEFEFE",
         darkApp: "#2F313F",
         lightGreyApp: "#ebecee",
+        greenApp: "#26A668",
+        darkGreenApp: "#1F8252",
         redRagdalion: "#DC3F36",
         blueRagdalion: "#1EBBD6",
         yellowRagdalion: "#F1910C",
