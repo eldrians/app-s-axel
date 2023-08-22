@@ -13,3 +13,20 @@
 body {
   font-family: Inter;
 }
+
+/* transition */
+.transition-fastest {
+  @apply transition duration-150 ease-in-out;
+}
+
+.transition-fast {
+  @apply transition duration-300 ease-in-out;
+}
+
+.transition-slow {
+  @apply transition duration-700 ease-in-out;
+}
+
+.transition-extraslow {
+  @apply transition duration-1000 ease-in-out;
+}
