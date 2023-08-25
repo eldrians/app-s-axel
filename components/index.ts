@@ -1,4 +1,8 @@
 import Header from "./Header";
 import Hero from "./Hero";
+import TestAPI from "./TestAPI";
 
-export { Header, Hero };
+// items
+import Button from "./Button";
+
+export { Header, Hero, TestAPI, Button};

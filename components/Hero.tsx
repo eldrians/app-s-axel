@@ -1,3 +1,5 @@
+import { Button } from ".";
+
 const Hero = () => {
   return (
     <section id="hero" className="w-full flex flex-row items-center">
@@ -10,9 +12,7 @@ const Hero = () => {
             voluptas magni quisquam debitis mollitia quia, nobis veniam! Aliquid
             saepe amet.
           </p>
-          <button className="py-3 px-10 bg-greenApp hover:bg-darkGreenApp rounded-full">
-            <span className="text-whiteApp font-semibold">Start App</span>
-          </button>
+          <Button text="Start App" />
         </div>
       </div>
       <div className="w-2/5"></div>
