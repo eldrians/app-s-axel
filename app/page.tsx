@@ -1,9 +1,8 @@
-import { Hero, TestAPI } from "@/components";
+import { Hero } from "@/components";
 const page = () => {
   return (
     <>
       <Hero />
-      <TestAPI />
     </>
   );
 };
