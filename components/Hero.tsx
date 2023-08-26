@@ -42,17 +42,22 @@ const Hero = async () => {
           </p>
           <form
             onSubmit={handleSubmit}
-            className="flex flex-row gap-4 items-center"
+            className="flex flex-row gap-2 items-center"
           >
             <input
               type="email"
               id="email"
               name="email"
-              className="py-3 px-4 bg-gray-50 border border-gray-300 focus:border-none text-gray-900 rounded-full w-1/2"
+              className="py-3 px-4 bg-whiteApp border border-gray-300 
+              text-darkApp
+              focus:outline-none
+              focus:ring-[0.5px]
+              focus:ring-greenApp
+              rounded-full w-1/2"
               placeholder="Your Email..."
               required
             />
-            <Button text="Start App" btnType="submit" />
+            <Button text="Get Email!" btnType="submit" />
           </form>
         </div>
       </div>

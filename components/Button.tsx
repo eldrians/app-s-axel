@@ -14,11 +14,11 @@ const Button = ({
   btnType,
   handleClick,
   color = "bg-greenApp",
-  colorHover = "bg-darkGreenApp",
+  colorHover = "hover:bg-darkGreenApp",
 }: ButtonProps) => {
   return (
     <button
-      className={`py-3 px-10 ${color}  hover:${colorHover}  rounded-full`}
+      className={`py-3 px-10 ${color} ${colorHover} rounded-full`}
       onClick={handleClick}
       type={btnType}
     >
