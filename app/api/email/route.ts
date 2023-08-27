@@ -11,7 +11,6 @@ export async function GET() {
 
 export async function POST(request: Request) {
   const data: FormData = await request.json();
-  console.log(data);
   const { email } = data;
   try {
     const response = await fetch(

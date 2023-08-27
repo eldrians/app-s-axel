@@ -33,7 +33,7 @@ const Hero = async () => {
     <section id="hero" className="w-full flex flex-row items-center">
       <div className="w-3/5">
         <div className="py-28 text-darkApp">
-          <h1 className="text-6xl font-bold">Go whenever, whenever</h1>
+          <h1 className="text-6xl font-bold">Masukan Email Mu</h1>
           <p className="text-xl my-8">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus
             sit blanditiis ipsum, esse architecto pariatur? Qui unde accusamus
@@ -57,7 +57,7 @@ const Hero = async () => {
               placeholder="Your Email..."
               required
             />
-            <Button text="Get Email!" btnType="submit" />
+            <Button text="Get Email !" btnType="submit" />
           </form>
         </div>
       </div>
