@@ -18,7 +18,7 @@ const Button = ({
 }: ButtonProps) => {
   return (
     <button
-      className={`py-3 px-10 ${color} ${colorHover} rounded-full`}
+      className={`py-2 md:py-3 lg:py-3 px-6 md:px-10 ${color} ${colorHover} text-xs md:text-sm lg:text-sm rounded-full`}
       onClick={handleClick}
       type={btnType}
     >
