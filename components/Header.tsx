@@ -8,7 +8,7 @@ const Header = () => {
       px-6 
       lg:px-28 
       fixed
-    bg-transparent shadow flex flex-row justify-center lg:justify-between items-center group"
+    bg-transparent flex flex-row justify-center lg:justify-between items-center group"
     >
       <div className="w-full lg:w-1/2 flex justify-center lg:justify-start items-center">
         <Image
