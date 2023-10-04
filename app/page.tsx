@@ -1,8 +1,9 @@
-import { Hero } from "@/components";
+import { Hero, About } from "@/components";
 const page = () => {
   return (
     <>
       <Hero />
+      <About />
     </>
   );
 };
