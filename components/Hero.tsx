@@ -1,7 +1,10 @@
 "use client";
 import { Button } from ".";
+import { useState } from "react";
 
 const Hero = () => {
+  const [email, setEmail] = useState("");
+
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
@@ -24,11 +27,18 @@ const Hero = () => {
         throw new Error("HTTP error! status: " + response.status);
       }
 
+      setEmail("");
+
       const responseData = await response.json();
     } catch (error: any) {
       console.log("error " + error.message);
     }
   };
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setEmail(e.target.value);
+  };
+
   return (
     <section
       id="hero"
@@ -51,14 +61,17 @@ const Hero = () => {
               type="email"
               id="email"
               name="email"
-              className="py-3 px-4 bg-whiteApp border border-gray-300 
+              className="py-3 px-6 bg-whiteApp border border-gray-300 
               text-darkApp
+              text-sm
               focus:outline-none
               focus:ring-[0.5px]
               focus:ring-greenApp
               rounded-full w-full md:w-1/2 lg:w-1/2"
               placeholder="Your Email..."
               required
+              value={email}
+              onChange={handleInputChange}
             />
             <Button text="Get Email !" btnType="submit" />
           </form>
