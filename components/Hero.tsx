@@ -1,8 +1,8 @@
 "use client";
 import { Button } from ".";
 
-const Hero = async () => {
-  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+const Hero = () => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     const target = e.currentTarget;
@@ -28,22 +28,20 @@ const Hero = async () => {
     } catch (error: any) {
       console.log("error " + error.message);
     }
-  }
+  };
   return (
     <section
       id="hero"
       className="w-full flex flex-col lg:flex-row items-center "
     >
       <div className="w-full md:w-full lg:w-3/5 order-2 md:order-2 lg:order-1">
-        <div className="py-12 md:py-12 lg:py-28 text-darkApp">
+        <div className="py-12 md:py-12 lg:py-28 text-whiteApp">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-left">
-            Masukan email-mu sekarang!
+            Data prestasi kamu sekarang juga !
           </h1>
-          <p className="text-sm md:text-base lg:text-xl my-4 lg:my-8">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus
-            sit blanditiis ipsum, esse architecto pariatur? Qui unde accusamus
-            voluptas magni quisquam debitis mollitia quia, nobis veniam! Aliquid
-            saepe am
+          <p className="text-sm md:text-sm lg:text-xl my-4 lg:my-8">
+            jangan sampai prestasi kamu terbuang sia sia, maksimalkan potensi mu
+            dengan mendata prestasi pada pada template on-demand service dibawah
           </p>
           <form
             onSubmit={handleSubmit}
@@ -65,9 +63,6 @@ const Hero = async () => {
             <Button text="Get Email !" btnType="submit" />
           </form>
         </div>
-      </div>
-      <div className="w-2/5 bg-red-300 order-1 md:order-1 lg:order-2 mt-28 md:mt-28 lg:mt-0">
-        logo
       </div>
     </section>
   );

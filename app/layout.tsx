@@ -3,7 +3,7 @@ import "./globals.css";
 import Image from "next/image";
 
 export const metadata = {
-  title: "Skripsi App",
+  title: "Neo Data Collection",
   description: "On-Demand Service Platform",
 };
 
