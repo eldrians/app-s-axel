@@ -1,6 +1,8 @@
 "use client";
 import { Button } from ".";
 import { useState } from "react";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Hero = () => {
   const [email, setEmail] = useState("");
@@ -23,7 +25,19 @@ const Hero = () => {
           "Content-Type": "application/json",
         },
       });
-      if (!response.ok) {
+
+      if (response.ok) {
+        toast.info("data masuk, cek email-mu sekarang!", {
+          position: "top-center",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        });
+      } else {
         throw new Error("HTTP error! status: " + response.status);
       }
 
