@@ -1,5 +1,6 @@
 import { Header } from "@/components";
 import "./globals.css";
+import Image from "next/image";
 
 export const metadata = {
   title: "Skripsi App",
@@ -15,7 +16,7 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <Header />
-        <main className="px-10 md:px-20 lg:px-28 pt-4 lg:pt-20">
+        <main className="px-10 md:px-20 lg:px-28 pt-4 lg:pt-20 bg-hero bg-cover bg-top">
           {children}
         </main>
       </body>

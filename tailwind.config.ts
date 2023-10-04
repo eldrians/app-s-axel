@@ -26,6 +26,9 @@ module.exports = {
       maxWidth: {
         "10xl": "1680px",
       },
+      backgroundImage: {
+        "hero": "url('/bg-hero.png')",
+      },
     },
   },
   plugins: [],

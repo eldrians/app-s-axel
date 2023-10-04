@@ -32,7 +32,7 @@ const Hero = async () => {
   return (
     <section
       id="hero"
-      className="w-full flex flex-col lg:flex-row items-center"
+      className="w-full flex flex-col lg:flex-row items-center "
     >
       <div className="w-full md:w-full lg:w-3/5 order-2 md:order-2 lg:order-1">
         <div className="py-12 md:py-12 lg:py-28 text-darkApp">
