@@ -20,10 +20,10 @@ const Header = () => {
       </div>
       <div className="lg:w-1/2 lg:block hidden">
         <ul className="flex flex-row justify-end items-center gap-6 text-md font-semibold text-whiteApp">
-          <li>
+          {/* <li>
             <a
               href="#"
-              className="py-1 px-6 rounded-full hover:bg-lightGreyApp hover:shadow"
+              className="py-1 px-6 rounded-full hover:bg-darkApp hover:shadow"
             >
               Option
             </a>
@@ -31,17 +31,17 @@ const Header = () => {
           <li>
             <a
               href="#"
-              className="py-1 px-6 rounded-full hover:bg-lightGreyApp hover:shadow"
+              className="py-1 px-6 rounded-full hover:bg-darkApp hover:shadow"
             >
               Option
             </a>
-          </li>
+          </li> */}
           <li>
             <a
-              href="#"
-              className="py-1 px-6 rounded-full hover:bg-lightGreyApp hover:shadow"
+              href="#about"
+              className="py-2 px-1 hover:border-b hover:border-white hover:shadow"
             >
-              Bantuan
+              Cara Pakai?
             </a>
           </li>
         </ul>

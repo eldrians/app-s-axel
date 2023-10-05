@@ -64,9 +64,9 @@ const Hero = () => {
               Data prestasi kamu sekarang juga !
             </h1>
             <p className="text-sm md:text-sm lg:text-xl my-4 lg:my-8">
-              jangan sampai prestasi kamu terbuang sia sia, maksimalkan potensi
-              mu dengan mendata prestasi pada pada template on-demand service
-              dibawah
+              Jangan biarkan prestasimu sia-sia, manfaatkan potensimu sepenuhnya
+              dengan merinci dan mengatur pencatatan prestasimu secara
+              sistematis
             </p>
             <form
               onSubmit={handleSubmit}

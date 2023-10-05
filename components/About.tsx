@@ -13,8 +13,8 @@ const AboutItem = ({
   desc?: string;
 }) => {
   return (
-    <div className="p-8 px-8 flex flex-col justify-center items-center shadow-xl rounded-lg bg-whiteApp">
-      <div className="mb-4 animate-wiggle">
+    <div className="p-8 px-6 flex flex-col justify-center items-center shadow-xl rounded-lg bg-whiteApp cursor-default">
+      <div className="mb-4">
         <Image src={svg} alt="Neo Data - Collection" width={150} height={150} />
       </div>
       <div className="flex flex-row justify-center items-center">
@@ -43,30 +43,27 @@ const About = () => {
       <center>
         <div className="mb-12">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-whiteApp uppercase">
-            about
+            Cara Pakai ?
           </h2>
         </div>
         <div className="grid grid-cols-3 items-center justify-center gap-4">
           <AboutItem
             svg={"/input-email.svg"}
             no={1}
-            title="Input Email"
-            desc="Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo,
-            voluptatibus?"
+            title="Masukan Email"
+            desc="Masukkan alamat email Anda ke dalam kolom input di atas untuk menerima template formulir."
           />
           <AboutItem
             svg={"/duplicate-file.svg"}
             no={2}
-            title="Duplicate Template"
-            desc="Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo,
-            voluptatibus?"
+            title="Salin Template"
+            desc="Salin template yang diterima melalui email, lalu simpan di Google Drive Anda."
           />
           <AboutItem
             svg={"/fill-data.svg"}
             no={3}
-            title="Start Inputing"
-            desc="Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo,
-            voluptatibus?"
+            title="Isi Data Prestasimu"
+            desc="Hore proses selesai, isi seluruh prestasi/keahlian mu disana"
           />
         </div>
       </center>
