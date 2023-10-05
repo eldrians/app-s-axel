@@ -40,7 +40,7 @@ const About = () => {
       id="about"
       className="px-10 md:px-20 lg:px-28 2xl:px-72 py-4 lg:py-28 bg-gradient-to-br from-greenApp to-darkGreenApp"
     >
-      <center className="py-12 xl:py-0">
+      <center className="py-12 lg:py-0 xl:py-0">
         <div className="mb-6 md:mb-10 xl:mb-12">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-whiteApp uppercase">
             Cara Pakai ?
