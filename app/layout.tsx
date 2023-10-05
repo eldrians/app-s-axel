@@ -15,6 +15,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" style={{ scrollBehavior: "smooth" }}>
+      <head>
+        <link rel="shortcut icon" href="/favicon/favicon.ico" />
+      </head>
       <body>
         <Header />
         <main>{children}</main>
