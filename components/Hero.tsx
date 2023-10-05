@@ -55,7 +55,7 @@ const Hero = () => {
   return (
     <section
       id="hero"
-      className="px-10 md:px-20 lg:px-28 pt-4 lg:pt-20 bg-hero bg-cover bg-top"
+      className="px-10 md:px-20 lg:px-28 2xl:px-72 pt-16 md:pt-20 lg:pt-20 bg-hero bg-cover bg-top"
     >
       <div className="w-full flex flex-col lg:flex-row items-center ">
         <div className="w-full md:w-full lg:w-3/5 order-2 md:order-2 lg:order-1">

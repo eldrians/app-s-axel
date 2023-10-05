@@ -13,7 +13,7 @@ const AboutItem = ({
   desc?: string;
 }) => {
   return (
-    <div className="p-8 px-6 flex flex-col justify-center items-center shadow-xl rounded-lg bg-whiteApp cursor-default">
+    <div className="h-full p-8 px-6 md:px-6 2xl:px-20 flex flex-col justify-center items-center shadow-xl rounded-lg bg-whiteApp cursor-default">
       <div className="mb-4">
         <Image src={svg} alt="Neo Data - Collection" width={150} height={150} />
       </div>
@@ -38,15 +38,15 @@ const About = () => {
   return (
     <section
       id="about"
-      className="px-10 md:px-20 lg:px-28 py-4 lg:py-28 bg-gradient-to-br from-greenApp to-darkGreenApp"
+      className="px-10 md:px-20 lg:px-28 2xl:px-72 py-4 lg:py-28 bg-gradient-to-br from-greenApp to-darkGreenApp"
     >
-      <center>
-        <div className="mb-12">
+      <center className="py-12 xl:py-0">
+        <div className="mb-6 md:mb-10 xl:mb-12">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-whiteApp uppercase">
             Cara Pakai ?
           </h2>
         </div>
-        <div className="grid grid-cols-3 items-center justify-center gap-4">
+        <div className="grid grid-cols-1 xl:grid-cols-3 items-center justify-center gap-4 ">
           <AboutItem
             svg={"/input-email.svg"}
             no={1}

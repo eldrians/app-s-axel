@@ -6,7 +6,8 @@ const Header = () => {
     <header
       className="w-full pt-8 pb-4
       px-6 
-      lg:px-28 
+      lg:px-28
+      2xl:px-72 
       fixed
     bg-transparent flex flex-row justify-center lg:justify-between items-center group"
     >
