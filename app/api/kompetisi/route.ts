@@ -2,7 +2,6 @@ import { NextRequest, NextResponse } from "next/server";
 
 type FormData = {
   urlSheet?: string;
-  id?: string;
   nama?: string;
   nim?: string;
   demandKey?: string;
@@ -24,7 +23,6 @@ export async function POST(request: Request) {
   const data: FormData = await request.json();
   const {
     urlSheet,
-    id,
     nama,
     nim,
     demandKey,
@@ -59,7 +57,6 @@ export async function POST(request: Request) {
   }
   return NextResponse.json({
     urlSheet,
-    id,
     nama,
     nim,
     demandKey,
