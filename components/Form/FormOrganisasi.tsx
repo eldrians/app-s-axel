@@ -3,7 +3,7 @@ import React from "react";
 import { Button, InputText, InputDropdown } from "@/components";
 import { useState } from "react";
 import { ToastInfo } from "@/utils/toasts";
-import { PenobatanHeaders } from "@/utils/achievementHeader";
+import { OrganisasiHeaders } from "@/utils/achievementHeader";
 
 const FormOrganisasi = () => {
   const [formData, setFormData] = useState({
@@ -18,9 +18,9 @@ const FormOrganisasi = () => {
     urlPrestasi: "",
 
     //dataKompetisi
-    tandaKehormatan: "",
-    cakupan: "",
-    lembaga: "",
+    bidang: "",
+    namaOrganisasi: "",
+    tahun: "",
   });
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -32,10 +32,10 @@ const FormOrganisasi = () => {
     e.preventDefault();
 
     const data: Record<string, any> = {};
-    PenobatanHeaders.forEach((header) => {
+    OrganisasiHeaders.forEach((header) => {
       // rubah
       if (header == "jenisPrestasi") {
-        data[header] = "Penobatan"; // rubah
+        data[header] = "Organisasi"; // rubah
       } else {
         const inputElement = e.currentTarget.elements.namedItem(
           header
@@ -45,7 +45,7 @@ const FormOrganisasi = () => {
     });
 
     try {
-      const response = await fetch("/api/form/penobatan", {
+      const response = await fetch("/api/form/organisasi", {
         // rubah
         method: "POST",
         body: JSON.stringify(data),
@@ -106,28 +106,52 @@ const FormOrganisasi = () => {
           </div>
         </div>
         <div className="grid grid-cols-2 gap-4 p-8 border border-greenApp rounded-lg">
+          <InputDropdown
+            label="Jabatan"
+            id="jabatan"
+            name="jabatan"
+            option={[
+              "Ketua",
+              "Bendahara Umum",
+              "Sekertaris Umum",
+              "Ketua Divisi",
+              "Ketua Biro",
+            ]}
+          />
           <InputText
-            label="Tanda Kehormatan"
-            placeholder="ex: Best Mentee PT. X Indonesia"
-            id="tandaKehormatan"
-            name="tandaKehormatan"
-            value={formData.tandaKehormatan}
+            label="Bidang Organisasi"
+            placeholder="ex: Politik"
+            id="bidang"
+            name="bidang"
+            value={formData.bidang}
             onChange={handleInputChange}
           />
           <InputText
-            label="Cakupan Peserta"
-            placeholder="ex: 10 Orang"
-            id="cakupan"
-            name="cakupan"
-            value={formData.cakupan}
+            label="Nama Organisasi"
+            placeholder="ex: BEM KEMAKOM UPI"
+            id="namaOrganisasi"
+            name="namaOrganisasi"
+            value={formData.namaOrganisasi}
             onChange={handleInputChange}
           />
+          <InputDropdown
+            label="Tingkat"
+            id="tingkat"
+            name="tingkat"
+            option={[
+              "Internasional",
+              "Regional",
+              "Nasional",
+              "Provinsi",
+              "Perguruan Tinggi",
+            ]}
+          />
           <InputText
-            label="Lembaga"
-            placeholder="ex: PT. X Indonesia"
-            id="lembaga"
-            name="lembaga"
-            value={formData.lembaga}
+            label="Tahun"
+            placeholder="ex: 2023"
+            id="tahun"
+            name="tahun"
+            value={formData.tahun}
             onChange={handleInputChange}
           />
 

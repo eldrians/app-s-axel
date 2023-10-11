@@ -3,9 +3,9 @@ import React from "react";
 import { Button, InputText, InputDropdown } from "@/components";
 import { useState } from "react";
 import { ToastInfo } from "@/utils/toasts";
-import { MinatDanBakatHeaders } from "@/utils/achievementHeader";
+import { KewirausahaanHeaders } from "@/utils/achievementHeader"; // rubah
 
-const FormMinatDanBakat = () => {
+const FormKompetisi = () => {
   const [formData, setFormData] = useState({
     //dataMahasiswa
     namaLengkap: "",
@@ -18,8 +18,9 @@ const FormMinatDanBakat = () => {
     urlPrestasi: "",
 
     //dataKompetisi
-    minatDanBakat: "",
-    keahlian: "",
+    namaUsaha: "",
+    bidang: "",
+    jumlahKaryawan: "",
   });
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -31,9 +32,10 @@ const FormMinatDanBakat = () => {
     e.preventDefault();
 
     const data: Record<string, any> = {};
-    MinatDanBakatHeaders.forEach((header) => {
+    KewirausahaanHeaders.forEach((header) => {
+      // rubah
       if (header == "jenisPrestasi") {
-        data[header] = "Minat dan Bakat";
+        data[header] = "Kewirausahaan"; // rubah
       } else {
         const inputElement = e.currentTarget.elements.namedItem(
           header
@@ -43,7 +45,7 @@ const FormMinatDanBakat = () => {
     });
 
     try {
-      const response = await fetch("/api/form/minatDanBakat", {
+      const response = await fetch("/api/form/kewirausahaan", {
         method: "POST",
         body: JSON.stringify(data),
         headers: {
@@ -104,28 +106,41 @@ const FormMinatDanBakat = () => {
         </div>
         <div className="grid grid-cols-2 gap-4 p-8 border border-greenApp rounded-lg">
           <InputText
-            label="Minat dan Bakat"
-            placeholder="ex: Artificial Intellegence"
-            id="minatDanBakat"
-            name="minatDanBakat"
-            value={formData.minatDanBakat}
+            label="Nama Usaha"
+            placeholder="ex: NEO Data Collection"
+            id="namaUsaha"
+            name="namaUsaha"
+            value={formData.namaUsaha}
+            onChange={handleInputChange}
+          />
+          <InputText
+            label="Bidang Usaha"
+            placeholder="ex: Data Management"
+            id="bidang"
+            name="bidang"
+            value={formData.bidang}
             onChange={handleInputChange}
           />
           <InputDropdown
-            label="Akademik / Non-Akademik"
-            id="jenisMDB"
-            name="jenisMDB"
-            option={["Akademik", "Non-akademik"]}
+            label="Status Hukum"
+            id="statusHukum"
+            name="statusHukum"
+            option={["Ya", "Tidak"]}
           />
           <InputText
-            label="Keahlian"
-            placeholder="ex: Python; Machine Learning"
-            id="keahlian"
-            name="keahlian"
-            value={formData.keahlian}
+            label="Jumlah Karyawan"
+            placeholder="ex: 10 Orang"
+            id="jumlahKaryawan"
+            name="jumlahKaryawan"
+            value={formData.jumlahKaryawan}
             onChange={handleInputChange}
           />
-
+          <InputDropdown
+            label="Status Usaha"
+            id="statusUsaha"
+            name="statusUsaha"
+            option={["Aktif", "On-Going", "Tidak Aktif"]}
+          />
           <div className="col-span-2">
             <InputText
               label="URL"
@@ -153,4 +168,4 @@ const FormMinatDanBakat = () => {
   );
 };
 
-export default FormMinatDanBakat;
+export default FormKompetisi;
