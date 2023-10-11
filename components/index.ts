@@ -7,6 +7,7 @@ import FormRekognisi from "./Form/FormRekognisi";
 import FormPenobatan from "./Form/FormPenobatan";
 import FormOrganisasi from "./Form/FormOrganisasi";
 import FormKewirausahaan from "./Form/FormKewirausahaan";
+import FormAksiKemanusiaan from "./Form/FormAksiKemanusiaan";
 import FormMinatDanBakat from "./Form/FormMinatDanBakat";
 
 // items
@@ -24,6 +25,7 @@ export {
   FormPenobatan,
   FormOrganisasi,
   FormKewirausahaan,
+  FormAksiKemanusiaan,
   FormMinatDanBakat,
   Button,
   InputText,
