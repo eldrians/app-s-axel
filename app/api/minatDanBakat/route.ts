@@ -1,16 +1,14 @@
-import { NextRequest, NextResponse } from "next/server";
+import { NextResponse } from "next/server";
 
 type FormData = {
+  jenisPrestasi?: string;
   urlSheet?: string;
   nama?: string;
   nim?: string;
   demandKey?: string;
-  capaian?: string;
-  kategori?: string;
+  minatDanBakat?: string;
   jenis?: string;
-  kompetisi?: string;
-  tingkat?: string;
-  tahun?: string;
+  keahlian?: string;
   url?: string;
 };
 export async function GET() {
@@ -20,18 +18,17 @@ export async function GET() {
 }
 
 export async function POST(request: Request) {
+  console.log("axel");
   const data: FormData = await request.json();
   const {
+    jenisPrestasi,
     urlSheet,
     nama,
     nim,
     demandKey,
-    capaian,
-    kategori,
+    minatDanBakat,
     jenis,
-    kompetisi,
-    tingkat,
-    tahun,
+    keahlian,
     url,
   } = data;
   try {
@@ -56,16 +53,14 @@ export async function POST(request: Request) {
     console.log("error " + error.message);
   }
   return NextResponse.json({
+    jenisPrestasi,
     urlSheet,
     nama,
     nim,
     demandKey,
-    capaian,
-    kategori,
+    minatDanBakat,
     jenis,
-    kompetisi,
-    tingkat,
-    tahun,
+    keahlian,
     url,
   });
 }

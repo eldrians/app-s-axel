@@ -3,17 +3,16 @@ import React from "react";
 import { Button, InputText, InputDropdown } from "@/components";
 import { useState } from "react";
 import { ToastInfo } from "@/utils/toasts";
-import { KompetisiHeaders } from "@/utils/achievementHeader";
+import { MinatDanBakatHeaders } from "@/utils/achievementHeader";
 
-const FormKompetisi = () => {
+const FormMinatDanBakat = () => {
   const [formData, setFormData] = useState({
     urlSheet: "",
     nama: "",
     nim: "",
     demandKey: "",
-    kategori: "",
-    kompetisi: "",
-    tahun: "",
+    minatDanBakat: "",
+    keahlian: "",
     url: "",
   });
 
@@ -21,9 +20,9 @@ const FormKompetisi = () => {
     e.preventDefault();
 
     const data: Record<string, any> = {};
-    KompetisiHeaders.forEach((header) => {
+    MinatDanBakatHeaders.forEach((header) => {
       if (header == "jenisPrestasi") {
-        data[header] = "Kompetisi";
+        data[header] = "Minat dan Bakat";
       } else {
         const inputElement = e.currentTarget.elements.namedItem(
           header
@@ -33,7 +32,7 @@ const FormKompetisi = () => {
     });
 
     try {
-      const response = await fetch("/api/form/kompetisi", {
+      const response = await fetch("/api/minatDanBakat", {
         method: "POST",
         body: JSON.stringify(data),
         headers: {
@@ -42,7 +41,6 @@ const FormKompetisi = () => {
       });
 
       if (response.ok) {
-        console.log(response);
         ToastInfo("Data Sudah Masuk");
       } else {
         throw new Error("HTTP error! status: " + response.status);
@@ -88,61 +86,29 @@ const FormKompetisi = () => {
           </div>
         </div>
         <div className="grid grid-cols-2 gap-4 p-8 border border-greenApp rounded-lg">
-          <InputDropdown
-            label="Capaian"
-            id="capaian"
-            name="capaian"
-            option={[
-              "Juara 1",
-              "Juara 2",
-              "Juara 3",
-              "Juara Harapan",
-              "Finalis",
-              "Juara Favorit",
-            ]}
-          />
           <InputText
-            label="Kategori / Bidang"
-            placeholder="ex: Software Development"
-            id="kategori"
-            name="kategori"
-            value={formData.kategori}
+            label="Minat dan Bakat"
+            placeholder="ex: Artificial Intelligence"
+            id="minatDanBakat"
+            name="minatDanBakat"
+            value={formData.minatDanBakat}
             onChange={handleInputChange}
           />
           <InputDropdown
-            label="Individu / Kelompok"
+            label="Akademik / Non-Akademik"
             id="jenis"
             name="jenis"
-            option={["Individu", "Beregu/Kelompok"]}
+            option={["Akademik", "Non Akademik"]}
           />
           <InputText
-            label="Nama Kompetisi"
-            placeholder="ex: Hackathon Software"
-            id="kompetisi"
-            name="kompetisi"
-            value={formData.kompetisi}
+            label="Keahlian"
+            placeholder="ex: Python;Machine Learning"
+            id="keahlian"
+            name="keahlian"
+            value={formData.keahlian}
             onChange={handleInputChange}
           />
-          <InputDropdown
-            label="Tingkat"
-            id="tingkat"
-            name="tingkat"
-            option={[
-              "International",
-              "Regional",
-              "Nasional",
-              "Provinsi",
-              "Perguruan Tinggi",
-            ]}
-          />
-          <InputText
-            label="Tahun"
-            placeholder="ex: 2023"
-            id="tahun"
-            name="tahun"
-            value={formData.tahun}
-            onChange={handleInputChange}
-          />
+
           <div className="col-span-2">
             <InputText
               label="URL"
@@ -170,4 +136,4 @@ const FormKompetisi = () => {
   );
 };
 
-export default FormKompetisi;
+export default FormMinatDanBakat;

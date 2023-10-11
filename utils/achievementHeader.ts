@@ -1,4 +1,5 @@
 export const KompetisiHeaders = [
+  "jenisPrestasi",
   "urlSheet",
   "nama",
   "nim",
@@ -9,5 +10,17 @@ export const KompetisiHeaders = [
   "kompetisi",
   "tingkat",
   "tahun",
+  "url",
+];
+
+export const MinatDanBakatHeaders = [
+  "jenisPrestasi",
+  "urlSheet",
+  "nama",
+  "nim",
+  "demandKey",
+  "minatDanBakat",
+  "jenis",
+  "keahlian",
   "url",
 ];
