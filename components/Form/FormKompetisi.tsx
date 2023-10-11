@@ -80,8 +80,8 @@ const FormKompetisi = () => {
             <InputText
               label="Nama Lengkap"
               placeholder="ex: Axel Eldrian Hadiwibowo"
-              id="nama"
-              name="nama"
+              id="namaLengkap"
+              name="namaLengkap"
               value={formData.namaLengkap}
               onChange={handleInputChange}
             />
