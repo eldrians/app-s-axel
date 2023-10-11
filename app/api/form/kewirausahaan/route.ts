@@ -2,14 +2,23 @@ import { NextResponse } from "next/server";
 
 type FormData = {
   jenisPrestasi?: string;
-  urlSheet?: string;
-  nama?: string;
+
+  // dataMahasiswa
+  namaLengkap?: string;
   nim?: string;
+  email?: string;
+  urlSheet?: string;
+
+  // dataPrestasi
   demandKey?: string;
-  minatDanBakat?: string;
-  jenis?: string;
-  keahlian?: string;
-  url?: string;
+  urlPrestasi?: string;
+
+  // data Kewirausahaan
+  namaUsaha?: string;
+  bidang?: string;
+  statusHukum?: string;
+  jumlahKaryawan?: string;
+  statusUsaha?: string;
 };
 export async function GET() {
   return NextResponse.json({
@@ -18,18 +27,26 @@ export async function GET() {
 }
 
 export async function POST(request: Request) {
-  console.log("axel");
   const data: FormData = await request.json();
   const {
     jenisPrestasi,
-    urlSheet,
-    nama,
+
+    // data mahasiswa
+    namaLengkap,
     nim,
+    email,
+    urlSheet,
+
+    // data prestasi
     demandKey,
-    minatDanBakat,
-    jenis,
-    keahlian,
-    url,
+    urlPrestasi,
+
+    // data Kewirausahaan
+    namaUsaha,
+    bidang,
+    statusHukum,
+    jumlahKaryawan,
+    statusUsaha,
   } = data;
   try {
     const response = await fetch(
@@ -54,13 +71,22 @@ export async function POST(request: Request) {
   }
   return NextResponse.json({
     jenisPrestasi,
-    urlSheet,
-    nama,
+
+    // data mahasiswa
+    namaLengkap,
     nim,
+    email,
+    urlSheet,
+
+    // data prestasi
     demandKey,
-    minatDanBakat,
-    jenis,
-    keahlian,
-    url,
+    urlPrestasi,
+
+    // data Kewirausahaan
+    namaUsaha,
+    bidang,
+    statusHukum,
+    jumlahKaryawan,
+    statusUsaha,
   });
 }

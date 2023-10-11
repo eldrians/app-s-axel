@@ -13,11 +13,11 @@ type FormData = {
   demandKey?: string;
   urlPrestasi?: string;
 
-  // data Kompetisi
-  capaian?: string;
-  kategori?: string;
-  statusTim?: string;
-  namaKompetisi?: string;
+  // data Rekognisi
+  peran?: string;
+  materi?: string;
+  namaKegiatan?: string;
+  jumlahPeserta?: string;
   tingkat?: string;
   tahun?: string;
 };
@@ -42,11 +42,11 @@ export async function POST(request: Request) {
     demandKey,
     urlPrestasi,
 
-    // data kompetisi
-    capaian,
-    kategori,
-    statusTim,
-    namaKompetisi,
+    // data Rekognisi
+    peran,
+    materi,
+    namaKegiatan,
+    jumlahPeserta,
     tingkat,
     tahun,
   } = data;
@@ -84,11 +84,11 @@ export async function POST(request: Request) {
     demandKey,
     urlPrestasi,
 
-    // data kompetisi
-    capaian,
-    kategori,
-    statusTim,
-    namaKompetisi,
+    // data Rekognisi
+    peran,
+    materi,
+    namaKegiatan,
+    jumlahPeserta,
     tingkat,
     tahun,
   });

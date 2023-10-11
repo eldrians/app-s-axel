@@ -7,15 +7,26 @@ import { KompetisiHeaders } from "@/utils/achievementHeader";
 
 const FormKompetisi = () => {
   const [formData, setFormData] = useState({
-    urlSheet: "",
-    nama: "",
+    //dataMahasiswa
+    namaLengkap: "",
     nim: "",
+    email: "",
+    urlSheet: "",
+
+    //dataPrestasi
     demandKey: "",
+    urlPrestasi: "",
+
+    //dataKompetisi
     kategori: "",
-    kompetisi: "",
+    namaKompetisi: "",
     tahun: "",
-    url: "",
   });
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+  };
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -52,10 +63,6 @@ const FormKompetisi = () => {
     }
   };
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
-  };
   return (
     <div className="w-full mt-12">
       <form onSubmit={handleSubmit} className="w-full flex gap-6 flex-col">
@@ -65,16 +72,25 @@ const FormKompetisi = () => {
             placeholder="Masukan URL Sheet anda..."
             id="urlSheet"
             name="urlSheet"
+            // value={formData.urlSheet}
             value="https://docs.google.com/spreadsheets/d/1PGX--W4w-E8-TkqlYCDrWZF0K0VpVLE99QhCbeUjX5s/edit#gid=0"
             onChange={handleInputChange}
           />
-          <div className="w-full grid grid-cols-2 gap-4">
+          <div className="w-full grid grid-cols-3 gap-4">
             <InputText
               label="Nama Lengkap"
               placeholder="ex: Axel Eldrian Hadiwibowo"
               id="nama"
               name="nama"
-              value={formData.nama}
+              value={formData.namaLengkap}
+              onChange={handleInputChange}
+            />
+            <InputText
+              label="email"
+              placeholder="ex: axel@upi.edu"
+              id="email"
+              name="email"
+              value={formData.email}
               onChange={handleInputChange}
             />
             <InputText
@@ -111,16 +127,16 @@ const FormKompetisi = () => {
           />
           <InputDropdown
             label="Individu / Kelompok"
-            id="jenis"
-            name="jenis"
+            id="statusTim"
+            name="statusTim"
             option={["Individu", "Beregu/Kelompok"]}
           />
           <InputText
             label="Nama Kompetisi"
             placeholder="ex: Hackathon Software"
-            id="kompetisi"
-            name="kompetisi"
-            value={formData.kompetisi}
+            id="namaKompetisi"
+            name="namaKompetisi"
+            value={formData.namaKompetisi}
             onChange={handleInputChange}
           />
           <InputDropdown
@@ -147,9 +163,9 @@ const FormKompetisi = () => {
             <InputText
               label="URL"
               placeholder="ex: https://drive.google.com/drive/u/0/folders/xxx"
-              id="url"
-              name="url"
-              value={formData.url}
+              id="urlPrestasi"
+              name="urlPrestasi"
+              value={formData.urlPrestasi}
               onChange={handleInputChange}
             />
           </div>

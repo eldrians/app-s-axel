@@ -13,13 +13,10 @@ type FormData = {
   demandKey?: string;
   urlPrestasi?: string;
 
-  // data Kompetisi
-  capaian?: string;
-  kategori?: string;
-  statusTim?: string;
-  namaKompetisi?: string;
-  tingkat?: string;
-  tahun?: string;
+  // data Penobatan
+  tandaKehormatan?: string;
+  cakupan?: string;
+  lembaga?: string;
 };
 export async function GET() {
   return NextResponse.json({
@@ -42,13 +39,10 @@ export async function POST(request: Request) {
     demandKey,
     urlPrestasi,
 
-    // data kompetisi
-    capaian,
-    kategori,
-    statusTim,
-    namaKompetisi,
-    tingkat,
-    tahun,
+    // data Penobatan
+    tandaKehormatan,
+    cakupan,
+    lembaga,
   } = data;
   try {
     const response = await fetch(
@@ -84,12 +78,9 @@ export async function POST(request: Request) {
     demandKey,
     urlPrestasi,
 
-    // data kompetisi
-    capaian,
-    kategori,
-    statusTim,
-    namaKompetisi,
-    tingkat,
-    tahun,
+    // data Penobatan
+    tandaKehormatan,
+    cakupan,
+    lembaga,
   });
 }

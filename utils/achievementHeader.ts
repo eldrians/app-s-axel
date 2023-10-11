@@ -1,16 +1,23 @@
 export const KompetisiHeaders = [
   "jenisPrestasi",
-  "urlSheet",
-  "nama",
+
+  // dataMahasiswa
+  "namaLengkap",
   "nim",
+  "email",
+  "urlSheet",
+
+  // dataPrestasi
   "demandKey",
+  "urlPrestasi",
+
+  // dataKompetisi
   "capaian",
   "kategori",
-  "jenis",
-  "kompetisi",
+  "statusTim",
+  "namaKompetisi",
   "tingkat",
   "tahun",
-  "url",
 ];
 
 export const MinatDanBakatHeaders = [

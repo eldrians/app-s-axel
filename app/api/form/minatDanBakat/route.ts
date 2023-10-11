@@ -2,14 +2,21 @@ import { NextResponse } from "next/server";
 
 type FormData = {
   jenisPrestasi?: string;
-  urlSheet?: string;
-  nama?: string;
+
+  // dataMahasiswa
+  namaLengkap?: string;
   nim?: string;
+  email?: string;
+  urlSheet?: string;
+
+  // dataPrestasi
   demandKey?: string;
+  urlPrestasi?: string;
+
+  // data Minat dan Bakat
   minatDanBakat?: string;
-  jenis?: string;
+  jenisMDB?: string;
   keahlian?: string;
-  url?: string;
 };
 export async function GET() {
   return NextResponse.json({
@@ -21,14 +28,21 @@ export async function POST(request: Request) {
   const data: FormData = await request.json();
   const {
     jenisPrestasi,
-    urlSheet,
-    nama,
+
+    // data mahasiswa
+    namaLengkap,
     nim,
+    email,
+    urlSheet,
+
+    // data prestasi
     demandKey,
+    urlPrestasi,
+
+    // data Minat dan Bakat
     minatDanBakat,
-    jenis,
+    jenisMDB,
     keahlian,
-    url,
   } = data;
   try {
     const response = await fetch(
@@ -53,13 +67,20 @@ export async function POST(request: Request) {
   }
   return NextResponse.json({
     jenisPrestasi,
-    urlSheet,
-    nama,
+
+    // data mahasiswa
+    namaLengkap,
     nim,
+    email,
+    urlSheet,
+
+    // data prestasi
     demandKey,
+    urlPrestasi,
+
+    // data Minat dan Bakat
     minatDanBakat,
-    jenis,
+    jenisMDB,
     keahlian,
-    url,
   });
 }
