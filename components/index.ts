@@ -4,6 +4,7 @@ import About from "./About";
 import FormKompetisi from "./Form/FormKompetisi";
 import FormKaryaIlmiah from "./Form/FormKaryaIlmiah";
 import FormRekognisi from "./Form/FormRekognisi";
+import FormPenobatan from "./Form/FormPenobatan";
 import FormMinatDanBakat from "./Form/FormMinatDanBakat";
 
 // items
@@ -18,6 +19,7 @@ export {
   FormKompetisi,
   FormKaryaIlmiah,
   FormRekognisi,
+  FormPenobatan,
   FormMinatDanBakat,
   Button,
   InputText,
