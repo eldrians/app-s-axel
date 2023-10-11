@@ -3,9 +3,9 @@ import React from "react";
 import { Button, InputText, InputDropdown } from "@/components";
 import { useState } from "react";
 import { ToastInfo } from "@/utils/toasts";
-import { MinatDanBakatHeaders } from "@/utils/achievementHeader";
+import { RekognisiHeaders } from "@/utils/achievementHeader";
 
-const FormMinatDanBakat = () => {
+const FormRekognisi = () => {
   const [formData, setFormData] = useState({
     //dataMahasiswa
     namaLengkap: "",
@@ -17,9 +17,12 @@ const FormMinatDanBakat = () => {
     demandKey: "",
     urlPrestasi: "",
 
-    //dataKompetisi
-    minatDanBakat: "",
-    keahlian: "",
+    //dataRekognisi
+    peran: "",
+    materi: "",
+    namaKegiatan: "",
+    jumlahPeserta: "",
+    tahun: "",
   });
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -31,9 +34,9 @@ const FormMinatDanBakat = () => {
     e.preventDefault();
 
     const data: Record<string, any> = {};
-    MinatDanBakatHeaders.forEach((header) => {
+    RekognisiHeaders.forEach((header) => {
       if (header == "jenisPrestasi") {
-        data[header] = "Minat dan Bakat";
+        data[header] = "Rekognisi";
       } else {
         const inputElement = e.currentTarget.elements.namedItem(
           header
@@ -43,7 +46,7 @@ const FormMinatDanBakat = () => {
     });
 
     try {
-      const response = await fetch("/api/form/minatDanBakat", {
+      const response = await fetch("/api/form/rekognisi", {
         method: "POST",
         body: JSON.stringify(data),
         headers: {
@@ -104,28 +107,57 @@ const FormMinatDanBakat = () => {
         </div>
         <div className="grid grid-cols-2 gap-4 p-8 border border-greenApp rounded-lg">
           <InputText
-            label="Minat dan Bakat"
-            placeholder="ex: Software Development"
-            id="minatDanBakat"
-            name="minatDanBakat"
-            value={formData.minatDanBakat}
+            label="Peran"
+            placeholder="ex: Pemateri Seminar"
+            id="peran"
+            name="peran"
+            value={formData.peran}
+            onChange={handleInputChange}
+          />
+          <InputText
+            label="Materi"
+            placeholder="ex: Pentingya On-Demand System dalam sistem pendataan prestasi mahasiswa"
+            id="materi"
+            name="materi"
+            value={formData.materi}
+            onChange={handleInputChange}
+          />
+          <InputText
+            label="Nama Kegiatan"
+            placeholder="ex: Seminar Nasional"
+            id="namaKegiatan"
+            name="namaKegiatan"
+            value={formData.namaKegiatan}
+            onChange={handleInputChange}
+          />
+          <InputText
+            label="Jumlah Peserta / Partisipan"
+            placeholder="ex: 10 Orang"
+            id="jumlahPeserta"
+            name="jumlahPeserta"
+            value={formData.jumlahPeserta}
             onChange={handleInputChange}
           />
           <InputDropdown
-            label="Akademik / Non-Akademik"
-            id="jenisMDB"
-            name="jenisMDB"
-            option={["Akademik", "Non-akademik"]}
+            label="Tingkat"
+            id="tingkat"
+            name="tingkat"
+            option={[
+              "International",
+              "Regional",
+              "Nasional",
+              "Provinsi",
+              "Perguruan Tinggi",
+            ]}
           />
           <InputText
-            label="Keahlian"
-            placeholder="ex: Software Development"
-            id="keahlian"
-            name="keahlian"
-            value={formData.keahlian}
+            label="Tahun"
+            placeholder="ex: 2023"
+            id="tahun"
+            name="tahun"
+            value={formData.tahun}
             onChange={handleInputChange}
           />
-
           <div className="col-span-2">
             <InputText
               label="URL"
@@ -153,4 +185,4 @@ const FormMinatDanBakat = () => {
   );
 };
 
-export default FormMinatDanBakat;
+export default FormRekognisi;

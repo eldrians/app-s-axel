@@ -3,9 +3,9 @@ import React from "react";
 import { Button, InputText, InputDropdown } from "@/components";
 import { useState } from "react";
 import { ToastInfo } from "@/utils/toasts";
-import { MinatDanBakatHeaders } from "@/utils/achievementHeader";
+import { KaryaIlmiahHeaders } from "@/utils/achievementHeader";
 
-const FormMinatDanBakat = () => {
+const FormKaryaIlmiah = () => {
   const [formData, setFormData] = useState({
     //dataMahasiswa
     namaLengkap: "",
@@ -18,8 +18,11 @@ const FormMinatDanBakat = () => {
     urlPrestasi: "",
 
     //dataKompetisi
-    minatDanBakat: "",
-    keahlian: "",
+    judul: "",
+    kategori: "",
+    dosenPembimbing: "",
+    namaPenerbit: "",
+    tahun: "",
   });
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -31,9 +34,10 @@ const FormMinatDanBakat = () => {
     e.preventDefault();
 
     const data: Record<string, any> = {};
-    MinatDanBakatHeaders.forEach((header) => {
+    KaryaIlmiahHeaders.forEach((header) => {
+      // rubah
       if (header == "jenisPrestasi") {
-        data[header] = "Minat dan Bakat";
+        data[header] = "Karya Ilmiah"; // rubah
       } else {
         const inputElement = e.currentTarget.elements.namedItem(
           header
@@ -43,7 +47,7 @@ const FormMinatDanBakat = () => {
     });
 
     try {
-      const response = await fetch("/api/form/minatDanBakat", {
+      const response = await fetch("/api/form/karyaIlmiah", {
         method: "POST",
         body: JSON.stringify(data),
         headers: {
@@ -104,25 +108,67 @@ const FormMinatDanBakat = () => {
         </div>
         <div className="grid grid-cols-2 gap-4 p-8 border border-greenApp rounded-lg">
           <InputText
-            label="Minat dan Bakat"
-            placeholder="ex: Software Development"
-            id="minatDanBakat"
-            name="minatDanBakat"
-            value={formData.minatDanBakat}
+            label="Judul KTI"
+            placeholder="ex: Penerapan On-Demand System Pada Sistem Pendataan Prestasi Mahasiswa"
+            id="judul"
+            name="judul"
+            value={formData.judul}
+            onChange={handleInputChange}
+          />
+          <InputText
+            label="Kategori KTI"
+            placeholder="ex: Teknologi"
+            id="kategori"
+            name="kategori"
+            value={formData.kategori}
             onChange={handleInputChange}
           />
           <InputDropdown
-            label="Akademik / Non-Akademik"
-            id="jenisMDB"
-            name="jenisMDB"
-            option={["Akademik", "Non-akademik"]}
+            label="Status KTI"
+            id="statusKTI"
+            name="statusKTI"
+            option={["Terbit", "Seminar", "Terbit & Seminar"]}
+          />
+          <InputDropdown
+            label="Individu / Kelompok"
+            id="statusTim"
+            name="statusTim"
+            option={["Individu", "Kelompok"]}
           />
           <InputText
-            label="Keahlian"
-            placeholder="ex: Software Development"
-            id="keahlian"
-            name="keahlian"
-            value={formData.keahlian}
+            label="Dosen Pembimbing"
+            placeholder="ex: Dr. Tuti Hastuti, M.T"
+            id="dosenPembimbing"
+            name="dosenPembimbing"
+            value={formData.dosenPembimbing}
+            onChange={handleInputChange}
+          />
+          <InputText
+            label="Nama Penerbit / Penyelenggara"
+            placeholder="ex: Jurnal Nasional Indonesia"
+            id="namaPenerbit"
+            name="namaPenerbit"
+            value={formData.namaPenerbit}
+            onChange={handleInputChange}
+          />
+          <InputDropdown
+            label="Tingkat"
+            id="tingkat"
+            name="tingkat"
+            option={[
+              "Internasional",
+              "Regional",
+              "Nasional",
+              "Provinsi",
+              "Perguruan Tinggi",
+            ]}
+          />
+          <InputText
+            label="Tahun"
+            placeholder="ex: 2023"
+            id="tahun"
+            name="tahun"
+            value={formData.tahun}
             onChange={handleInputChange}
           />
 
@@ -153,4 +199,4 @@ const FormMinatDanBakat = () => {
   );
 };
 
-export default FormMinatDanBakat;
+export default FormKaryaIlmiah;

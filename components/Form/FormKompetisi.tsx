@@ -86,7 +86,7 @@ const FormKompetisi = () => {
               onChange={handleInputChange}
             />
             <InputText
-              label="email"
+              label="Email"
               placeholder="ex: axel@upi.edu"
               id="email"
               name="email"
