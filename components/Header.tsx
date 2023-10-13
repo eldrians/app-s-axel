@@ -1,53 +1,82 @@
-import React from "react";
+"use client";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
 
 const Header = () => {
+  const [visible, setVisible] = useState(true);
+  const [prevScrollPos, setPrevScrollPos] = useState(0);
+  const [inRangeScroll, setInRangeScroll] = useState(false);
+
+  const handleScroll = () => {
+    const currentScrollPos = window.pageYOffset;
+    setVisible(prevScrollPos > currentScrollPos || currentScrollPos < 10);
+    setPrevScrollPos(currentScrollPos);
+
+    if (currentScrollPos >= 100) {
+      setInRangeScroll(true);
+    } else {
+      setInRangeScroll(false);
+    }
+  };
+
+  let theLogo = null;
+
+  if (inRangeScroll) {
+    theLogo = (
+      <Image
+        src="/neo-black-text.png"
+        alt="Neo Data - Collection"
+        width={75}
+        height={75}
+      />
+    );
+  } else {
+    theLogo = (
+      <Image
+        src="/neo-white-text.png"
+        alt="Neo Data - Collection"
+        width={75}
+        height={75}
+      />
+    );
+  }
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [prevScrollPos]);
+
   return (
-    <header
-      className="w-full pt-8 pb-4
-      px-6 
-      lg:px-28
-      2xl:px-72 
-      fixed
-    bg-transparent flex flex-row justify-center lg:justify-between items-center group"
-    >
-      <div className="w-full lg:w-1/2 flex justify-center lg:justify-start items-center">
-        <Image
-          src="/neo-white-text.png"
-          alt="Neo Data - Collection"
-          width={75}
-          height={75}
-        />
-      </div>
-      <div className="lg:w-1/2 lg:block hidden">
-        <ul className="flex flex-row justify-end items-center gap-6 text-md font-semibold text-whiteApp">
-          {/* <li>
-            <a
-              href="#"
-              className="py-1 px-6 rounded-full hover:bg-darkApp hover:shadow"
-            >
-              Option
-            </a>
-          </li>
-          <li>
-            <a
-              href="#"
-              className="py-1 px-6 rounded-full hover:bg-darkApp hover:shadow"
-            >
-              Option
-            </a>
-          </li> */}
-          <li>
-            <a
-              href="#about"
-              className="py-2 px-1 hover:border-b hover:border-white hover:shadow"
-            >
-              Cara Pakai?
-            </a>
-          </li>
-        </ul>
-      </div>
-    </header>
+    <div className="w-full h-screen fixed">
+      <header
+        className={`absolute w-full h-fit py-4 transform duration-300 px-6 lg:px-28 2xl:px-72 flex flex-row justify-center lg:justify-between items-center group ${
+          visible ? "top-0" : "-top-[70px]"
+        } ${inRangeScroll ? "bg-whiteApp" : "bg-transparent"}
+        `}
+      >
+        <div className="w-full lg:w-1/2 flex justify-center lg:justify-start items-center">
+          {theLogo}
+        </div>
+        <div className="lg:w-1/2 lg:block hidden">
+          <ul
+            className={`flex flex-row justify-end items-center gap-6 text-md font-semibold  ${
+              inRangeScroll ? "text-darkApp" : "text-whiteApp"
+            }`}
+          >
+            <li>
+              <a
+                href="#about"
+                className="py-2 px-1 hover:border-b hover:border-white hover:shadow"
+              >
+                Cara Pakai?
+              </a>
+            </li>
+          </ul>
+        </div>
+      </header>
+    </div>
   );
 };
 
