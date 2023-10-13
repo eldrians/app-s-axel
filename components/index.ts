@@ -1,6 +1,7 @@
 import Header from "./Header";
 import Hero from "./Hero";
 import About from "./About";
+import Form from "./Form";
 import FormKompetisi from "./Form/FormKompetisi";
 import FormKaryaIlmiah from "./Form/FormKaryaIlmiah";
 import FormRekognisi from "./Form/FormRekognisi";
@@ -12,6 +13,7 @@ import FormMinatDanBakat from "./Form/FormMinatDanBakat";
 
 // items
 import Button from "./Button";
+import MainForm from "./MainForm";
 import InputText from "./Input/InputText";
 import InputDropdown from "./Input/InputDropdown";
 
@@ -19,6 +21,7 @@ export {
   Header,
   Hero,
   About,
+  Form,
   FormKompetisi,
   FormKaryaIlmiah,
   FormRekognisi,
@@ -30,4 +33,5 @@ export {
   Button,
   InputText,
   InputDropdown,
+  MainForm,
 };

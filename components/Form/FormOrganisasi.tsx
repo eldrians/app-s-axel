@@ -5,14 +5,16 @@ import { useState } from "react";
 import { ToastInfo } from "@/utils/toasts";
 import { OrganisasiHeaders } from "@/utils/achievementHeader";
 
-const FormOrganisasi = () => {
+type MainFormProps = {
+  dataMahasiswa: {
+    namaLengkap: string;
+    nim: string;
+    email: string;
+    urlSheet: string;
+  };
+};
+const FormOrganisasi = ({ dataMahasiswa }: MainFormProps) => {
   const [formData, setFormData] = useState({
-    //dataMahasiswa
-    namaLengkap: "",
-    nim: "",
-    email: "",
-    urlSheet: "",
-
     //dataPrestasi
     demandKey: "",
     urlPrestasi: "",
@@ -36,6 +38,14 @@ const FormOrganisasi = () => {
       // rubah
       if (header == "jenisPrestasi") {
         data[header] = "Organisasi"; // rubah
+      } else if (header == "namaLengkap") {
+        data[header] = dataMahasiswa.namaLengkap;
+      } else if (header == "nim") {
+        data[header] = dataMahasiswa.nim;
+      } else if (header == "email") {
+        data[header] = dataMahasiswa.email;
+      } else if (header == "urlSheet") {
+        data[header] = dataMahasiswa.urlSheet;
       } else {
         const inputElement = e.currentTarget.elements.namedItem(
           header
@@ -68,43 +78,6 @@ const FormOrganisasi = () => {
   return (
     <div className="w-full mt-12">
       <form onSubmit={handleSubmit} className="w-full flex gap-6 flex-col">
-        <div className="w-full flex flex-col gap-6">
-          <InputText
-            label="Url Sheet"
-            placeholder="Masukan URL Sheet anda..."
-            id="urlSheet"
-            name="urlSheet"
-            // value={formData.urlSheet}
-            value="https://docs.google.com/spreadsheets/d/1PGX--W4w-E8-TkqlYCDrWZF0K0VpVLE99QhCbeUjX5s/edit#gid=0"
-            onChange={handleInputChange}
-          />
-          <div className="w-full grid grid-cols-3 gap-4">
-            <InputText
-              label="Nama Lengkap"
-              placeholder="ex: Axel Eldrian Hadiwibowo"
-              id="namaLengkap"
-              name="namaLengkap"
-              value={formData.namaLengkap}
-              onChange={handleInputChange}
-            />
-            <InputText
-              label="Email"
-              placeholder="ex: axel@upi.edu"
-              id="email"
-              name="email"
-              value={formData.email}
-              onChange={handleInputChange}
-            />
-            <InputText
-              label="NIM"
-              placeholder="ex: 2000352"
-              id="nim"
-              name="nim"
-              value={formData.nim}
-              onChange={handleInputChange}
-            />
-          </div>
-        </div>
         <div className="grid grid-cols-2 gap-4 p-8 border border-greenApp rounded-lg">
           <InputDropdown
             label="Jabatan"
