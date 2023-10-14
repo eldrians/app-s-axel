@@ -128,13 +128,7 @@ const FormKaryaIlmiah = ({ dataMahasiswa }: MainFormProps) => {
             label="Tingkat"
             id="tingkat"
             name="tingkat"
-            option={[
-              "Internasional",
-              "Regional",
-              "Nasional",
-              "Provinsi",
-              "Perguruan Tinggi",
-            ]}
+            option={["Internasional", "Nasional"]}
           />
           <InputText
             label="Tahun"
