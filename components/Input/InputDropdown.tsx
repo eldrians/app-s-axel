@@ -1,13 +1,20 @@
-import React, { ChangeEvent } from "react";
+import React, { ChangeEventHandler } from "react";
 
 type InputDropdownProps = {
-  label: string;
+  label?: string;
+  id?: string;
+  name?: string;
   option: string[];
-  id: string;
-  name: string;
+  onChange: ChangeEventHandler<HTMLSelectElement>;
 };
 
-const InputDropdown = ({ label, option, id, name }: InputDropdownProps) => {
+const InputDropdown = ({
+  label = "",
+  option,
+  id,
+  name,
+  onChange,
+}: InputDropdownProps) => {
   return (
     <div>
       <div className="flex flex-col gap-1">
@@ -27,6 +34,7 @@ const InputDropdown = ({ label, option, id, name }: InputDropdownProps) => {
                         focus:ring-[0.5px]
                         focus:ring-greenApp
                         rounded-lg w-full"
+          onChange={onChange}
           required
         >
           {option.map((option, index) => (

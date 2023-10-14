@@ -1,9 +1,44 @@
 "use client";
-import React, { useState } from "react";
-import { Form, InputText } from ".";
+import React, { MouseEventHandler, useState } from "react";
+import { Form, InputDropdown, InputText } from ".";
 
+const ButtonPrestasi = ({
+  selectedButton,
+  title,
+  onClick,
+}: {
+  selectedButton: string;
+  title: string;
+  onClick: MouseEventHandler<HTMLButtonElement>;
+}) => {
+  return (
+    <button
+      className={` py-2 px-4 rounded-lg lg:rounded-none lg:rounded-t-lg ${
+        selectedButton === title ? "bg-whiteApp text-greenApp" : ""
+      }`}
+      onClick={onClick}
+    >
+      {title}
+    </button>
+  );
+};
 const MainForm = () => {
+  const jenisPrestasi: string[] = [
+    "Kompetisi",
+    "Karya Ilmiah",
+    "Rekognisi",
+    "Penobatan",
+    "Organisasi",
+    "Kewirausahaan",
+    "Aksi Kemanusiaan",
+    "Minat dan Bakat",
+  ];
+
   const [selectedButton, setSelectedButton] = useState("Kompetisi");
+  const handleOptionChange = (event: { target: { value: any } }) => {
+    const selectedValue = event.target.value;
+    handleButtonClick(selectedValue);
+  };
   const [formData, setFormData] = useState({
     //dataMahasiswa
     namaLengkap: "",
@@ -83,79 +118,17 @@ const MainForm = () => {
             </h2>
           </div>
         </div>
-        <div className="mt-12 lg:mt-20 overflow-x-scroll flex flex-row text-sm text-whiteApp w-full justify-center items-center">
-          <button
-            className={` py-2 px-4 rounded-t-lg ${
-              selectedButton === "Kompetisi" ? "bg-whiteApp text-greenApp " : ""
-            }`}
-            onClick={() => handleButtonClick("Kompetisi")}
-          >
-            Kompetisi
-          </button>
-          <button
-            className={` py-2 px-4 rounded-t-lg ${
-              selectedButton === "Karya Ilmiah"
-                ? "bg-whiteApp text-greenApp"
-                : ""
-            }`}
-            onClick={() => handleButtonClick("Karya Ilmiah")}
-          >
-            Karya Ilmiah
-          </button>
-          <button
-            className={` py-2 px-4 rounded-t-lg ${
-              selectedButton === "Rekognisi" ? "bg-whiteApp text-greenApp" : ""
-            }`}
-            onClick={() => handleButtonClick("Rekognisi")}
-          >
-            Rekognisi
-          </button>
-          <button
-            className={` py-2 px-4 rounded-t-lg ${
-              selectedButton === "Penobatan" ? "bg-whiteApp text-greenApp" : ""
-            }`}
-            onClick={() => handleButtonClick("Penobatan")}
-          >
-            Penobatan
-          </button>
-          <button
-            className={` py-2 px-4 rounded-t-lg ${
-              selectedButton === "Organisasi" ? "bg-whiteApp text-greenApp" : ""
-            }`}
-            onClick={() => handleButtonClick("Organisasi")}
-          >
-            Organisasi
-          </button>
-          <button
-            className={` py-2 px-4 rounded-t-lg ${
-              selectedButton === "Kewirausahaan"
-                ? "bg-whiteApp text-greenApp"
-                : ""
-            }`}
-            onClick={() => handleButtonClick("Kewirausahaan")}
-          >
-            Kewirausahaan
-          </button>
-          <button
-            className={` py-2 px-4 rounded-t-lg ${
-              selectedButton === "Aksi Kemanusiaan"
-                ? "bg-whiteApp text-greenApp"
-                : ""
-            }`}
-            onClick={() => handleButtonClick("Aksi Kemanusiaan")}
-          >
-            Aksi Kemanusiaan
-          </button>
-          <button
-            className={` py-2 px-4 rounded-t-lg ${
-              selectedButton === "Minat dan Bakat"
-                ? "bg-whiteApp text-greenApp"
-                : ""
-            }`}
-            onClick={() => handleButtonClick("Minat dan Bakat")}
-          >
-            Minat dan Bakat
-          </button>
+        <div className="mt-12 lg:mt-20 w-full lg:hidden mb-4 px-4">
+          <InputDropdown option={jenisPrestasi} onChange={handleOptionChange} />
+        </div>
+        <div className="mt-12 lg:mt-20 hidden lg:flex flex-row text-sm text-whiteApp w-full justify-center items-center">
+          {jenisPrestasi.map((title) => (
+            <ButtonPrestasi
+              selectedButton={selectedButton}
+              title={title}
+              onClick={() => handleButtonClick(title)}
+            />
+          ))}
         </div>
       </section>
       <Form jenisPrestasi={selectedButton} dataMahasiswa={formData} />
