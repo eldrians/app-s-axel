@@ -78,7 +78,7 @@ const FormRekognisi = ({ dataMahasiswa }: MainFormProps) => {
   return (
     <div className="w-full">
       <form onSubmit={handleSubmit} className="w-full flex gap-6 flex-col">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 p-8 border border-greenApp rounded-lg">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 p-4 lg:p-8 border border-greenApp rounded-lg">
           <InputText
             label="Peran"
             placeholder="ex: Pemateri Seminar"
