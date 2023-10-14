@@ -17,12 +17,12 @@ const Button = ({
 }: ButtonProps) => {
   return (
     <button
-      className={`py-2 md:py-3 lg:py-3 px-6 md:px-10 ${color} ${colorHover} 
-      text-xs md:text-sm lg:text-sm rounded-full focus:bg-green-900`}
+      className={`py-2 md:py-3 lg:py-3 px-6 md:px-10 bg-gradient-to-br from-green-500 to-darkGreenApp 
+      text-xs md:text-sm lg:text-sm rounded-xl focus:bg-green-900 shadow-xl`}
       onClick={handleClick}
       type={btnType}
     >
-      <span className="text-whiteApp font-semibold">{text}</span>
+      <span className="text-whiteApp font-medium">{text}</span>
     </button>
   );
 };

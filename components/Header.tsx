@@ -33,7 +33,7 @@ const Header = () => {
   } else {
     theLogo = (
       <Image
-        src="/neo-white-text.png"
+        src="/neo-black-text.png"
         alt="Neo Data - Collection"
         width={75}
         height={75}
@@ -61,7 +61,7 @@ const Header = () => {
       <div className="lg:w-1/2 lg:block hidden">
         <ul
           className={`flex flex-row justify-end items-center gap-6 text-md font-semibold  ${
-            inRangeScroll ? "text-darkApp" : "text-whiteApp"
+            inRangeScroll ? "text-darkApp" : "text-darkApp"
           }`}
         >
           <li>

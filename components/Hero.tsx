@@ -55,22 +55,31 @@ const Hero = () => {
   return (
     <section
       id="hero"
-      className="px-10 md:px-20 lg:px-28 2xl:px-72 pt-16 md:pt-20 lg:pt-20 bg-hero bg-cover bg-top"
+      className="px-10 md:px-20 lg:px-28 2xl:px-72 pt-16 md:pt-20 lg:pt-20 bg-whiteApp"
     >
-      <div className="w-full flex flex-col lg:flex-row items-center ">
-        <div className="w-full md:w-full lg:w-3/5 order-2 md:order-2 lg:order-1">
-          <div className="py-12 md:py-12 lg:py-28 text-whiteApp">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-left">
-              Data prestasi kamu sekarang juga !
+      <div className="w-full flex flex-col lg:flex-row items-center justify-center ">
+        <div className="w-full order-2 md:order-2 lg:order-1 relative">
+          <div className="w-full h-full absolute z-0 justify-center items-center flex">
+            <div className="w-[250px] h-[250px] bg-gradient-to-tr from-purple-200 to-green-200  shadow-xl rounded-full  animate-pulse right-10 top-0 absolute"></div>
+            <div className="w-[600px] h-[300px] bg-gradient-to-r from-green-200 to-green-400 blur-3xl opacity-30 shadow-xl rounded-full right-1/2 -top-1/2"></div>
+            <div className="w-[200px] h-[200px] bg-gradient-to-tr from-green-200 to-purple-200  shadow-xl rounded-full left-10 bottom-6 animate-pulse absolute"></div>
+          </div>
+          <div className="relative py-12 md:py-12 lg:py-28 text-darkApp flex flex-col justify-center items-center z-20">
+            <h1 className="text-4xl md:text-5xl lg:text-8xl font-medium text-center">
+              Data{" "}
+              <span className="bg-gradient-to-r from-green-500 to-green-700  text-transparent bg-clip-text font-">
+                Prestasi Kamu{" "}
+              </span>
+              Sekarang Juga !
             </h1>
-            <p className="text-sm md:text-sm lg:text-xl my-4 lg:my-8">
+            <p className="text-sm md:text-sm lg:text-lg font-medium my-4 lg:my-6 lg:w-4/6 text-center">
               Jangan biarkan prestasimu sia-sia, manfaatkan potensimu sepenuhnya
               dengan merinci dan mengatur pencatatan prestasimu secara
               sistematis
             </p>
             <form
               onSubmit={handleSubmit}
-              className="flex flex-row gap-2 items-center"
+              className="flex flex-row gap-2 items-center justify-center w-full"
             >
               <input
                 type="email"
@@ -82,7 +91,7 @@ const Hero = () => {
                 focus:outline-none
                 focus:ring-[0.5px]
                 focus:ring-greenApp
-                rounded-full w-full md:w-1/2 lg:w-1/2"
+                rounded-xl w-full md:w-1/2 lg:w-1/2 shadow-xl"
                 placeholder="Your Email..."
                 required
                 value={email}
