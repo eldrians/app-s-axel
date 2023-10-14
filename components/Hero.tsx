@@ -63,23 +63,23 @@ const Hero = () => {
   return (
     <section
       id="hero"
-      className="px-10 md:px-20 lg:px-28 2xl:px-72 pt-16 md:pt-20 lg:pt-20 bg-whiteApp"
+      className=" z-40 px-10 md:px-20 lg:px-28 2xl:px-72 pt-16 md:pt-20 lg:pt-20 bg-whiteApp"
     >
       <div className="w-full flex flex-col lg:flex-row items-center justify-center ">
         <div className="w-full order-2 md:order-2 lg:order-1 relative">
-          <div className="w-full h-full absolute z-0 justify-center items-center flex">
+          <div className="w-full h-full absolute z-0 justify-center items-center flex ">
             <div
-              className={` bg-gradient-to-tr from-purple-200 to-green-200  shadow-xl rounded-full  ${
+              className={` bg-gradient-to-tr from-green-400 to-green-200  shadow-xl rounded-full  ${
                 isFocused
-                  ? "right-2 top-20 w-[200px] h-[200px]"
+                  ? "right-1/2 translate-x-1/2 top-1/2 -translate-y-1/2 w-[400px] h-[400px] blur-2xl opacity-20"
                   : "right-10 top-0 w-[250px] h-[250px]"
               } transform duration-700 absolute`}
             ></div>
-            <div className="w-[600px] h-[300px] bg-gradient-to-r from-green-200 to-green-400 blur-3xl opacity-30 shadow-xl rounded-full right-1/2 -top-1/2"></div>
+            {/* <div className="w-[600px] h-[300px] bg-gradient-to-r from-green-200 to-green-400 blur-3xl opacity-30 shadow-xl rounded-full right-1/2 -top-1/2"></div> */}
             <div
-              className={` bg-gradient-to-tr from-green-200 to-purple-200 shadow-xl rounded-full  ${
+              className={` bg-gradient-to-tr from-green-200 to-green-400 shadow-xl rounded-full  ${
                 isFocused
-                  ? "left-4 bottom-4 w-[150px] h-[150px]"
+                  ? "left-1/2 -translate-x-1/2 bottom-1/2 translate-y-1/2 w-[400px] h-[400px] blur-2xl opacity-20"
                   : "left-20 -bottom-8 w-[200px] h-[200px]"
               }  transform duration-700 absolute`}
             ></div>

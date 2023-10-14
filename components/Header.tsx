@@ -50,8 +50,8 @@ const Header = () => {
 
   return (
     <header
-      className={`fixed w-full h-fit py-4 transform duration-300 px-6 lg:px-28 2xl:px-72 flex flex-row justify-center lg:justify-between items-center group ${
-        visible ? "-top-[1px]" : "-top-[70px]"
+      className={` z-50 fixed w-full h-fit py-4 transform duration-300 px-6 lg:px-28 2xl:px-72 flex flex-row justify-center lg:justify-between items-center group ${
+        visible ? "-top-[1px]" : "-top-[70px] "
       } ${inRangeScroll ? "bg-whiteApp" : "bg-transparent"}
         `}
     >
