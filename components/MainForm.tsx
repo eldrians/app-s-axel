@@ -60,20 +60,20 @@ const MainForm = () => {
     <div>
       <section
         id="main-form"
-        className="px-6 md:px-20 lg:px-28 2xl:px-72 pt-12 lg:pt-20 bg-gradient-to-br from-darkGreenApp  to-greenApp flex flex-col justify-center items-center"
+        className="px-6 md:px-20 lg:px-32 2xl:px-96 pt-12 lg:pt-20 bg-gradient-to-br from-darkGreenApp  to-green-400 flex flex-col justify-center items-center"
       >
         <div className="w-full mb-10 flex flex-col items-center lg:items-start text-center lg:text-left">
           <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold text-whiteApp uppercase">
             Masukan Data Mu
           </h1>
-          <p className="text-whiteApp/60 mt-2 text-xs lg:text-sm w-full lg:w-1/2 ">
+          <p className="text-whiteApp/80 mt-2 text-xs lg:text-sm w-full lg:w-1/2 ">
             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero fuga
             enim tenetur labore expedita officiis ullam excepturi sunt repellat
             necessitatibus?
           </p>
         </div>
         <div className="w-full flex flex-col lg:flex-row gap-8">
-          <div className="w-full lg:w-3/5 order-2 lg:order-1">
+          <div className="w-full lg:w-4/5 order-2 lg:order-1">
             <div className="w-full flex flex-col gap-6 rounded-lg p-6 bg-whiteApp shadow-xl">
               <InputText
                 label="Url Sheet"
@@ -111,11 +111,6 @@ const MainForm = () => {
                 />
               </div>
             </div>
-          </div>
-          <div className="w-full lg:w-2/5 flex items-center text-right rounded-lg order-1 lg:order-2 bg-slate-400">
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-whiteApp uppercase">
-              A
-            </h2>
           </div>
         </div>
         <div className="mt-12 lg:mt-20 w-full lg:hidden mb-4 px-4">

@@ -28,15 +28,17 @@ const Header = () => {
         alt="Neo Data - Collection"
         width={75}
         height={75}
+        className="w-16 md:w-20 lg:w-16"
       />
     );
   } else {
     theLogo = (
       <Image
-        src="/neo-black-text.png"
+        src="/light logo.png"
         alt="Neo Data - Collection"
         width={75}
         height={75}
+        className="w-16 md:w-20 lg:w-16"
       />
     );
   }

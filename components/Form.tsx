@@ -45,7 +45,7 @@ const Form = ({ jenisPrestasi, dataMahasiswa }: FormProps) => {
   return (
     <section
       id="form"
-      className="px-10 md:px-20 lg:px-28 2xl:px-72 py-4 lg:py-12 bg-whiteApp flex flex-col justify-center items-center "
+      className="px-10 md:px-20 lg:px-28 2xl:px-96 py-4 lg:py-12 bg-whiteApp flex flex-col justify-center items-center "
     >
       {theForm}
     </section>
