@@ -85,6 +85,7 @@ const FormOrganisasi = ({ dataMahasiswa }: MainFormProps) => {
             name="jabatan"
             option={[
               "Ketua",
+              "Wakil Ketua",
               "Bendahara Umum",
               "Sekertaris Umum",
               "Ketua Divisi",

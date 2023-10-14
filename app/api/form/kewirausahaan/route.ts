@@ -18,7 +18,7 @@ type FormData = {
   bidang?: string;
   statusHukum?: string;
   jumlahKaryawan?: string;
-  statusUsaha?: string;
+  tingkat?: string;
 };
 export async function GET() {
   return NextResponse.json({
@@ -46,7 +46,7 @@ export async function POST(request: Request) {
     bidang,
     statusHukum,
     jumlahKaryawan,
-    statusUsaha,
+    tingkat,
   } = data;
   try {
     const response = await fetch(
@@ -87,6 +87,6 @@ export async function POST(request: Request) {
     bidang,
     statusHukum,
     jumlahKaryawan,
-    statusUsaha,
+    tingkat,
   });
 }

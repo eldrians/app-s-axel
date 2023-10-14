@@ -124,7 +124,7 @@ export const KewirausahaanHeaders = [
   "bidang",
   "statusHukum",
   "jumlahKaryawan",
-  "statusUsaha",
+  "tingkat",
 ];
 
 export const AksiKemanusiaanHeaders = [

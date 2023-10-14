@@ -109,10 +109,16 @@ const FormKompetisi = ({ dataMahasiswa }: MainFormProps) => {
             onChange={handleInputChange}
           />
           <InputDropdown
-            label="Status Usaha"
-            id="statusUsaha"
-            name="statusUsaha"
-            option={["Aktif", "On-Going", "Tidak Aktif"]}
+            label="Tingkat"
+            id="tingkat"
+            name="tingkat"
+            option={[
+              "Internasional",
+              "Regional",
+              "Nasional",
+              "Provinsi",
+              "Perguruan Tinggi",
+            ]}
           />
           <div className="col-span-1 lg:col-span-2">
             <InputText

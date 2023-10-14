@@ -5,7 +5,7 @@ type InputDropdownProps = {
   id?: string;
   name?: string;
   option: string[];
-  onChange: ChangeEventHandler<HTMLSelectElement>;
+  onChange?: ChangeEventHandler<HTMLSelectElement>;
 };
 
 const InputDropdown = ({
