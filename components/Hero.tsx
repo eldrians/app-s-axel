@@ -5,6 +5,7 @@ import { toast } from "react-toastify";
 
 const Hero = () => {
   const [email, setEmail] = useState("");
+  const [isFocused, setIsFocused] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -52,6 +53,13 @@ const Hero = () => {
     setEmail(e.target.value);
   };
 
+  const handleFocus = () => {
+    setIsFocused(true);
+  };
+  const handleBlur = () => {
+    setIsFocused(false);
+  };
+
   return (
     <section
       id="hero"
@@ -60,9 +68,21 @@ const Hero = () => {
       <div className="w-full flex flex-col lg:flex-row items-center justify-center ">
         <div className="w-full order-2 md:order-2 lg:order-1 relative">
           <div className="w-full h-full absolute z-0 justify-center items-center flex">
-            <div className="w-[250px] h-[250px] bg-gradient-to-tr from-purple-200 to-green-200  shadow-xl rounded-full  animate-pulse right-10 top-0 absolute"></div>
+            <div
+              className={` bg-gradient-to-tr from-purple-200 to-green-200  shadow-xl rounded-full  ${
+                isFocused
+                  ? "right-2 top-20 w-[200px] h-[200px]"
+                  : "right-10 top-0 w-[250px] h-[250px]"
+              } transform duration-700 absolute`}
+            ></div>
             <div className="w-[600px] h-[300px] bg-gradient-to-r from-green-200 to-green-400 blur-3xl opacity-30 shadow-xl rounded-full right-1/2 -top-1/2"></div>
-            <div className="w-[200px] h-[200px] bg-gradient-to-tr from-green-200 to-purple-200  shadow-xl rounded-full left-10 bottom-6 animate-pulse absolute"></div>
+            <div
+              className={` bg-gradient-to-tr from-green-200 to-purple-200 shadow-xl rounded-full  ${
+                isFocused
+                  ? "left-4 bottom-4 w-[150px] h-[150px]"
+                  : "left-20 -bottom-8 w-[200px] h-[200px]"
+              }  transform duration-700 absolute`}
+            ></div>
           </div>
           <div className="relative py-12 md:py-12 lg:py-28 text-darkApp flex flex-col justify-center items-center z-20">
             <h1 className="text-4xl md:text-5xl lg:text-8xl font-medium text-center">
@@ -96,6 +116,8 @@ const Hero = () => {
                 required
                 value={email}
                 onChange={handleInputChange}
+                onFocus={handleFocus}
+                onBlur={handleBlur}
               />
               <Button text="Get Email !" btnType="submit" />
             </form>
