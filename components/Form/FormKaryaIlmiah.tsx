@@ -79,7 +79,7 @@ const FormKaryaIlmiah = ({ dataMahasiswa }: MainFormProps) => {
   return (
     <div className="w-full">
       <form onSubmit={handleSubmit} className="w-full flex gap-6 flex-col">
-        <div className="grid grid-cols-2 gap-4 p-8 border border-greenApp rounded-lg">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 p-8 border border-greenApp rounded-lg">
           <InputText
             label="Judul KTI"
             placeholder="ex: Penerapan On-Demand System Pada Sistem Pendataan Prestasi Mahasiswa"
@@ -145,7 +145,7 @@ const FormKaryaIlmiah = ({ dataMahasiswa }: MainFormProps) => {
             onChange={handleInputChange}
           />
 
-          <div className="col-span-2">
+          <div className="col-span-1 lg:col-span-2">
             <InputText
               label="URL"
               placeholder="ex: https://drive.google.com/drive/u/0/folders/xxx"
@@ -155,7 +155,7 @@ const FormKaryaIlmiah = ({ dataMahasiswa }: MainFormProps) => {
               onChange={handleInputChange}
             />
           </div>
-          <div className="col-span-2">
+          <div className="col-span-1 lg:col-span-2">
             <InputText
               label="Demand Key"
               placeholder="ex: blockchain; web application; public speaking"

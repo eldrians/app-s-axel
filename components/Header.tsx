@@ -49,34 +49,32 @@ const Header = () => {
   }, [prevScrollPos]);
 
   return (
-    <div className="w-full h-screen fixed">
-      <header
-        className={`absolute w-full h-fit py-4 transform duration-300 px-6 lg:px-28 2xl:px-72 flex flex-row justify-center lg:justify-between items-center group ${
-          visible ? "top-0" : "-top-[70px]"
-        } ${inRangeScroll ? "bg-whiteApp" : "bg-transparent"}
+    <header
+      className={`fixed w-full h-fit py-4 transform duration-300 px-6 lg:px-28 2xl:px-72 flex flex-row justify-center lg:justify-between items-center group ${
+        visible ? "-top-[1px]" : "-top-[70px]"
+      } ${inRangeScroll ? "bg-whiteApp" : "bg-transparent"}
         `}
-      >
-        <div className="w-full lg:w-1/2 flex justify-center lg:justify-start items-center">
-          {theLogo}
-        </div>
-        <div className="lg:w-1/2 lg:block hidden">
-          <ul
-            className={`flex flex-row justify-end items-center gap-6 text-md font-semibold  ${
-              inRangeScroll ? "text-darkApp" : "text-whiteApp"
-            }`}
-          >
-            <li>
-              <a
-                href="#about"
-                className="py-2 px-1 hover:border-b hover:border-white hover:shadow"
-              >
-                Cara Pakai?
-              </a>
-            </li>
-          </ul>
-        </div>
-      </header>
-    </div>
+    >
+      <div className="w-full lg:w-1/2 flex justify-center lg:justify-start items-center">
+        {theLogo}
+      </div>
+      <div className="lg:w-1/2 lg:block hidden">
+        <ul
+          className={`flex flex-row justify-end items-center gap-6 text-md font-semibold  ${
+            inRangeScroll ? "text-darkApp" : "text-whiteApp"
+          }`}
+        >
+          <li>
+            <a
+              href="#about"
+              className="py-2 px-1 hover:border-b hover:border-white hover:shadow"
+            >
+              Cara Pakai?
+            </a>
+          </li>
+        </ul>
+      </div>
+    </header>
   );
 };
 

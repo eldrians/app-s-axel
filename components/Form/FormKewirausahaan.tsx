@@ -77,7 +77,7 @@ const FormKompetisi = ({ dataMahasiswa }: MainFormProps) => {
   return (
     <div className="w-full">
       <form onSubmit={handleSubmit} className="w-full flex gap-6 flex-col">
-        <div className="grid grid-cols-2 gap-4 p-8 border border-greenApp rounded-lg">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 p-8 border border-greenApp rounded-lg">
           <InputText
             label="Nama Usaha"
             placeholder="ex: NEO Data Collection"
@@ -114,7 +114,7 @@ const FormKompetisi = ({ dataMahasiswa }: MainFormProps) => {
             name="statusUsaha"
             option={["Aktif", "On-Going", "Tidak Aktif"]}
           />
-          <div className="col-span-2">
+          <div className="col-span-1 lg:col-span-2">
             <InputText
               label="URL"
               placeholder="ex: https://drive.google.com/drive/u/0/folders/xxx"
@@ -124,7 +124,7 @@ const FormKompetisi = ({ dataMahasiswa }: MainFormProps) => {
               onChange={handleInputChange}
             />
           </div>
-          <div className="col-span-2">
+          <div className="col-span-1 lg:col-span-2">
             <InputText
               label="Demand Key"
               placeholder="ex: blockchain; web application; public speaking"
