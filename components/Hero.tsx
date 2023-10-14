@@ -75,13 +75,12 @@ const Hero = () => {
                   : "-right-32 lg:right-10 -top-10 lg:top-0 w-[170px] h-[170px] lg:w-[250px] lg:h-[250px]"
               } transform duration-700 absolute`}
             ></div>
-            {/* <div className="w-[600px] h-[300px] bg-gradient-to-r from-green-200 to-green-400 blur-3xl opacity-30 shadow-xl rounded-full right-1/2 -top-1/2"></div> */}
             <div
               className={` bg-gradient-to-tr from-green-200 to-green-400 shadow-xl rounded-full  ${
                 isFocused
                   ? "left-1/2 -translate-x-1/2 bottom-1/2 translate-y-1/2 w-[250px] h-[250px] lg:w-[400px] lg:h-[400px] blur-2xl opacity-20"
                   : "-left-28 lg:left-16 -bottom-6 w-[150px] h-[150px] lg:w-[200px] lg:h-[200px]"
-              }  transform duration-700 absolute`}
+              }  transform duration-700 absolute z-50`}
             ></div>
           </div>
           <div className="relative py-12 md:py-12 lg:py-28 text-darkApp flex flex-col justify-center items-center z-20">

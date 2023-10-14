@@ -57,73 +57,78 @@ const MainForm = () => {
     setSelectedButton(buttonName);
   };
   return (
-    <div>
+    <div className="w-full h-full z-0">
       <section
         id="main-form"
-        className="px-6 md:px-20 lg:px-32 2xl:px-96 pt-12 lg:pt-20 bg-gradient-to-br from-darkGreenApp  to-green-400 flex flex-col justify-center items-center"
+        className="w-full h-full z-10 px-6 md:px-20 lg:px-32 2xl:px-96 pt-12 lg:pt-20 bg-gradient-to-br from-darkGreenApp  to-green-400 flex flex-col justify-center items-center"
       >
-        <div className="w-full mb-10 flex flex-col items-center lg:items-start text-center lg:text-left">
-          <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold text-whiteApp uppercase">
-            Masukan Data Mu
-          </h1>
-          <p className="text-whiteApp/80 mt-2 text-xs lg:text-sm w-full lg:w-1/2 ">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero fuga
-            enim tenetur labore expedita officiis ullam excepturi sunt repellat
-            necessitatibus?
-          </p>
-        </div>
-        <div className="w-full flex flex-col lg:flex-row gap-8">
-          <div className="w-full lg:w-4/5 order-2 lg:order-1">
-            <div className="w-full flex flex-col gap-6 rounded-lg p-6 bg-whiteApp shadow-xl">
-              <InputText
-                label="Url Sheet"
-                placeholder="Masukan URL Sheet anda..."
-                id="urlSheet"
-                name="urlSheet"
-                // value={formData.urlSheet}
-                value="https://docs.google.com/spreadsheets/d/1PGX--W4w-E8-TkqlYCDrWZF0K0VpVLE99QhCbeUjX5s/edit#gid=0"
-                onChange={handleInputChange}
-              />
-              <div className="w-full grid grid-cols-1 lg:grid-cols-3 gap-4">
+        <div className="z-10">
+          <div className="w-full mb-10 flex flex-col items-center lg:items-start text-center lg:text-left">
+            <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold text-whiteApp uppercase">
+              Masukan Data Mu
+            </h1>
+            <p className="text-whiteApp/80 mt-2 text-xs lg:text-sm w-full lg:w-1/2 ">
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero
+              fuga enim tenetur labore expedita officiis ullam excepturi sunt
+              repellat necessitatibus?
+            </p>
+          </div>
+          <div className="w-full flex flex-col lg:flex-row gap-8">
+            <div className="w-full lg:w-4/5 order-2 lg:order-1">
+              <div className="w-full flex flex-col gap-6 rounded-lg p-6 bg-whiteApp shadow-xl">
                 <InputText
-                  label="Nama Lengkap"
-                  placeholder="ex: Axel Eldrian Hadiwibowo"
-                  id="namaLengkap"
-                  name="namaLengkap"
-                  value={formData.namaLengkap}
+                  label="Url Sheet"
+                  placeholder="Masukan URL Sheet anda..."
+                  id="urlSheet"
+                  name="urlSheet"
+                  // value={formData.urlSheet}
+                  value="https://docs.google.com/spreadsheets/d/1PGX--W4w-E8-TkqlYCDrWZF0K0VpVLE99QhCbeUjX5s/edit#gid=0"
                   onChange={handleInputChange}
                 />
-                <InputText
-                  label="Email"
-                  placeholder="ex: axel@upi.edu"
-                  id="email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleInputChange}
-                />
-                <InputText
-                  label="NIM"
-                  placeholder="ex: 2000352"
-                  id="nim"
-                  name="nim"
-                  value={formData.nim}
-                  onChange={handleInputChange}
-                />
+                <div className="w-full grid grid-cols-1 lg:grid-cols-3 gap-4">
+                  <InputText
+                    label="Nama Lengkap"
+                    placeholder="ex: Axel Eldrian Hadiwibowo"
+                    id="namaLengkap"
+                    name="namaLengkap"
+                    value={formData.namaLengkap}
+                    onChange={handleInputChange}
+                  />
+                  <InputText
+                    label="Email"
+                    placeholder="ex: axel@upi.edu"
+                    id="email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleInputChange}
+                  />
+                  <InputText
+                    label="NIM"
+                    placeholder="ex: 2000352"
+                    id="nim"
+                    name="nim"
+                    value={formData.nim}
+                    onChange={handleInputChange}
+                  />
+                </div>
               </div>
             </div>
           </div>
-        </div>
-        <div className="mt-12 lg:mt-20 w-full lg:hidden mb-4 px-4">
-          <InputDropdown option={jenisPrestasi} onChange={handleOptionChange} />
-        </div>
-        <div className="mt-12 lg:mt-20 hidden lg:flex flex-row text-sm text-whiteApp w-full justify-center items-center">
-          {jenisPrestasi.map((title) => (
-            <ButtonPrestasi
-              selectedButton={selectedButton}
-              title={title}
-              onClick={() => handleButtonClick(title)}
+          <div className="mt-12 lg:mt-20 w-full lg:hidden mb-4 px-4">
+            <InputDropdown
+              option={jenisPrestasi}
+              onChange={handleOptionChange}
             />
-          ))}
+          </div>
+          <div className="mt-12 lg:mt-20 hidden lg:flex flex-row text-sm text-whiteApp w-full justify-center items-center">
+            {jenisPrestasi.map((title) => (
+              <ButtonPrestasi
+                selectedButton={selectedButton}
+                title={title}
+                onClick={() => handleButtonClick(title)}
+              />
+            ))}
+          </div>
         </div>
       </section>
       <Form jenisPrestasi={selectedButton} dataMahasiswa={formData} />

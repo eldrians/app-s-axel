@@ -58,12 +58,12 @@ const Header = () => {
         `}
     >
       <div className="w-full lg:w-1/2 flex justify-center lg:justify-start items-center">
-        {theLogo}
+        {theLogo} x DINAMIK 
       </div>
       <div className="lg:w-1/2 lg:block hidden">
         <ul
           className={`flex flex-row justify-end items-center gap-6 text-md font-semibold  ${
-            inRangeScroll ? "text-darkApp" : "text-darkApp"
+            inRangeScroll ? "text-darkApp" : "text-darkGreenApp"
           }`}
         >
           <li>
