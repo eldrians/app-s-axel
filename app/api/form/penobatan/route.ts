@@ -15,7 +15,7 @@ type FormData = {
 
   // data Penobatan
   tandaKehormatan?: string;
-  cakupan?: string;
+  tingkat?: string;
   lembaga?: string;
 };
 export async function GET() {
@@ -41,7 +41,7 @@ export async function POST(request: Request) {
 
     // data Penobatan
     tandaKehormatan,
-    cakupan,
+    tingkat,
     lembaga,
   } = data;
   try {
@@ -80,7 +80,7 @@ export async function POST(request: Request) {
 
     // data Penobatan
     tandaKehormatan,
-    cakupan,
+    tingkat,
     lembaga,
   });
 }

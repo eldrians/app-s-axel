@@ -81,7 +81,7 @@ export const PenobatanHeaders = [
 
   // dataPenobatan
   "tandaKehormatan",
-  "cakupan",
+  "tingkat",
   "lembaga",
 ];
 

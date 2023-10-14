@@ -21,7 +21,6 @@ const FormPenobatan = ({ dataMahasiswa }: MainFormProps) => {
 
     //dataKompetisi
     tandaKehormatan: "",
-    cakupan: "",
     lembaga: "",
   });
 
@@ -87,13 +86,11 @@ const FormPenobatan = ({ dataMahasiswa }: MainFormProps) => {
             value={formData.tandaKehormatan}
             onChange={handleInputChange}
           />
-          <InputText
-            label="Cakupan Peserta"
-            placeholder="ex: 10 Orang"
-            id="cakupan"
-            name="cakupan"
-            value={formData.cakupan}
-            onChange={handleInputChange}
+          <InputDropdown
+            label="Tingkat"
+            id="tingkat"
+            name="tingkat"
+            option={["Internasional", "Regional", "Nasional", "Provinsi"]}
           />
           <InputText
             label="Lembaga"
