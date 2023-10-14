@@ -1,7 +1,7 @@
 import { toast } from "react-toastify";
 
 export const ToastInfo = (text: string) => {
-  toast.info(text, {
+  toast.success(text, {
     position: "top-center",
     autoClose: 5000,
     hideProgressBar: false,
