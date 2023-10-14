@@ -20,7 +20,6 @@ const FormAksiKemanusiaan = ({ dataMahasiswa }: MainFormProps) => {
     urlPrestasi: "",
 
     //dataKompetisi
-    peran: "",
     namaKegiatan: "",
     tahun: "",
   });
@@ -78,13 +77,11 @@ const FormAksiKemanusiaan = ({ dataMahasiswa }: MainFormProps) => {
     <div className="w-full">
       <form onSubmit={handleSubmit} className="w-full flex gap-6 flex-col">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 p-4 lg:p-8 border border-greenApp rounded-lg">
-          <InputText
+          <InputDropdown
             label="Peran"
-            placeholder="ex: Koordinator Acara"
             id="peran"
             name="peran"
-            value={formData.peran}
-            onChange={handleInputChange}
+            option={["Pemrakarsa/Pendiri", "Koordinator Relawan", "Relawan"]}
           />
           <InputText
             label="Nama Kegiatan"
