@@ -58,7 +58,7 @@ const Header = () => {
         `}
     >
       <div className="w-full lg:w-1/2 flex justify-center lg:justify-start items-center">
-        {theLogo}
+        <a href="/">{theLogo}</a>
       </div>
       <div className="lg:w-1/2 lg:block hidden">
         <ul
@@ -68,7 +68,15 @@ const Header = () => {
         >
           <li>
             <a
-              href="#about"
+              href="#main-form"
+              className="py-2 px-1 hover:border-b hover:border-white hover:shadow"
+            >
+              Isi Prestasi
+            </a>
+          </li>
+          <li>
+            <a
+              href="/dokumentasi"
               className="py-2 px-1 hover:border-b hover:border-white hover:shadow"
             >
               Cara Pakai?
