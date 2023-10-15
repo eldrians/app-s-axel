@@ -2,6 +2,7 @@ import React, { ChangeEvent } from "react";
 
 type InputTextProps = {
   label: string;
+  type?: string;
   placeholder: string;
   id: string;
   name: string;
@@ -10,6 +11,7 @@ type InputTextProps = {
 };
 const InputText = ({
   label,
+  type = "text",
   placeholder,
   id,
   name,
@@ -27,7 +29,7 @@ const InputText = ({
           <span className="text-red-600">*</span>
         </label>
         <input
-          type="text"
+          type={type}
           id={id}
           name={name}
           className="py-3 px-2 bg-whiteApp border border-gray-300

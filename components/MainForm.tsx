@@ -64,19 +64,6 @@ const MainForm = () => {
     }
   }, []);
 
-  // const urlSheetCookie: string = hasCookie("urlSheet")
-  //   ? (getCookie("urlSheet") as string)
-  //   : "";
-  // const namaLengkapCookie: string = hasCookie("namaLengkap")
-  //   ? (getCookie("namaLengkap") as string)
-  //   : "";
-  // const nimCookie: string = hasCookie("nim")
-  //   ? (getCookie("nim") as string)
-  //   : "";
-  // const emailCookie: string = hasCookie("email")
-  //   ? (getCookie("email") as string)
-  //   : "";
-
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
@@ -117,7 +104,7 @@ const MainForm = () => {
                 <div className="w-full grid grid-cols-1 lg:grid-cols-3 gap-4">
                   <InputText
                     label="Nama Lengkap"
-                    placeholder="ex: Axel Eldrian Hadiwibowo"
+                    placeholder="ex: Alexandr Wang"
                     id="namaLengkap"
                     name="namaLengkap"
                     value={formData.namaLengkap}
@@ -125,7 +112,8 @@ const MainForm = () => {
                   />
                   <InputText
                     label="Email"
-                    placeholder="ex: axel@upi.edu"
+                    type="email"
+                    placeholder="ex: alex@upiedu"
                     id="email"
                     name="email"
                     value={formData.email}
@@ -133,7 +121,7 @@ const MainForm = () => {
                   />
                   <InputText
                     label="NIM"
-                    placeholder="ex: 2000352"
+                    placeholder="ex: 20012345"
                     id="nim"
                     name="nim"
                     value={formData.nim}

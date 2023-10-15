@@ -97,7 +97,7 @@ const FormPenobatan = ({ dataMahasiswa }: MainFormProps) => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 p-4 lg:p-8 border border-greenApp rounded-lg">
           <InputText
             label="Tanda Kehormatan"
-            placeholder="ex: Best Mentee PT. X Indonesia"
+            placeholder="ex: Karyawan Magang Terbaik"
             id="tandaKehormatan"
             name="tandaKehormatan"
             value={formData.tandaKehormatan}
@@ -111,7 +111,7 @@ const FormPenobatan = ({ dataMahasiswa }: MainFormProps) => {
           />
           <InputText
             label="Lembaga"
-            placeholder="ex: PT. X Indonesia"
+            placeholder="ex: PT.X Indonesia"
             id="lembaga"
             name="lembaga"
             value={formData.lembaga}
@@ -131,7 +131,7 @@ const FormPenobatan = ({ dataMahasiswa }: MainFormProps) => {
           <div className="col-span-1 lg:col-span-2">
             <InputText
               label="Demand Key"
-              placeholder="ex: blockchain; web application; public speaking"
+              placeholder="ex: web design"
               id="demandKey"
               name="demandKey"
               value={formData.demandKey}

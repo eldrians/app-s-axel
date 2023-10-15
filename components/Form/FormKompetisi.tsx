@@ -112,7 +112,7 @@ const FormKompetisi = ({ dataMahasiswa }: MainFormProps) => {
           />
           <InputText
             label="Kategori / Bidang"
-            placeholder="ex: Software Development"
+            placeholder="ex: Competitive Programming"
             id="kategori"
             name="kategori"
             value={formData.kategori}
@@ -126,7 +126,7 @@ const FormKompetisi = ({ dataMahasiswa }: MainFormProps) => {
           />
           <InputText
             label="Nama Kompetisi"
-            placeholder="ex: Hackathon Software"
+            placeholder="ex: Gemastik"
             id="namaKompetisi"
             name="namaKompetisi"
             value={formData.namaKompetisi}
@@ -165,7 +165,7 @@ const FormKompetisi = ({ dataMahasiswa }: MainFormProps) => {
           <div className="col-span-1 lg:col-span-2">
             <InputText
               label="Demand Key"
-              placeholder="ex: blockchain; web application; public speaking"
+              placeholder="ex: C++; public speaking"
               id="demandKey"
               name="demandKey"
               value={formData.demandKey}

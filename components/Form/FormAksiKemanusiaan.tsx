@@ -143,7 +143,7 @@ const FormAksiKemanusiaan = ({ dataMahasiswa }: MainFormProps) => {
           <div className="col-span-1 lg:col-span-2">
             <InputText
               label="Demand Key"
-              placeholder="ex: blockchain; web application; public speaking"
+              placeholder="ex: public speaking"
               id="demandKey"
               name="demandKey"
               value={formData.demandKey}

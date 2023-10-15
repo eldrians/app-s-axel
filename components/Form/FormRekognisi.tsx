@@ -124,8 +124,9 @@ const FormRekognisi = ({ dataMahasiswa }: MainFormProps) => {
             onChange={handleInputChange}
           />
           <InputText
-            label="Jumlah Peserta / Partisipan"
-            placeholder="ex: 10 Orang"
+            label="Jumlah Peserta / Partisipan (orang)"
+            placeholder="ex: 10"
+            type="number"
             id="jumlahPeserta"
             name="jumlahPeserta"
             value={formData.jumlahPeserta}
@@ -164,7 +165,7 @@ const FormRekognisi = ({ dataMahasiswa }: MainFormProps) => {
           <div className="col-span-1 lg:col-span-2">
             <InputText
               label="Demand Key"
-              placeholder="ex: blockchain; web application; public speaking"
+              placeholder="ex: on-demand system; presentasi"
               id="demandKey"
               name="demandKey"
               value={formData.demandKey}

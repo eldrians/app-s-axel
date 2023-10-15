@@ -95,7 +95,7 @@ const FormMinatDanBakat = ({ dataMahasiswa }: MainFormProps) => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 p-4 lg:p-8 border border-greenApp rounded-lg">
           <InputText
             label="Minat dan Bakat"
-            placeholder="ex: Artificial Intellegence"
+            placeholder="ex: Video Animasi"
             id="minatDanBakat"
             name="minatDanBakat"
             value={formData.minatDanBakat}
@@ -109,7 +109,7 @@ const FormMinatDanBakat = ({ dataMahasiswa }: MainFormProps) => {
           />
           <InputText
             label="Keahlian"
-            placeholder="ex: Python; Machine Learning"
+            placeholder="ex: Adobe Premiere; Photoshop"
             id="keahlian"
             name="keahlian"
             value={formData.keahlian}
@@ -129,7 +129,7 @@ const FormMinatDanBakat = ({ dataMahasiswa }: MainFormProps) => {
           <div className="col-span-1 lg:col-span-2">
             <InputText
               label="Demand Key"
-              placeholder="ex: blockchain; web application; public speaking"
+              placeholder="ex: Video animasi; 3D video"
               id="demandKey"
               name="demandKey"
               value={formData.demandKey}

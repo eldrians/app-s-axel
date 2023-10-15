@@ -23,6 +23,7 @@ const InputDropdown = ({
           className="text-xs font-semibold text-darkApp/80 ml-2"
         >
           {label}
+          <span className="text-red-600">*</span>
         </label>
         <select
           name={name}

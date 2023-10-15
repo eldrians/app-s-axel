@@ -17,8 +17,6 @@ import MainForm from "./MainForm";
 import InputText from "./Input/InputText";
 import InputDropdown from "./Input/InputDropdown";
 
-import Test from "./Test";
-
 export {
   Header,
   Hero,
@@ -36,5 +34,4 @@ export {
   InputText,
   InputDropdown,
   MainForm,
-  Test,
 };
