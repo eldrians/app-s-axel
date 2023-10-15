@@ -17,6 +17,13 @@ import MainForm from "./MainForm";
 import InputText from "./Input/InputText";
 import InputDropdown from "./Input/InputDropdown";
 
+// documentation
+import Intro from "./Dokumentasi/Intro";
+import EmailInfo from "./Dokumentasi/EmailInfo";
+import DuplicateInfo from "./Dokumentasi/DuplicateInfo";
+import FormInfo from "./Dokumentasi/FormInfo";
+import Benefit from "./Dokumentasi/Benefit";
+
 export {
   Header,
   Hero,
@@ -34,4 +41,9 @@ export {
   InputText,
   InputDropdown,
   MainForm,
+  Intro,
+  EmailInfo,
+  DuplicateInfo,
+  FormInfo,
+  Benefit,
 };
