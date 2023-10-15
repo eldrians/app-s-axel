@@ -4,6 +4,7 @@ import { Button, InputText, InputDropdown } from "@/components";
 import { useState } from "react";
 import { ToastInfo } from "@/utils/toasts";
 import { MinatDanBakatHeaders } from "@/utils/achievementHeader";
+import { setCookie } from "cookies-next";
 
 type MainFormProps = {
   dataMahasiswa: {
@@ -31,7 +32,18 @@ const FormMinatDanBakat = ({ dataMahasiswa }: MainFormProps) => {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-
+    setCookie("urlSheet", dataMahasiswa.urlSheet, {
+      path: "/",
+    });
+    setCookie("namaLengkap", dataMahasiswa.namaLengkap, {
+      path: "/",
+    });
+    setCookie("nim", dataMahasiswa.nim, {
+      path: "/",
+    });
+    setCookie("email", dataMahasiswa.email, {
+      path: "/",
+    });
     const data: Record<string, any> = {};
     MinatDanBakatHeaders.forEach((header) => {
       if (header == "jenisPrestasi") {
@@ -62,7 +74,12 @@ const FormMinatDanBakat = ({ dataMahasiswa }: MainFormProps) => {
       });
 
       if (response.ok) {
-        console.log(response);
+        setFormData({
+          demandKey: "",
+          urlPrestasi: "",
+          minatDanBakat: "",
+          keahlian: "",
+        });
         ToastInfo("Data Sudah Masuk");
       } else {
         throw new Error("HTTP error! status: " + response.status);

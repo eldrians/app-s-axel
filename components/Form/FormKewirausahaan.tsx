@@ -4,6 +4,7 @@ import { Button, InputText, InputDropdown } from "@/components";
 import { useState } from "react";
 import { ToastInfo } from "@/utils/toasts";
 import { KewirausahaanHeaders } from "@/utils/achievementHeader"; // rubah
+import { setCookie } from "cookies-next";
 
 type MainFormProps = {
   dataMahasiswa: {
@@ -32,7 +33,18 @@ const FormKompetisi = ({ dataMahasiswa }: MainFormProps) => {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-
+    setCookie("urlSheet", dataMahasiswa.urlSheet, {
+      path: "/",
+    });
+    setCookie("namaLengkap", dataMahasiswa.namaLengkap, {
+      path: "/",
+    });
+    setCookie("nim", dataMahasiswa.nim, {
+      path: "/",
+    });
+    setCookie("email", dataMahasiswa.email, {
+      path: "/",
+    });
     const data: Record<string, any> = {};
     KewirausahaanHeaders.forEach((header) => {
       // rubah
@@ -64,7 +76,13 @@ const FormKompetisi = ({ dataMahasiswa }: MainFormProps) => {
       });
 
       if (response.ok) {
-        console.log(response);
+        setFormData({
+          demandKey: "",
+          urlPrestasi: "",
+          namaUsaha: "",
+          bidang: "",
+          jumlahKaryawan: "",
+        });
         ToastInfo("Data Sudah Masuk");
       } else {
         throw new Error("HTTP error! status: " + response.status);

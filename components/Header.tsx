@@ -58,7 +58,7 @@ const Header = () => {
         `}
     >
       <div className="w-full lg:w-1/2 flex justify-center lg:justify-start items-center">
-        {theLogo} x DINAMIK 
+        {theLogo}
       </div>
       <div className="lg:w-1/2 lg:block hidden">
         <ul

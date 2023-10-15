@@ -1,10 +1,11 @@
-import { Hero, About, MainForm, Form } from "@/components";
+import { Hero, About, MainForm, Test } from "@/components";
 const page = () => {
   return (
     <div>
       <Hero />
       <MainForm />
-      <About />
+      {/* <About /> */}
+      <Test />
     </div>
   );
 };

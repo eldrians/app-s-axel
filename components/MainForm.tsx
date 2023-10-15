@@ -1,7 +1,8 @@
 "use client";
-import React, { MouseEventHandler, useState } from "react";
+import React, { MouseEventHandler, useEffect, useState } from "react";
 import { Form, InputDropdown, InputText } from ".";
 
+import { deleteCookie, setCookie, hasCookie, getCookie } from "cookies-next";
 const ButtonPrestasi = ({
   selectedButton,
   title,
@@ -44,9 +45,37 @@ const MainForm = () => {
     namaLengkap: "",
     nim: "",
     email: "",
-    urlSheet:
-      "https://docs.google.com/spreadsheets/d/1PGX--W4w-E8-TkqlYCDrWZF0K0VpVLE99QhCbeUjX5s/edit#gid=0",
+    urlSheet: "",
   });
+
+  useEffect(() => {
+    if (
+      hasCookie("urlSheet") &&
+      hasCookie("namaLengkap") &&
+      hasCookie("nim") &&
+      hasCookie("email")
+    ) {
+      setFormData({
+        urlSheet: getCookie("urlSheet") as string,
+        namaLengkap: getCookie("namaLengkap") as string,
+        nim: getCookie("nim") as string,
+        email: getCookie("email") as string,
+      });
+    }
+  }, []);
+
+  // const urlSheetCookie: string = hasCookie("urlSheet")
+  //   ? (getCookie("urlSheet") as string)
+  //   : "";
+  // const namaLengkapCookie: string = hasCookie("namaLengkap")
+  //   ? (getCookie("namaLengkap") as string)
+  //   : "";
+  // const nimCookie: string = hasCookie("nim")
+  //   ? (getCookie("nim") as string)
+  //   : "";
+  // const emailCookie: string = hasCookie("email")
+  //   ? (getCookie("email") as string)
+  //   : "";
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -56,6 +85,7 @@ const MainForm = () => {
   const handleButtonClick = (buttonName: any) => {
     setSelectedButton(buttonName);
   };
+
   return (
     <div className="w-full h-full z-0">
       <section
@@ -81,8 +111,7 @@ const MainForm = () => {
                   placeholder="Masukan URL Sheet anda..."
                   id="urlSheet"
                   name="urlSheet"
-                  // value={formData.urlSheet}
-                  value="https://docs.google.com/spreadsheets/d/1PGX--W4w-E8-TkqlYCDrWZF0K0VpVLE99QhCbeUjX5s/edit#gid=0"
+                  value={formData.urlSheet}
                   onChange={handleInputChange}
                 />
                 <div className="w-full grid grid-cols-1 lg:grid-cols-3 gap-4">
@@ -121,8 +150,9 @@ const MainForm = () => {
             />
           </div>
           <div className="mt-12 lg:mt-20 hidden lg:flex flex-row text-sm text-whiteApp w-full justify-center items-center">
-            {jenisPrestasi.map((title) => (
+            {jenisPrestasi.map((title, index) => (
               <ButtonPrestasi
+                key={index}
                 selectedButton={selectedButton}
                 title={title}
                 onClick={() => handleButtonClick(title)}
