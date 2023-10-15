@@ -37,7 +37,7 @@ export const KaryaIlmiahHeaders = [
   "judul",
   "kategori",
   "statusKTI",
-  "statusTim",
+  "statusPenulis",
   "dosenPembimbing",
   "namaPenerbit",
   "tingkat",

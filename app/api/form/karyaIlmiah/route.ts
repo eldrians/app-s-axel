@@ -17,7 +17,7 @@ type FormData = {
   judul?: string;
   kategori?: string;
   statusKTI?: string;
-  statusTim?: string;
+  statusPenulis?: string;
   dosenPembimbing?: string;
   namaPenerbit?: string;
   tingkat?: string;
@@ -48,7 +48,7 @@ export async function POST(request: Request) {
     judul,
     kategori,
     statusKTI,
-    statusTim,
+    statusPenulis,
     dosenPembimbing,
     namaPenerbit,
     tingkat,
@@ -92,7 +92,7 @@ export async function POST(request: Request) {
     judul,
     kategori,
     statusKTI,
-    statusTim,
+    statusPenulis,
     dosenPembimbing,
     namaPenerbit,
     tingkat,

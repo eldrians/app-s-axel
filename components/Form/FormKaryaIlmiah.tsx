@@ -124,10 +124,10 @@ const FormKaryaIlmiah = ({ dataMahasiswa }: MainFormProps) => {
             option={["Terbit", "Seminar", "Terbit & Seminar"]}
           />
           <InputDropdown
-            label="Individu / Kelompok"
-            id="statusTim"
-            name="statusTim"
-            option={["Individu", "Kelompok"]}
+            label="Status Penulis"
+            id="statusPenulis"
+            name="statusPenulis"
+            option={["Utama/Korespondensi", "Kedua, dst/non-korespondensi"]}
           />
           <InputText
             label="Dosen Pembimbing"
