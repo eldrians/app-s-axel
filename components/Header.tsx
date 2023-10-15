@@ -68,7 +68,7 @@ const Header = () => {
         >
           <li>
             <a
-              href="#main-form"
+              href="/"
               className="py-2 px-1 hover:border-b hover:border-white hover:shadow"
             >
               Isi Prestasi
