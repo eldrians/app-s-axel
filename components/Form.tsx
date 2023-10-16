@@ -29,9 +29,9 @@ const Form = ({ jenisPrestasi, dataMahasiswa }: FormProps) => {
     theForm = <FormKompetisi dataMahasiswa={dataMahasiswa} />;
   } else if (jenisPrestasi === "Karya Ilmiah") {
     theForm = <FormKaryaIlmiah dataMahasiswa={dataMahasiswa} />;
-  } else if (jenisPrestasi === "Rekognisi") {
+  } else if (jenisPrestasi === "Pengakuan") {
     theForm = <FormRekognisi dataMahasiswa={dataMahasiswa} />;
-  } else if (jenisPrestasi === "Penobatan") {
+  } else if (jenisPrestasi === "Penghargaan") {
     theForm = <FormPenobatan dataMahasiswa={dataMahasiswa} />;
   } else if (jenisPrestasi === "Organisasi") {
     theForm = <FormOrganisasi dataMahasiswa={dataMahasiswa} />;

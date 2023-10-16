@@ -27,12 +27,12 @@ const MainForm = () => {
   const jenisPrestasi: string[] = [
     "Kompetisi",
     "Karya Ilmiah",
-    "Rekognisi",
-    "Penobatan",
+    "Pengakuan",
+    "Penghargaan",
     "Organisasi",
     "Kewirausahaan",
     "Aksi Kemanusiaan",
-    "Minat dan Bakat",
+    // "Minat dan Bakat",
   ];
 
   const [selectedButton, setSelectedButton] = useState("Kompetisi");
@@ -133,6 +133,7 @@ const MainForm = () => {
           </div>
           <div className="mt-12 lg:mt-20 w-full lg:hidden mb-4 px-4">
             <InputDropdown
+              label="Jenis Prestasi"
               option={jenisPrestasi}
               onChange={handleOptionChange}
             />
