@@ -142,7 +142,7 @@ const FormAksiKemanusiaan = ({ dataMahasiswa }: MainFormProps) => {
           </div>
           <div className="col-span-1 lg:col-span-2">
             <InputText
-              label="Demand Key"
+              label="Kata Kunci Prestasi Mu"
               placeholder="ex: public speaking"
               id="demandKey"
               name="demandKey"
