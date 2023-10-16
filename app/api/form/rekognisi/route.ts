@@ -20,6 +20,7 @@ type FormData = {
   jumlahPeserta?: string;
   tingkat?: string;
   tahun?: string;
+  totalScore?: number;
 };
 export async function GET() {
   return NextResponse.json({
@@ -49,6 +50,7 @@ export async function POST(request: Request) {
     jumlahPeserta,
     tingkat,
     tahun,
+    totalScore,
   } = data;
   try {
     const response = await fetch(
@@ -91,5 +93,6 @@ export async function POST(request: Request) {
     jumlahPeserta,
     tingkat,
     tahun,
+    totalScore,
   });
 }
