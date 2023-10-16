@@ -59,6 +59,8 @@ const FormKompetisi = ({ dataMahasiswa }: MainFormProps) => {
         data[header] = dataMahasiswa.email;
       } else if (header == "urlSheet") {
         data[header] = dataMahasiswa.urlSheet;
+      } else if (header == "totalScore") {
+        data[header] = 0;
       } else {
         const inputElement = e.currentTarget.elements.namedItem(
           header
@@ -137,7 +139,7 @@ const FormKompetisi = ({ dataMahasiswa }: MainFormProps) => {
             id="tingkat"
             name="tingkat"
             option={[
-              "International",
+              "Internasional",
               "Regional",
               "Nasional",
               "Provinsi",

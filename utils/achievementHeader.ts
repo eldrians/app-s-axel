@@ -18,6 +18,9 @@ export const KompetisiHeaders = [
   "namaKompetisi",
   "tingkat",
   "tahun",
+
+  // score
+  "totalScore",
 ];
 
 export const KaryaIlmiahHeaders = [
@@ -42,6 +45,9 @@ export const KaryaIlmiahHeaders = [
   "namaPenerbit",
   "tingkat",
   "tahun",
+
+  // score
+  "totalScore",
 ];
 
 export const RekognisiHeaders = [
@@ -64,6 +70,9 @@ export const RekognisiHeaders = [
   "jumlahPeserta",
   "tingkat",
   "tahun",
+
+  // score
+  "totalScore",
 ];
 
 export const PenobatanHeaders = [
@@ -83,6 +92,9 @@ export const PenobatanHeaders = [
   "tandaKehormatan",
   "tingkat",
   "lembaga",
+
+  // score
+  "totalScore",
 ];
 
 export const OrganisasiHeaders = [
@@ -104,6 +116,9 @@ export const OrganisasiHeaders = [
   "namaOrganisasi",
   "tingkat",
   "tahun",
+
+  // score
+  "totalScore",
 ];
 
 export const KewirausahaanHeaders = [
@@ -125,6 +140,9 @@ export const KewirausahaanHeaders = [
   "statusHukum",
   "jumlahKaryawan",
   "tingkat",
+
+  // score
+  "totalScore",
 ];
 
 export const AksiKemanusiaanHeaders = [
@@ -145,6 +163,9 @@ export const AksiKemanusiaanHeaders = [
   "namaKegiatan",
   "tingkat",
   "tahun",
+
+  // score
+  "totalScore",
 ];
 
 export const MinatDanBakatHeaders = [

@@ -58,6 +58,8 @@ const FormAksiKemanusiaan = ({ dataMahasiswa }: MainFormProps) => {
         data[header] = dataMahasiswa.email;
       } else if (header == "urlSheet") {
         data[header] = dataMahasiswa.urlSheet;
+      } else if (header == "totalScore") {
+        data[header] = 0;
       } else {
         const inputElement = e.currentTarget.elements.namedItem(
           header
