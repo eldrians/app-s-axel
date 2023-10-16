@@ -50,6 +50,17 @@ export async function POST(request: Request) {
     tingkat,
     totalScore,
   } = data;
+  if (data.tingkat == "Internasional") {
+    data.totalScore = 50;
+  } else if (data.tingkat == "Regional") {
+    data.totalScore = 40;
+  } else if (data.tingkat == "Nasional") {
+    data.totalScore = 30;
+  } else if (data.tingkat == "Provinsi") {
+    data.totalScore = 20;
+  } else if (data.tingkat == "Perguruan Tinggi") {
+    data.totalScore = 10;
+  }
   try {
     const response = await fetch(
       "https://script.google.com/macros/s/AKfycbwoUI3PSqCUF_xyNMU9vugMuMZ8x1O5JGqy8v5KKfukPpBE7fm0HcKpAKENiBXSxvL8VA/exec",
