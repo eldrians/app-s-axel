@@ -128,7 +128,7 @@ const FormRekognisi = ({ dataMahasiswa }: MainFormProps) => {
             onChange={handleInputChange}
           />
           <InputText
-            label="Jumlah Peserta / Partisipan (orang)"
+            label="Jumlah Peserta (orang) Perkiraan saja:"
             placeholder="ex: 10"
             type="number"
             id="jumlahPeserta"
