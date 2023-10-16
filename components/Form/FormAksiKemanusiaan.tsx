@@ -101,7 +101,7 @@ const FormAksiKemanusiaan = ({ dataMahasiswa }: MainFormProps) => {
             label="Peran"
             id="peran"
             name="peran"
-            option={["Pemrakarsa/Pendiri", "Koordinator Relawan", "Relawan"]}
+            option={["Pemrakarsa/Pendiri", "Koordinator Relawan", "Koordinator Relawan"]}
           />
           <InputText
             label="Nama Kegiatan"

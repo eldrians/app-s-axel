@@ -46,6 +46,44 @@ export async function POST(request: Request) {
     tingkat,
     totalScore,
   } = data;
+
+  if (data.peran == "Pemrakarsa/Pendiri") {
+    if (data.tingkat == "Internasional") {
+      data.totalScore = 50;
+    } else if (data.tingkat == "Regional") {
+      data.totalScore = 40;
+    } else if (data.tingkat == "Nasional") {
+      data.totalScore = 30;
+    } else if (data.tingkat == "Provinsi") {
+      data.totalScore = 20;
+    } else if (data.tingkat == "Perguruan Tinggi") {
+      data.totalScore = 10;
+    }
+  } else if (data.peran == "Koordinator Relawan") {
+    if (data.tingkat == "Internasional") {
+      data.totalScore = 35;
+    } else if (data.tingkat == "Regional") {
+      data.totalScore = 25;
+    } else if (data.tingkat == "Nasional") {
+      data.totalScore = 15;
+    } else if (data.tingkat == "Provinsi") {
+      data.totalScore = 10;
+    } else if (data.tingkat == "Perguruan Tinggi") {
+      data.totalScore = 5;
+    }
+  } else if (data.peran == "Koordinator Relawan") {
+    if (data.tingkat == "Internasional") {
+      data.totalScore = 25;
+    } else if (data.tingkat == "Regional") {
+      data.totalScore = 15;
+    } else if (data.tingkat == "Nasional") {
+      data.totalScore = 10;
+    } else if (data.tingkat == "Provinsi") {
+      data.totalScore = 5;
+    } else if (data.tingkat == "Perguruan Tinggi") {
+      data.totalScore = 3;
+    }
+  }
   try {
     const response = await fetch(
       "https://script.google.com/macros/s/AKfycbwoUI3PSqCUF_xyNMU9vugMuMZ8x1O5JGqy8v5KKfukPpBE7fm0HcKpAKENiBXSxvL8VA/exec",
