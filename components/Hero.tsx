@@ -4,55 +4,12 @@ import { useState } from "react";
 import { toast } from "react-toastify";
 
 const Hero = () => {
-  const [email, setEmail] = useState("");
+  const [selectedButton, setSelectedButton] = useState("Home");
   const [isFocused, setIsFocused] = useState(false);
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-
-    const target = e.currentTarget;
-    const email = target.elements.namedItem("email") as HTMLInputElement;
-
-    const data = {
-      email: email.value,
-    };
-
-    try {
-      const response = await fetch("/api/email", {
-        method: "POST",
-        body: JSON.stringify(data),
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
-
-      if (response.ok) {
-        toast.info("Cek email-mu sekarang!", {
-          position: "top-center",
-          autoClose: 5000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-          theme: "light",
-        });
-      } else {
-        throw new Error("HTTP error! status: " + response.status);
-      }
-
-      setEmail("");
-
-      const responseData = await response.json();
-    } catch (error: any) {
-      console.log("error " + error.message);
-    }
+  const handleButtonClick = (buttonName: any) => {
+    setSelectedButton(buttonName);
   };
-
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setEmail(e.target.value);
-  };
-
   const handleFocus = () => {
     setIsFocused(true);
   };
@@ -96,31 +53,15 @@ const Hero = () => {
               dengan merinci dan mengatur pencatatan prestasimu secara
               sistematis
             </p>
-            <form
-              onSubmit={handleSubmit}
-              className="flex flex-row gap-2 items-center justify-center w-full"
-            >
-              <input
-                type="email"
-                id="email"
-                name="email"
-                className="py-2.5 lg:py-3 px-2 lg:px-6 bg-whiteApp border border-gray-300
-                text-darkApp
-                text-xs md:text-sm
-                focus:outline-none
-                focus:ring-[0.5px]
-                focus:ring-greenApp
-                rounded-xl w-3/5 md:w-1/2 lg:w-1/2 shadow-xl
-                "
-                placeholder="Your Email..."
-                required
-                value={email}
-                onChange={handleInputChange}
-                onFocus={handleFocus}
-                onBlur={handleBlur}
-              />
-              <Button text="Get Email !" btnType="submit" />
-            </form>
+
+            <div className="flex flex-row justify-center items-center gap-2">
+              <a href="#main-form">
+                <Button text="Isi Data Prestasimu !" />
+              </a>
+              <a href="/dokumentasi">
+                <Button text="Setup !" btnType="submit" theme="secondary" />
+              </a>
+            </div>
           </div>
         </div>
       </div>

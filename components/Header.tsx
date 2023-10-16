@@ -69,17 +69,17 @@ const Header = () => {
           <li>
             <a
               href="/"
-              className="py-2 px-1 hover:border-b hover:border-white hover:shadow"
+              className={` py-2 px-1 hover:border-b-2 hover:border-greenApp`}
             >
-              Isi Prestasi
+              Home
             </a>
           </li>
           <li>
             <a
               href="/dokumentasi"
-              className="py-2 px-1 hover:border-b hover:border-white hover:shadow"
+              className={` py-2 px-1 hover:border-b-2 hover:border-greenApp`}
             >
-              Cara Pakai?
+              Dokumentasi
             </a>
           </li>
         </ul>

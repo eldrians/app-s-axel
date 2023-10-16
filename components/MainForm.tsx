@@ -74,7 +74,7 @@ const MainForm = () => {
   };
 
   return (
-    <div className="w-full h-full z-0">
+    <div className="w-full h-full z-0 mb-20">
       <section
         id="main-form"
         className="w-full h-full z-10 px-6 md:px-20 lg:px-32 2xl:px-96 pt-12 lg:pt-20 bg-gradient-to-br from-darkGreenApp  to-green-400 flex flex-col justify-center items-center"
