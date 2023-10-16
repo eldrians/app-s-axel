@@ -21,7 +21,6 @@ const FormRekognisi = ({ dataMahasiswa }: MainFormProps) => {
     urlPrestasi: "",
 
     //dataRekognisi
-    peran: "",
     materi: "",
     namaKegiatan: "",
     jumlahPeserta: "",
@@ -82,7 +81,6 @@ const FormRekognisi = ({ dataMahasiswa }: MainFormProps) => {
         setFormData({
           demandKey: "",
           urlPrestasi: "",
-          peran: "",
           materi: "",
           namaKegiatan: "",
           jumlahPeserta: "",
@@ -101,13 +99,17 @@ const FormRekognisi = ({ dataMahasiswa }: MainFormProps) => {
     <div className="w-full">
       <form onSubmit={handleSubmit} className="w-full flex gap-6 flex-col">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 p-4 lg:p-8 border border-greenApp rounded-lg">
-          <InputText
+          <InputDropdown
             label="Peran"
-            placeholder="ex: Pemateri Seminar"
             id="peran"
             name="peran"
-            value={formData.peran}
-            onChange={handleInputChange}
+            option={[
+              "Pelatih/Juri Bersertifikat",
+              "Pelatih/Juri Tidak Bersertifikat",
+              "Narasumber",
+              "Moderator",
+              "Lainnya",
+            ]}
           />
           <InputText
             label="Materi"
@@ -139,7 +141,7 @@ const FormRekognisi = ({ dataMahasiswa }: MainFormProps) => {
             id="tingkat"
             name="tingkat"
             option={[
-              "International",
+              "Internasional",
               "Regional",
               "Nasional",
               "Provinsi",
