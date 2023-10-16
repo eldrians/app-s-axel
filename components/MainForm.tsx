@@ -1,6 +1,6 @@
 "use client";
 import React, { MouseEventHandler, useEffect, useState } from "react";
-import { Form, InputDropdown, InputText } from ".";
+import { Button, Form, InputDropdown, InputText } from ".";
 
 import { deleteCookie, setCookie, hasCookie, getCookie } from "cookies-next";
 const ButtonPrestasi = ({
@@ -84,17 +84,19 @@ const MainForm = () => {
             <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold text-whiteApp uppercase">
               Masukan Data Mu
             </h1>
-            <p className="text-whiteApp/80 mt-2 text-xs lg:text-sm w-full lg:w-1/2 ">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero
-              fuga enim tenetur labore expedita officiis ullam excepturi sunt
-              repellat necessitatibus?
+            <p className="text-whiteApp/80 mt-2 text-xs lg:text-sm w-full lg:w-2/3 ">
+              Masukan URL Sheet Dokumen yang sudah kamu dapatkan sebelumnya,
+              jika belum memiliki dokumen maka dapatkan dokumen
             </p>
+            <a href="/dokumentasi" className="mt-2">
+              <Button text="Dapatkan Dokumen" theme="secondary" />
+            </a>
           </div>
           <div className="w-full flex flex-col lg:flex-row gap-8">
             <div className="w-full lg:w-4/5 order-2 lg:order-1">
               <div className="w-full flex flex-col gap-6 rounded-lg p-6 bg-whiteApp shadow-xl">
                 <InputText
-                  label="Url Sheet"
+                  label="Url Sheet (dokumen khusus)"
                   placeholder="Masukan URL Sheet anda..."
                   id="urlSheet"
                   name="urlSheet"

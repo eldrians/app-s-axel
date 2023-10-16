@@ -21,7 +21,7 @@ const Button = ({
   if (theme == "secondary") {
     buttonDesign = (
       <button
-        className={`py-2 md:py-2.5 lg:py-2.5 px-2 md:px-6 border border-greenApp 
+        className={`py-2 md:py-2.5 lg:py-2.5 px-2 md:px-6 border  bg-whiteApp border-greenApp 
       text-xs lg:text-sm rounded-xl focus:bg-darkGreenApp hover:bg-greenApp
       transition duration-300 shadow-xl group`}
         onClick={handleClick}

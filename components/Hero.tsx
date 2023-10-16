@@ -59,7 +59,11 @@ const Hero = () => {
                 <Button text="Isi Data Prestasimu !" />
               </a>
               <a href="/dokumentasi">
-                <Button text="Setup !" btnType="submit" theme="secondary" />
+                <Button
+                  text="Dapatkan Dokumen"
+                  btnType="submit"
+                  theme="secondary"
+                />
               </a>
             </div>
           </div>
