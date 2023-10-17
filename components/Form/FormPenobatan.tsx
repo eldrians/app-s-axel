@@ -57,7 +57,7 @@ const FormPenobatan = ({ dataMahasiswa }: MainFormProps) => {
         data[header] = dataMahasiswa.email;
       } else if (header == "urlSheet") {
         data[header] = dataMahasiswa.urlSheet;
-      }else if (header == "totalScore") {
+      } else if (header == "totalScore") {
         data[header] = 0;
       } else {
         const inputElement = e.currentTarget.elements.namedItem(
@@ -111,7 +111,13 @@ const FormPenobatan = ({ dataMahasiswa }: MainFormProps) => {
             label="Tingkat"
             id="tingkat"
             name="tingkat"
-            option={["Internasional", "Regional", "Nasional", "Provinsi"]}
+            option={[
+              "Internasional",
+              "Regional",
+              "Nasional",
+              "Provinsi",
+              "Perguruan Tinggi",
+            ]}
           />
           <InputText
             label="Lembaga"
