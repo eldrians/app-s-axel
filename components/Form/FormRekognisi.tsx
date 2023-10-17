@@ -3,7 +3,7 @@ import { setCookie } from "cookies-next";
 import React from "react";
 import { Button, InputText, InputDropdown } from "@/components";
 import { useState } from "react";
-import { ToastInfo } from "@/utils/toasts";
+import { ToastError, ToastSuccess } from "@/utils/toasts";
 import { RekognisiHeaders } from "@/utils/achievementHeader";
 
 type MainFormProps = {
@@ -77,7 +77,9 @@ const FormRekognisi = ({ dataMahasiswa }: MainFormProps) => {
         },
       });
 
-      if (response.ok) {
+      var info = await response.json();
+
+      if (info.message == "done") {
         setFormData({
           demandKey: "",
           urlPrestasi: "",
@@ -86,9 +88,9 @@ const FormRekognisi = ({ dataMahasiswa }: MainFormProps) => {
           jumlahPeserta: "",
           tahun: "",
         });
-        ToastInfo("Data Sudah Masuk");
+        ToastSuccess("Terimakasih data sudah masuk");
       } else {
-        throw new Error("HTTP error! status: " + response.status);
+        ToastError("Pastikan gsheet sudah di set PUBLIC dan EDITOR !");
       }
     } catch (error: any) {
       console.log("error " + error.message);

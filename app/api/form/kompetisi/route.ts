@@ -1,5 +1,4 @@
 import { NextResponse } from "next/server";
-import { deleteCookie, setCookie } from "cookies-next";
 
 type FormData = {
   jenisPrestasi?: string;
@@ -168,15 +167,10 @@ export async function POST(request: Request) {
         },
       }
     );
-    const res = await response.json();
-    console.log(res);
-    if (!response.ok) {
-      throw new Error("HTTP error! status: " + response.status);
-    }
-
-    const responseData = await response.json();
   } catch (error: any) {
-    console.log("error " + error.message);
+    return NextResponse.json({
+      message: "error",
+    });
   }
   return NextResponse.json({
     jenisPrestasi,
@@ -199,5 +193,8 @@ export async function POST(request: Request) {
     tingkat,
     tahun,
     totalScore,
+
+    // message
+    message: "done",
   });
 }

@@ -129,10 +129,10 @@ export async function POST(request: Request) {
     if (!response.ok) {
       throw new Error("HTTP error! status: " + response.status);
     }
-
-    const responseData = await response.json();
   } catch (error: any) {
-    console.log("error " + error.message);
+    return NextResponse.json({
+      message: "error",
+    });
   }
   return NextResponse.json({
     jenisPrestasi,
@@ -155,5 +155,8 @@ export async function POST(request: Request) {
     tingkat,
     tahun,
     totalScore,
+
+    // message
+    message: "done",
   });
 }

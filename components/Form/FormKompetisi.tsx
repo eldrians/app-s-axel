@@ -4,7 +4,7 @@ import { setCookie } from "cookies-next";
 import React, { useEffect } from "react";
 import { Button, InputText, InputDropdown } from "@/components";
 import { useState } from "react";
-import { ToastInfo } from "@/utils/toasts";
+import { ToastError, ToastSuccess } from "@/utils/toasts";
 import { KompetisiHeaders } from "@/utils/achievementHeader";
 
 type MainFormProps = {
@@ -78,7 +78,9 @@ const FormKompetisi = ({ dataMahasiswa }: MainFormProps) => {
         },
       });
 
-      if (response.ok) {
+      var info = await response.json();
+
+      if (info.message == "done") {
         setFormData({
           demandKey: "",
           urlPrestasi: "",
@@ -86,10 +88,11 @@ const FormKompetisi = ({ dataMahasiswa }: MainFormProps) => {
           namaKompetisi: "",
           tahun: "",
         });
-        ToastInfo("Data Sudah Masuk");
+        ToastSuccess("Terimakasih data sudah masuk");
       } else {
-        throw new Error("HTTP error! status: " + response.status);
+        ToastError("Pastikan gsheet sudah di set PUBLIC dan EDITOR !");
       }
+      var info = await response.json();
     } catch (error: any) {
       console.log("error " + error.message);
     }

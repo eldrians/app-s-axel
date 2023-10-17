@@ -2,7 +2,7 @@
 import React from "react";
 import { Button, InputText, InputDropdown } from "@/components";
 import { useState } from "react";
-import { ToastInfo } from "@/utils/toasts";
+import { ToastError, ToastSuccess } from "@/utils/toasts";
 import { KewirausahaanHeaders } from "@/utils/achievementHeader"; // rubah
 import { setCookie } from "cookies-next";
 
@@ -76,8 +76,9 @@ const FormKompetisi = ({ dataMahasiswa }: MainFormProps) => {
           "Content-Type": "application/json",
         },
       });
+      var info = await response.json();
 
-      if (response.ok) {
+      if (info.message == "done") {
         setFormData({
           demandKey: "",
           urlPrestasi: "",
@@ -85,9 +86,9 @@ const FormKompetisi = ({ dataMahasiswa }: MainFormProps) => {
           bidang: "",
           jumlahKaryawan: "",
         });
-        ToastInfo("Data Sudah Masuk");
+        ToastSuccess("Terimakasih data sudah masuk");
       } else {
-        throw new Error("HTTP error! status: " + response.status);
+        ToastError("Pastikan gsheet sudah di set PUBLIC dan EDITOR !");
       }
     } catch (error: any) {
       console.log("error " + error.message);
