@@ -24,7 +24,10 @@ const Benefit = () => {
             />
             <div className="w-full md:w-1/2 text-center md:text-left ml-0 md:ml-6 text-sm md:text-base lg:text-xl pt-6 md:pt-0">
               <p className="text-darkApp/90 font-medium border-y-2 border-greenApp py-4 2xl:py-8">
-                Masukan data prestasimu pada form diatas, data akan terkirim ke perguruan tinggi sekaligus ke file gsheet-mu, sistem akan membantumu untuk mengorganisir data prestasimu dengan rapih dan terstruktur 😉
+                Masukan data prestasimu pada form diatas, data akan terkirim ke
+                perguruan tinggi sekaligus ke file gsheet-mu, sistem akan
+                membantumu untuk mengorganisir data prestasimu dengan rapih dan
+                terstruktur 😉
               </p>
             </div>
           </div>
