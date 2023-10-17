@@ -15,7 +15,7 @@ type FormData = {
 
   // data Karya Ilmiah
   judul?: string;
-  kategori?: string;
+  jenisKTI?: string;
   statusKTI?: string;
   statusPenulis?: string;
   dosenPembimbing?: string;
@@ -47,7 +47,7 @@ export async function POST(request: Request) {
 
     // data Karya Ilmiah
     judul,
-    kategori,
+    jenisKTI,
     statusKTI,
     statusPenulis,
     dosenPembimbing,
@@ -56,6 +56,35 @@ export async function POST(request: Request) {
     tahun,
     totalScore,
   } = data;
+  if (data.jenisKTI == "Jurnal") {
+    if (data.statusPenulis == "Utama/Korespondensi") {
+      if (data.tingkat == "Internasional") {
+        data.totalScore = 50;
+      } else if (data.tingkat == "Nasional") {
+        data.totalScore = 30;
+      }
+    } else {
+      if (data.tingkat == "Internasional") {
+        data.totalScore = 30;
+      } else if (data.tingkat == "Nasional") {
+        data.totalScore = 20;
+      }
+    }
+  } else if (data.jenisKTI == "Buku") {
+    if (data.statusPenulis == "Utama/Korespondensi") {
+      if (data.tingkat == "Nasional") {
+        data.totalScore = 30;
+      }
+    } else {
+      if (data.tingkat == "Nasional") {
+        data.totalScore = 20;
+      }
+    }
+  } else {
+    if (data.tingkat == "Nasional") {
+      data.totalScore = 30;
+    }
+  }
   try {
     const response = await fetch(
       "https://script.google.com/macros/s/AKfycbwoUI3PSqCUF_xyNMU9vugMuMZ8x1O5JGqy8v5KKfukPpBE7fm0HcKpAKENiBXSxvL8VA/exec",
@@ -92,7 +121,7 @@ export async function POST(request: Request) {
 
     // data Karya Ilmiah
     judul,
-    kategori,
+    jenisKTI,
     statusKTI,
     statusPenulis,
     dosenPembimbing,

@@ -38,7 +38,7 @@ export const KaryaIlmiahHeaders = [
 
   // dataKaryaIlmiah
   "judul",
-  "kategori",
+  "jenisKTI",
   "statusKTI",
   "statusPenulis",
   "dosenPembimbing",

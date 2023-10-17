@@ -22,7 +22,6 @@ const FormKaryaIlmiah = ({ dataMahasiswa }: MainFormProps) => {
 
     //dataKompetisi
     judul: "",
-    kategori: "",
     dosenPembimbing: "",
     namaPenerbit: "",
     tahun: "",
@@ -87,7 +86,6 @@ const FormKaryaIlmiah = ({ dataMahasiswa }: MainFormProps) => {
           demandKey: "",
           urlPrestasi: "",
           judul: "",
-          kategori: "",
           dosenPembimbing: "",
           namaPenerbit: "",
           tahun: "",
@@ -113,13 +111,11 @@ const FormKaryaIlmiah = ({ dataMahasiswa }: MainFormProps) => {
             value={formData.judul}
             onChange={handleInputChange}
           />
-          <InputText
-            label="Kategori KTI"
-            placeholder="ex: Teknologi"
-            id="kategori"
-            name="kategori"
-            value={formData.kategori}
-            onChange={handleInputChange}
+          <InputDropdown
+            label="Jenis KTI"
+            id="jenisKTI"
+            name="jenisKTI"
+            option={["Jurnal", "Buku", "Lainnya"]}
           />
           <InputDropdown
             label="Status KTI"
