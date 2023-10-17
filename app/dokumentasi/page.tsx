@@ -1,11 +1,4 @@
-import {
-  Benefit,
-  Button,
-  DuplicateInfo,
-  EmailInfo,
-  FormInfo,
-  Intro,
-} from "@/components";
+import { Button, DuplicateInfo, EmailInfo } from "@/components";
 const page = () => {
   return (
     <div>
