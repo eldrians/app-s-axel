@@ -71,7 +71,7 @@ export async function POST(request: Request) {
     } else if (data.tingkat == "Perguruan Tinggi") {
       data.totalScore = 5;
     }
-  } else if (data.peran == "Koordinator Relawan") {
+  } else if (data.peran == "Relawan") {
     if (data.tingkat == "Internasional") {
       data.totalScore = 25;
     } else if (data.tingkat == "Regional") {
