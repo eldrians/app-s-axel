@@ -167,6 +167,11 @@ export async function POST(request: Request) {
         },
       }
     );
+    const res = await response.json();
+    console.log(res);
+    if (!response.ok) {
+      throw new Error("HTTP error! status: " + response.status);
+    }
   } catch (error: any) {
     return NextResponse.json({
       message: "error",
