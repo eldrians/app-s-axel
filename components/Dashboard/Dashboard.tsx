@@ -1,8 +1,39 @@
-import React from "react";
+"use client";
+import React, { useRef, useEffect } from "react";
+import {
+  Chart as ChartJS,
+  CategoryScale,
+  LinearScale,
+  Tooltip,
+  PointElement,
+  LineElement,
+  ArcElement,
+  Legend,
+} from "chart.js";
+import { Line, Pie } from "react-chartjs-2";
 
+// Register ChartJS components using ChartJS.register
+ChartJS.register(
+  ArcElement,
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  LineElement,
+  Legend,
+  Tooltip
+);
 const Dashboard = () => {
+  const dataLineChart = {
+    labels: ["2020", "2021", "2022", "2023"],
+    datasets: [
+      {
+        data: [100, 120, 115, 134],
+        backgroundColor: "darkGreen",
+      },
+    ],
+  };
   return (
-    <div className="w-full h-full p-12">
+    <div className="w-full h-full p-12 flex flex-col gap-8">
       {/* bagian 1 */}
       <div className="w-full flex flex-row gap-4">
         <div className="w-1/3 h-[130px] rounded shadow-lg flex flex-row">
@@ -80,7 +111,38 @@ const Dashboard = () => {
       </div>
 
       {/* bagian 2 */}
-      <div></div>
+      <div className="w-full flex flex-row gap-4">
+        <div className="w-3/5 h-fit  p-4 rounded shadow-lg border border-greenApp">
+          <Line
+            data={dataLineChart}
+            options={{
+              plugins: {
+                legend: {
+                  display: true,
+                },
+              },
+            }}
+          />
+        </div>
+        <div className="w-2/5 h-full bg-red-300 ">
+          <div className="bg-white p-2 border border-greenApp rounded shadow-lg w-full flex flex-col justify-center items-center">
+            <div className="w-[300px] h-full">
+              <Pie
+                data={{
+                  labels: ["2020", "2021", "2022"],
+                  datasets: [
+                    {
+                      data: [30, 40, 30],
+                      backgroundColor: ["#26A668", "#36A2EB", "#FFCE56"],
+                    },
+                  ],
+                }}
+                options={{}}
+              />
+            </div>
+          </div>
+        </div>
+      </div>
 
       {/* bagian 3 */}
       <div></div>
