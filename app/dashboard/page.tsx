@@ -1,7 +1,8 @@
+import { Dashboard } from "@/components";
 const page = () => {
   return (
     <div>
-      <div>dashboard</div>
+      <Dashboard />
     </div>
   );
 };

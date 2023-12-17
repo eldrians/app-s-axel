@@ -27,6 +27,7 @@ import Benefit from "./Dokumentasi/Benefit";
 // dashboard
 import HeaderDashboard from "./Dashboard/HeaderDashboard";
 import SidebarDashboard from "./Dashboard/SidebarDashboard";
+import Dashboard from "./Dashboard/Dashboard";
 
 export {
   Header,
@@ -52,4 +53,5 @@ export {
   Benefit,
   HeaderDashboard,
   SidebarDashboard,
+  Dashboard,
 };
