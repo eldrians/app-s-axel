@@ -24,6 +24,10 @@ import DuplicateInfo from "./Dokumentasi/DuplicateInfo";
 import FormInfo from "./Dokumentasi/FormInfo";
 import Benefit from "./Dokumentasi/Benefit";
 
+// dashboard
+import HeaderDashboard from "./Dashboard/HeaderDashboard";
+import SidebarDashboard from "./Dashboard/SidebarDashboard";
+
 export {
   Header,
   Hero,
@@ -46,4 +50,6 @@ export {
   DuplicateInfo,
   FormInfo,
   Benefit,
+  HeaderDashboard,
+  SidebarDashboard,
 };
