@@ -41,7 +41,7 @@ const SidebarDashboard = () => {
         <ul>
           <li className="p-2 bg-white rounded hover:font-semibold text-darkApp">
             <a
-              href="/dashboard"
+              href="/dashboard/data"
               className="flex flex-row gap-2 justify-start items-center"
             >
               <svg

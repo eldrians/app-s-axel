@@ -1,5 +1,5 @@
 "use client";
-import { Header, SidebarDashboard } from "@/components";
+import { Header, SidebarDashboard, HeaderDashboard } from "@/components";
 import "./globals.css";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -27,7 +27,19 @@ export default function RootLayout({
         <link rel="shortcut icon" href="/favicon/favicon.ico" />
       </head>
       <body className={roboto.className}>
-        {pathName !== "/dashboard" ? (
+        {pathName.startsWith("/dashboard") ? (
+          <div className="flex flex-row w-full h-screen">
+            <div className="w-1/5 h-full">
+              <SidebarDashboard />
+            </div>
+            <div className="w-4/5 h-full">
+              <div className="w-full h-[50px] border-b shadow-lg">
+                <HeaderDashboard />
+              </div>
+              <div>{children}</div>
+            </div>
+          </div>
+        ) : (
           <div>
             <Header />
             <main>{children}</main>
@@ -43,16 +55,6 @@ export default function RootLayout({
               pauseOnHover
               theme="light"
             />
-          </div>
-        ) : (
-          <div className="flex flex-row w-full h-screen">
-            <div className="w-1/5 h-full">
-              <SidebarDashboard />
-            </div>
-            <div className="w-4/5 bg-blue-400 h-full"></div>
-            {/* <SidebarDashboard />
-            <div>B</div>
-            <main>{children}</main> */}
           </div>
         )}
       </body>
