@@ -1,37 +1,39 @@
 "use client";
-import React, { useRef, useEffect } from "react";
-import {
-  Chart as ChartJS,
-  CategoryScale,
-  LinearScale,
-  Tooltip,
-  PointElement,
-  LineElement,
-  ArcElement,
-  Legend,
-} from "chart.js";
-import { Line, Pie } from "react-chartjs-2";
+import React, { useEffect, useState } from "react";
+import { BarChart, LineChart, PieChart } from "@/components";
 
-// Register ChartJS components using ChartJS.register
-ChartJS.register(
-  ArcElement,
-  CategoryScale,
-  LinearScale,
-  PointElement,
-  LineElement,
-  Legend,
-  Tooltip
-);
 const Dashboard = () => {
-  const dataLineChart = {
-    labels: ["2020", "2021", "2022", "2023"],
-    datasets: [
-      {
-        data: [100, 120, 115, 134],
-        backgroundColor: "darkGreen",
-      },
-    ],
-  };
+  const [dataDashboard, setDataDashboard] = useState({
+    mahasiswa: 0,
+    prestasi: 0,
+    kompetisi: 0,
+    karyaIlmiah: 0,
+    rekognisi: 0,
+    penobatan: 0,
+    organisasi: 0,
+    kewirausahaan: 0,
+    aksiKemanusiaan: 0,
+    mahasiswa2020: 0,
+    mahasiswa2021: 0,
+    mahasiswa2022: 0,
+    mahasiswa2023: 0,
+  });
+  useEffect(() => {
+    const fetchDataDashboard = async () => {
+      try {
+        const res = await fetch(
+          "https://script.google.com/macros/s/AKfycbzrbq690QFoaWsidjc1S4Wf-tT-qtYtN70ObrT1f6JJwE87KsovLFL7U_5f8AOhxZnT_Q/exec"
+        );
+        const data = await res.json();
+        console.log(data.data[0]);
+        setDataDashboard(data.data[0]);
+      } catch (error) {
+        console.log("Error", error);
+      }
+    };
+
+    fetchDataDashboard();
+  }, []);
   return (
     <div className="w-full h-full p-12 flex flex-col gap-8">
       {/* bagian 1 */}
@@ -54,7 +56,7 @@ const Dashboard = () => {
             </svg>
           </div>
           <div className="w-3/5 h-full flex flex-col py-4 items-start justify-center text-darkApp">
-            <div className="text-4xl font-bold">20</div>
+            <div className="text-4xl font-bold">{dataDashboard.mahasiswa}</div>
             <div className="text-sm flex items-center gap-2 text-gray-500">
               <p>mahasiswa berprestasi</p>
             </div>
@@ -78,7 +80,7 @@ const Dashboard = () => {
             </svg>
           </div>
           <div className="w-3/5 h-full flex flex-col py-4 items-start justify-center text-darkApp">
-            <div className="text-4xl font-bold">152</div>
+            <div className="text-4xl font-bold">{dataDashboard.prestasi}</div>
             <div className="text-sm flex items-center gap-2 text-gray-500">
               <p>prestasi</p>
             </div>
@@ -113,32 +115,33 @@ const Dashboard = () => {
       {/* bagian 2 */}
       <div className="w-full flex flex-row gap-4">
         <div className="w-3/5 h-fit  p-4 rounded shadow-lg border border-greenApp">
-          <Line
-            data={dataLineChart}
-            options={{
-              plugins: {
-                legend: {
-                  display: true,
-                },
-              },
-            }}
-          />
+          <div>
+            <BarChart
+              labels={[
+                "Kompetisi",
+                "Karya Ilmiah",
+                "Rekognisi",
+                "Penobatan",
+                "Organisasi",
+                "Kewiraushaan",
+                "Aksi Kemanusiaan",
+              ]}
+              data={[
+                dataDashboard.kompetisi,
+                dataDashboard.karyaIlmiah,
+                dataDashboard.rekognisi,
+                dataDashboard.penobatan,
+                dataDashboard.organisasi,
+                dataDashboard.kewirausahaan,
+                dataDashboard.aksiKemanusiaan,
+              ]}
+            />
+          </div>
         </div>
         <div className="w-2/5 h-full bg-red-300 ">
           <div className="bg-white p-2 border border-greenApp rounded shadow-lg w-full flex flex-col justify-center items-center">
             <div className="w-[300px] h-full">
-              <Pie
-                data={{
-                  labels: ["2020", "2021", "2022"],
-                  datasets: [
-                    {
-                      data: [30, 40, 30],
-                      backgroundColor: ["#26A668", "#36A2EB", "#FFCE56"],
-                    },
-                  ],
-                }}
-                options={{}}
-              />
+              <PieChart labels={["2020", "2021", "2022"]} data={[30, 40, 30]} />
             </div>
           </div>
         </div>

@@ -5,13 +5,15 @@ const SidebarDashboard = () => {
   return (
     <div className="w-full h-full flex flex-col justify-between items-center bg-greenApp/80">
       <div className="h-1/6 w-full flex justify-center items-center">
-        <Image
-          src="/neo-white-text.png"
-          alt="Neo Data - Collection"
-          width={75}
-          height={75}
-          className="w-16 md:w-20 lg:w-24"
-        />
+        <a href="/">
+          <Image
+            src="/neo-white-text.png"
+            alt="Neo Data - Collection"
+            width={75}
+            height={75}
+            className="w-16 md:w-20 lg:w-24"
+          />
+        </a>
       </div>
       <div className="h-4/6 w-full p-12 space-y-2">
         <ul>

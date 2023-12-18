@@ -29,6 +29,11 @@ import HeaderDashboard from "./Dashboard/HeaderDashboard";
 import SidebarDashboard from "./Dashboard/SidebarDashboard";
 import Dashboard from "./Dashboard/Dashboard";
 
+// chart
+import LineChart from "./Chart/LineChart";
+import PieChart from "./Chart/PieChart";
+import BarChart from "./Chart/BarChart";
+
 export {
   Header,
   Hero,
@@ -54,4 +59,7 @@ export {
   HeaderDashboard,
   SidebarDashboard,
   Dashboard,
+  LineChart,
+  PieChart,
+  BarChart,
 };
