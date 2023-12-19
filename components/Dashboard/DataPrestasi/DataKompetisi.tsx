@@ -43,69 +43,6 @@ const DataKompetisi = () => {
     fetchDataKompetisi();
   }, []);
 
-  const columns = [
-    {
-      key: "score",
-      label: "Score",
-    },
-    {
-      key: "nama",
-      label: "Nama",
-    },
-    {
-      key: "nim",
-      label: "NIM",
-    },
-    {
-      key: "email",
-      label: "Email",
-    },
-    {
-      key: "urlSheet",
-      label: "URL Sheet",
-    },
-    {
-      key: "idPrestasi",
-      label: "ID Prestasi",
-    },
-    {
-      key: "demandKey",
-      label: "Demand Key",
-    },
-    {
-      key: "capaian",
-      label: "Capaian",
-    },
-    {
-      key: "kategori",
-      label: "Kategori",
-    },
-    {
-      key: "statusTim",
-      label: "Status Tim",
-    },
-    {
-      key: "namaKompetisi",
-      label: "Nama Kompetisi",
-    },
-    {
-      key: "tingkat",
-      label: "Tingkat",
-    },
-    {
-      key: "tahun",
-      label: "Tahun",
-    },
-    {
-      key: "url",
-      label: "URL",
-    },
-    {
-      key: "timestamp",
-      label: "Timestamp",
-    },
-  ];
-
   const rowsKompetisi = dataKompetisi.map(
     ({
       idPrestasi,
