@@ -28,6 +28,8 @@ import Benefit from "./Dokumentasi/Benefit";
 import HeaderDashboard from "./Dashboard/HeaderDashboard";
 import SidebarDashboard from "./Dashboard/SidebarDashboard";
 import Dashboard from "./Dashboard/Dashboard";
+import TableComponent from "./Dashboard/Table";
+import DataKompetisi from "./Dashboard/DataPrestasi/DataKompetisi";
 
 // chart
 import LineChart from "./Chart/LineChart";
@@ -59,6 +61,8 @@ export {
   HeaderDashboard,
   SidebarDashboard,
   Dashboard,
+  TableComponent,
+  DataKompetisi,
   LineChart,
   PieChart,
   BarChart,

@@ -22,7 +22,6 @@ const BarChart = ({ labels, data }: { labels: String[]; data: Number[] }) => {
         backgroundColor: "#fff",
         borderColor: "darkGreen",
         borderWidth: 1,
-        
       },
     ],
   };

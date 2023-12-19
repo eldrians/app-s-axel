@@ -25,10 +25,9 @@ const Dashboard = () => {
           "https://script.google.com/macros/s/AKfycbzrbq690QFoaWsidjc1S4Wf-tT-qtYtN70ObrT1f6JJwE87KsovLFL7U_5f8AOhxZnT_Q/exec"
         );
         const data = await res.json();
-        console.log(data.data[0]);
         setDataDashboard(data.data[0]);
       } catch (error) {
-        console.log("Error", error);
+        console.log(error);
       }
     };
 
