@@ -2,9 +2,6 @@
 import React, { useEffect, useState } from "react";
 import { TableComponent } from "@/components";
 const DataKompetisi = () => {
-  // const [dataKompetisi, setDataKompetisi] = useState({
-  // });
-
   const [dataKompetisi, setDataKompetisi] = useState([
     {
       score: 0,
@@ -69,7 +66,7 @@ const DataKompetisi = () => {
           TABEL KOMPETISI
         </h1>
       </div>
-      <div className="w-full h-5/6 overflow-scroll ">
+      <div className="w-full h-5/6 overflow-scroll">
         <TableComponent columns={newColumns} rows={dataKompetisi} />
       </div>
     </div>
