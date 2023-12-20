@@ -26,12 +26,18 @@ const DataOrganisasi = () => {
     // rubah nama
     const fetchDataOrganisasi = async () => {
       try {
-        //rubah
-        const res = await fetch(
-          "https://script.google.com/macros/s/AKfycbzMec1oHDLO-exHQ5F2pE_4IddsTx9qx4EeFzM4uRtAPaqIztHfM-gic2KVXhOsWNJm/exec?type=o"
-        );
-        const data = await res.json();
-        setDataOrganisasi(data.data);
+        let value: any = localStorage.getItem("data-organisasi");
+        if (value) {
+          const parsedData = JSON.parse(value);
+          setDataOrganisasi(parsedData);
+        } else {
+          const res = await fetch(
+            "https://script.google.com/macros/s/AKfycbzMec1oHDLO-exHQ5F2pE_4IddsTx9qx4EeFzM4uRtAPaqIztHfM-gic2KVXhOsWNJm/exec?type=o"
+          );
+          const data = await res.json();
+          setDataOrganisasi(data.data);
+          localStorage.setItem("data-organisasi", JSON.stringify(data.data));
+        }
       } catch (error) {
         console.log(error);
       }

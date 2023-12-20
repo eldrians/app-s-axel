@@ -42,7 +42,6 @@ export const SIDENAV_ITEMS: SideNavItem[] = [
     ),
     submenu: true,
     subMenuItems: [
-      { title: "All", path: "/dashboard/data" },
       { title: "Kompetisi", path: "/dashboard/data/kompetisi" },
       { title: "Karya Ilmiah", path: "/dashboard/data/karyailmiah" },
       { title: "Rekognisi", path: "/dashboard/data/rekognisi" },

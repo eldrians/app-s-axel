@@ -28,12 +28,21 @@ const DataAksiKemanusiaan = () => {
     // rubah nama
     const fetchDataAksiKemanusiaan = async () => {
       try {
-        //rubah
-        const res = await fetch(
-          "https://script.google.com/macros/s/AKfycbzMec1oHDLO-exHQ5F2pE_4IddsTx9qx4EeFzM4uRtAPaqIztHfM-gic2KVXhOsWNJm/exec?type=ak"
-        );
-        const data = await res.json();
-        setDataAksiKemanusiaan(data.data);
+        let value: any = localStorage.getItem("data-aksi-kemanusiaan");
+        if (value) {
+          const parsedData = JSON.parse(value);
+          setDataAksiKemanusiaan(parsedData);
+        } else {
+          const res = await fetch(
+            "https://script.google.com/macros/s/AKfycbzMec1oHDLO-exHQ5F2pE_4IddsTx9qx4EeFzM4uRtAPaqIztHfM-gic2KVXhOsWNJm/exec?type=ak"
+          );
+          const data = await res.json();
+          setDataAksiKemanusiaan(data.data);
+          localStorage.setItem(
+            "data-aksi-kemanusiaan",
+            JSON.stringify(data.data)
+          );
+        }
       } catch (error) {
         console.log(error);
       }

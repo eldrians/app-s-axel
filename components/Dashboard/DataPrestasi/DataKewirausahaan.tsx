@@ -29,12 +29,18 @@ const DataKewirausahaan = () => {
     // rubah nama
     const fetchDataKewirausahaan = async () => {
       try {
-        //rubah
-        const res = await fetch(
-          "https://script.google.com/macros/s/AKfycbzMec1oHDLO-exHQ5F2pE_4IddsTx9qx4EeFzM4uRtAPaqIztHfM-gic2KVXhOsWNJm/exec?type=u"
-        );
-        const data = await res.json();
-        setDataKewirausahaan(data.data);
+        let value: any = localStorage.getItem("data-kewirausahaan");
+        if (value) {
+          const parsedData = JSON.parse(value);
+          setDataKewirausahaan(parsedData);
+        } else {
+          const res = await fetch(
+            "https://script.google.com/macros/s/AKfycbzMec1oHDLO-exHQ5F2pE_4IddsTx9qx4EeFzM4uRtAPaqIztHfM-gic2KVXhOsWNJm/exec?type=u"
+          );
+          const data = await res.json();
+          setDataKewirausahaan(data.data);
+          localStorage.setItem("data-kewirausahaan", JSON.stringify(data.data));
+        }
       } catch (error) {
         console.log(error);
       }

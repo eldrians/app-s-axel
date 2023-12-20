@@ -25,15 +25,23 @@ const DataRekognisi = () => {
     },
   ]);
 
+  const [axel, setAxel] = useState(null);
+
   useEffect(() => {
     const fetchDataRekognisi = async () => {
       try {
-        //rubah
-        const res = await fetch(
-          "https://script.google.com/macros/s/AKfycbzMec1oHDLO-exHQ5F2pE_4IddsTx9qx4EeFzM4uRtAPaqIztHfM-gic2KVXhOsWNJm/exec?type=r"
-        );
-        const data = await res.json();
-        setDataRekognisi(data.data);
+        let value: any = localStorage.getItem("data-rekognisi");
+        if (value) {
+          const parsedData = JSON.parse(value);
+          setDataRekognisi(parsedData);
+        } else {
+          const res = await fetch(
+            "https://script.google.com/macros/s/AKfycbzMec1oHDLO-exHQ5F2pE_4IddsTx9qx4EeFzM4uRtAPaqIztHfM-gic2KVXhOsWNJm/exec?type=r"
+          );
+          const data = await res.json();
+          setDataRekognisi(data.data);
+          localStorage.setItem("data-rekognisi", JSON.stringify(data.data));
+        }
       } catch (error) {
         console.log(error);
       }

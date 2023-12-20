@@ -26,12 +26,18 @@ const DataPenobatan = () => {
     // rubah nama
     const fetchDataPenobatan = async () => {
       try {
-        //rubah
+        let value: any = localStorage.getItem("data-penobatan");
+        if (value) {
+          const parsedData = JSON.parse(value);
+          setDataPenobatan(parsedData);
+        } else {
         const res = await fetch(
           "https://script.google.com/macros/s/AKfycbzMec1oHDLO-exHQ5F2pE_4IddsTx9qx4EeFzM4uRtAPaqIztHfM-gic2KVXhOsWNJm/exec?type=p"
         );
         const data = await res.json();
         setDataPenobatan(data.data);
+        localStorage.setItem("data-penobatan", JSON.stringify(data.data));
+      }
       } catch (error) {
         console.log(error);
       }
