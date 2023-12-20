@@ -93,6 +93,17 @@ const ModalDashboard = ({
           </div>
         </div>
       );
+    } else if (jenisPrestasi == "penobatan") {
+      return (
+        <div>
+          <h1 className="text-2xl">
+            {data?.tandaKehormatan} {data?.lembaga}
+          </h1>
+          <div className="text-sm font-light text-darkApp">
+            {data?.nama} | {data?.nim}
+          </div>
+        </div>
+      );
     }
   };
 
@@ -174,6 +185,39 @@ const ModalDashboard = ({
             <TableCell>{data?.tahun}</TableCell>
           </TableRow>
           <TableRow key="10">
+            <TableCell>Timestamp</TableCell>
+            <TableCell>{data?.timestamp}</TableCell>
+          </TableRow>
+        </TableBody>
+      );
+    } else if (jenisPrestasi == "penobatan") {
+      return (
+        <TableBody>
+          <TableRow key="1">
+            <TableCell>ID Prestasi</TableCell>
+            <TableCell>{data?.idPrestasi}</TableCell>
+          </TableRow>
+          <TableRow key="2">
+            <TableCell>Email</TableCell>
+            <TableCell>{data?.email}</TableCell>
+          </TableRow>
+          <TableRow key="3">
+            <TableCell>Demand Key</TableCell>
+            <TableCell>{data?.demandKey}</TableCell>
+          </TableRow>
+          <TableRow key="4">
+            <TableCell>Tanda Kehormatan</TableCell>
+            <TableCell>{data?.tandaKehormatan}</TableCell>
+          </TableRow>
+          <TableRow key="5">
+            <TableCell>Lembaga</TableCell>
+            <TableCell>{data?.lembaga}</TableCell>
+          </TableRow>
+          <TableRow key="6">
+            <TableCell>Tingkat</TableCell>
+            <TableCell>{data?.tingkat}</TableCell>
+          </TableRow>
+          <TableRow key="7">
             <TableCell>Timestamp</TableCell>
             <TableCell>{data?.timestamp}</TableCell>
           </TableRow>

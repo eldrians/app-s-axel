@@ -20,7 +20,11 @@ import {
   SortDescriptor,
   Button,
 } from "@nextui-org/react";
-import { SwitchKompetisi, SwitchRekognisi } from "./RenderCell";
+import {
+  SwitchKompetisi,
+  SwitchPenobatan,
+  SwitchRekognisi,
+} from "./RenderCell";
 import { SearchIcon } from "./Example/SearchIcon";
 import { ChevronDownIcon } from "./Example/ChevronDownIcon";
 
@@ -180,12 +184,15 @@ const TableComponent = ({
     );
   }, [selectedKeys, items.length, page, pages, hasSearchFilter]);
 
+  //rubah
   const renderCell = useCallback((rows: any, columnKey: any) => {
     const cellValue = rows[columnKey];
     if (jenisPrestasi == "kompetisi") {
       return SwitchKompetisi(rows, columnKey, cellValue, jenisPrestasi);
     } else if (jenisPrestasi == "rekognisi") {
       return SwitchRekognisi(rows, columnKey, cellValue, jenisPrestasi);
+    } else if (jenisPrestasi == "penobatan") {
+      return SwitchPenobatan(rows, columnKey, cellValue, jenisPrestasi);
     }
   }, []);
   return (

@@ -31,6 +31,7 @@ import Dashboard from "./Dashboard/Dashboard";
 import TableComponent from "./Dashboard/Table";
 import DataKompetisi from "./Dashboard/DataPrestasi/DataKompetisi";
 import DataRekognisi from "./Dashboard/DataPrestasi/DataRekognisi";
+import DataPenobatan from "./Dashboard/DataPrestasi/DataPenobatan";
 import ModalDashboard from "./Dashboard/ModalDashboard";
 
 // chart
@@ -66,6 +67,7 @@ export {
   TableComponent,
   DataKompetisi,
   DataRekognisi,
+  DataPenobatan,
   ModalDashboard,
   LineChart,
   PieChart,

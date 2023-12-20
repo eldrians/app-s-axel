@@ -2,9 +2,9 @@
 import React, { useEffect, useState } from "react";
 import { TableComponent } from "@/components";
 // rubah nama
-const DataRekognisi = () => {
+const DataPenobatan = () => {
   // rubah isi dan nama
-  const [dataRekognisi, setDataRekognisi] = useState([
+  const [dataPenobatan, setDataPenobatan] = useState([
     {
       score: 0,
       nama: "",
@@ -14,32 +14,30 @@ const DataRekognisi = () => {
       idPrestasi: "",
       demandKey: "",
 
-      peran: "",
-      materi: "",
-      namaKegiatan: "",
-      jumlahPeserta: 0,
+      tandaKehormatan: "",
       tingkat: "",
-      tahun: 0,
+      lembaga: "",
       url: "",
       timestamp: "",
     },
   ]);
 
   useEffect(() => {
-    const fetchDataRekognisi = async () => {
+    // rubah nama
+    const fetchDataPenobatan = async () => {
       try {
         //rubah
         const res = await fetch(
-          "https://script.google.com/macros/s/AKfycbzMec1oHDLO-exHQ5F2pE_4IddsTx9qx4EeFzM4uRtAPaqIztHfM-gic2KVXhOsWNJm/exec?type=r"
+          "https://script.google.com/macros/s/AKfycbzMec1oHDLO-exHQ5F2pE_4IddsTx9qx4EeFzM4uRtAPaqIztHfM-gic2KVXhOsWNJm/exec?type=p"
         );
         const data = await res.json();
-        setDataRekognisi(data.data);
+        setDataPenobatan(data.data);
       } catch (error) {
         console.log(error);
       }
     };
 
-    fetchDataRekognisi();
+    fetchDataPenobatan();
   }, []);
 
   // rubah
@@ -49,12 +47,12 @@ const DataRekognisi = () => {
       label: "Nama",
     },
     {
-      key: "peran",
-      label: "Peran",
+      key: "tandaKehormatan",
+      label: "Tanda Kehormatan",
     },
     {
-      key: "namaKegiatan",
-      label: "Nama Kegiatan",
+      key: "tingkat",
+      label: "Tingkat",
     },
     {
       key: "action",
@@ -67,15 +65,15 @@ const DataRekognisi = () => {
       <div className="px-4">
         <h1 className="font-bold text-3xl text-darkApp mb-6">
           {/* rubah */}
-          TABEL REKOGNISI
+          TABEL PENOBATAN
         </h1>
       </div>
       <div className="w-full h-5/6 overflow-scroll">
         {/* rubah */}
         <TableComponent
           columns={newColumns}
-          rows={dataRekognisi}
-          jenisPrestasi="rekognisi"
+          rows={dataPenobatan}
+          jenisPrestasi="penobatan"
         />
       </div>
     </div>
@@ -83,4 +81,4 @@ const DataRekognisi = () => {
 };
 
 // rubah
-export default DataRekognisi;
+export default DataPenobatan;
