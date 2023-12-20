@@ -20,7 +20,7 @@ import {
   SortDescriptor,
   Button,
 } from "@nextui-org/react";
-import { SwitchKompetisi } from "./RenderCell";
+import { SwitchKompetisi, SwitchRekognisi } from "./RenderCell";
 import { SearchIcon } from "./Example/SearchIcon";
 import { ChevronDownIcon } from "./Example/ChevronDownIcon";
 
@@ -32,9 +32,11 @@ type ColumnsProps = {
 const TableComponent = ({
   columns,
   rows,
+  jenisPrestasi,
 }: {
   columns: ColumnsProps[];
   rows: any[];
+  jenisPrestasi: string;
 }) => {
   type Row = (typeof rows)[0];
   const [filterValue, setFilterValue] = useState("");
@@ -180,8 +182,11 @@ const TableComponent = ({
 
   const renderCell = useCallback((rows: any, columnKey: any) => {
     const cellValue = rows[columnKey];
-
-    return SwitchKompetisi(rows, columnKey, cellValue);
+    if (jenisPrestasi == "kompetisi") {
+      return SwitchKompetisi(rows, columnKey, cellValue, jenisPrestasi);
+    } else if (jenisPrestasi == "rekognisi") {
+      return SwitchRekognisi(rows, columnKey, cellValue, jenisPrestasi);
+    }
   }, []);
   return (
     <Table

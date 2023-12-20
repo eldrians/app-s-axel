@@ -20,7 +20,15 @@ import {
 } from "@nextui-org/react";
 import { DeleteIcon, EditIcon, EyeIcon } from "@/components/Icon";
 
-const ModalDashboard = ({ icon, data }: { icon: string; data?: any }) => {
+const ModalDashboard = ({
+  icon,
+  data,
+  jenisPrestasi,
+}: {
+  icon: string;
+  data?: any;
+  jenisPrestasi?: string;
+}) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   const handleOpen = () => {
@@ -49,6 +57,140 @@ const ModalDashboard = ({ icon, data }: { icon: string; data?: any }) => {
     }
   };
 
+  const HeaderModal = () => {
+    const title = () => {
+      if (data?.peran == "Lainnya") {
+        return (
+          <h1 className="text-2xl">
+            {data?.demandKey} {data?.materi}
+          </h1>
+        );
+      } else {
+        return (
+          <h1 className="text-2xl">
+            {data?.peran} {data?.materi}
+          </h1>
+        );
+      }
+    };
+    if (jenisPrestasi == "kompetisi") {
+      return (
+        <div>
+          <h1 className="text-2xl">
+            {data?.capaian} {data?.kategori}
+          </h1>
+          <div className="text-sm font-light text-darkApp">
+            {data?.nama} | {data?.nim}
+          </div>
+        </div>
+      );
+    } else if (jenisPrestasi == "rekognisi") {
+      return (
+        <div>
+          {title()}
+          <div className="text-sm font-light text-darkApp">
+            {data?.nama} | {data?.nim}
+          </div>
+        </div>
+      );
+    }
+  };
+
+  const TableBodyModal = () => {
+    if (jenisPrestasi == "kompetisi") {
+      return (
+        <TableBody>
+          <TableRow key="1">
+            <TableCell>ID Prestasi</TableCell>
+            <TableCell>{data?.idPrestasi}</TableCell>
+          </TableRow>
+          <TableRow key="2">
+            <TableCell>Email</TableCell>
+            <TableCell>{data?.email}</TableCell>
+          </TableRow>
+          <TableRow key="3">
+            <TableCell>Demand Key</TableCell>
+            <TableCell>{data?.demandKey}</TableCell>
+          </TableRow>
+          <TableRow key="4">
+            <TableCell>Status Tim</TableCell>
+            <TableCell>{data?.statusTim}</TableCell>
+          </TableRow>
+          <TableRow key="5">
+            <TableCell>Nama Kompetisi</TableCell>
+            <TableCell>{data?.namaKompetisi}</TableCell>
+          </TableRow>
+          <TableRow key="6">
+            <TableCell>Tingkat</TableCell>
+            <TableCell>{data?.tingkat}</TableCell>
+          </TableRow>
+          <TableRow key="7">
+            <TableCell>Tahun</TableCell>
+            <TableCell>{data?.tahun}</TableCell>
+          </TableRow>
+          <TableRow key="8">
+            <TableCell>Timestamp</TableCell>
+            <TableCell>{data?.timestamp}</TableCell>
+          </TableRow>
+        </TableBody>
+      );
+    } else if (jenisPrestasi == "rekognisi") {
+      return (
+        <TableBody>
+          <TableRow key="1">
+            <TableCell>ID Prestasi</TableCell>
+            <TableCell>{data?.idPrestasi}</TableCell>
+          </TableRow>
+          <TableRow key="2">
+            <TableCell>Email</TableCell>
+            <TableCell>{data?.email}</TableCell>
+          </TableRow>
+          <TableRow key="3">
+            <TableCell>Demand Key</TableCell>
+            <TableCell>{data?.demandKey}</TableCell>
+          </TableRow>
+          <TableRow key="4">
+            <TableCell>Peran</TableCell>
+            <TableCell>{data?.peran}</TableCell>
+          </TableRow>
+          <TableRow key="5">
+            <TableCell>Materi</TableCell>
+            <TableCell>{data?.materi}</TableCell>
+          </TableRow>
+          <TableRow key="6">
+            <TableCell>Nama Kegiatan</TableCell>
+            <TableCell>{data?.namaKegiatan}</TableCell>
+          </TableRow>
+          <TableRow key="7">
+            <TableCell>Jumlah Peserta</TableCell>
+            <TableCell>{data?.jumlahPeserta}</TableCell>
+          </TableRow>
+          <TableRow key="8">
+            <TableCell>Tingkat</TableCell>
+            <TableCell>{data?.tingkat}</TableCell>
+          </TableRow>
+          <TableRow key="9">
+            <TableCell>Tahun</TableCell>
+            <TableCell>{data?.tahun}</TableCell>
+          </TableRow>
+          <TableRow key="10">
+            <TableCell>Timestamp</TableCell>
+            <TableCell>{data?.timestamp}</TableCell>
+          </TableRow>
+        </TableBody>
+      );
+    } else {
+      return (
+        <TableBody>
+          <TableRow key="1">
+            <TableCell>ID Prestasi</TableCell>
+            <TableCell>{data?.idPrestasi}</TableCell>
+          </TableRow>
+        </TableBody>
+      );
+    }
+  };
+
   return (
     <>
       <div className="flex flex-wrap gap-3">{iconButton()}</div>
@@ -57,12 +199,7 @@ const ModalDashboard = ({ icon, data }: { icon: string; data?: any }) => {
           {(onClose) => (
             <>
               <ModalHeader className="flex flex-col gap-1">
-                <h1 className="text-2xl">
-                  {data?.capaian} {data?.kategori}
-                </h1>
-                <div className="text-sm font-light text-darkApp">
-                  {data?.nama} | {data?.nim}
-                </div>
+                {HeaderModal()}
               </ModalHeader>
               <ModalBody>
                 <Table hideHeader aria-label="table">
@@ -70,40 +207,7 @@ const ModalDashboard = ({ icon, data }: { icon: string; data?: any }) => {
                     <TableColumn>Header</TableColumn>
                     <TableColumn>Value</TableColumn>
                   </TableHeader>
-                  <TableBody>
-                    <TableRow key="1">
-                      <TableCell>ID Prestasi</TableCell>
-                      <TableCell>{data?.idPrestasi}</TableCell>
-                    </TableRow>
-                    <TableRow key="2">
-                      <TableCell>Email</TableCell>
-                      <TableCell>{data?.email}</TableCell>
-                    </TableRow>
-                    <TableRow key="3">
-                      <TableCell>Demand Key</TableCell>
-                      <TableCell>{data?.demandKey}</TableCell>
-                    </TableRow>
-                    <TableRow key="4">
-                      <TableCell>Status Tim</TableCell>
-                      <TableCell>{data?.statusTim}</TableCell>
-                    </TableRow>
-                    <TableRow key="5">
-                      <TableCell>Nama Kompetisi</TableCell>
-                      <TableCell>{data?.namaKompetisi}</TableCell>
-                    </TableRow>
-                    <TableRow key="6">
-                      <TableCell>Tingkat</TableCell>
-                      <TableCell>{data?.tingkat}</TableCell>
-                    </TableRow>
-                    <TableRow key="7">
-                      <TableCell>Tahun</TableCell>
-                      <TableCell>{data?.tahun}</TableCell>
-                    </TableRow>
-                    <TableRow key="8">
-                      <TableCell>Timestamp</TableCell>
-                      <TableCell>{data?.timestamp}</TableCell>
-                    </TableRow>
-                  </TableBody>
+                  {TableBodyModal()}
                 </Table>
               </ModalBody>
               <ModalFooter>

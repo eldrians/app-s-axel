@@ -1,8 +1,10 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import { TableComponent } from "@/components";
-const DataKompetisi = () => {
-  const [dataKompetisi, setDataKompetisi] = useState([
+// rubah nama
+const DataRekognisi = () => {
+  // rubah isi dan nama
+  const [dataRekognisi, setDataRekognisi] = useState([
     {
       score: 0,
       nama: "",
@@ -11,10 +13,11 @@ const DataKompetisi = () => {
       urlSheet: "",
       idPrestasi: "",
       demandKey: "",
-      capaian: "",
-      kategori: "",
-      statusTim: "",
-      namaKompetisi: "",
+
+      peran: "",
+      materi: "",
+      namaKegiatan: "",
+      jumlahPeserta: 0,
       tingkat: "",
       tahun: 0,
       url: "",
@@ -25,12 +28,13 @@ const DataKompetisi = () => {
   useEffect(() => {
     const fetchDataKompetisi = async () => {
       try {
+        //rubah
         const res = await fetch(
-          "https://script.google.com/macros/s/AKfycbzMec1oHDLO-exHQ5F2pE_4IddsTx9qx4EeFzM4uRtAPaqIztHfM-gic2KVXhOsWNJm/exec?type=k"
+          "https://script.google.com/macros/s/AKfycbzMec1oHDLO-exHQ5F2pE_4IddsTx9qx4EeFzM4uRtAPaqIztHfM-gic2KVXhOsWNJm/exec?type=r"
         );
         const data = await res.json();
-
-        setDataKompetisi(data.data);
+        console.log(data.data);
+        setDataRekognisi(data.data);
       } catch (error) {
         console.log(error);
       }
@@ -39,18 +43,19 @@ const DataKompetisi = () => {
     fetchDataKompetisi();
   }, []);
 
+  // rubah
   const newColumns = [
     {
       key: "nama",
       label: "Nama",
     },
     {
-      key: "capaian",
-      label: "Capaian",
+      key: "peran",
+      label: "Peran",
     },
     {
-      key: "namaKompetisi",
-      label: "Nama Kompetisi",
+      key: "namaKegiatan",
+      label: "Nama Kegiatan",
     },
     {
       key: "action",
@@ -62,18 +67,21 @@ const DataKompetisi = () => {
     <div className="w-full h-screen flex flex-col justify-center items-start px-12 pb-8 pt-2 bg-slate-100">
       <div className="px-4">
         <h1 className="font-bold text-3xl text-darkApp mb-6">
-          TABEL KOMPETISI
+          {/* rubah */}
+          TABEL REKOGNISI
         </h1>
       </div>
       <div className="w-full h-5/6 overflow-scroll">
+        {/* rubah */}
         <TableComponent
           columns={newColumns}
-          rows={dataKompetisi}
-          jenisPrestasi="kompetisi"
+          rows={dataRekognisi}
+          jenisPrestasi="rekognisi"
         />
       </div>
     </div>
   );
 };
 
-export default DataKompetisi;
+// rubah
+export default DataRekognisi;
