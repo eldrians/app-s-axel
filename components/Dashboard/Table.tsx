@@ -22,6 +22,7 @@ import {
 } from "@nextui-org/react";
 import {
   SwitchAksiKemanusiaan,
+  SwitchKaryaIlmiah,
   SwitchKewirausahaan,
   SwitchKompetisi,
   SwitchOrganisasi,
@@ -192,6 +193,8 @@ const TableComponent = ({
     const cellValue = rows[columnKey];
     if (jenisPrestasi == "kompetisi") {
       return SwitchKompetisi(rows, columnKey, cellValue, jenisPrestasi);
+    } else if (jenisPrestasi == "karyaIlmiah") {
+      return SwitchKaryaIlmiah(rows, columnKey, cellValue, jenisPrestasi);
     } else if (jenisPrestasi == "rekognisi") {
       return SwitchRekognisi(rows, columnKey, cellValue, jenisPrestasi);
     } else if (jenisPrestasi == "penobatan") {

@@ -63,7 +63,56 @@ const SwitchKaryaIlmiah = (
   columnKey: any,
   cellValue: any,
   jenisPrestasi: string
-) => {};
+) => {
+  switch (columnKey) {
+    case "nama":
+      return (
+        <div className="flex flex-col">
+          <div className="text-bold text-sm capitalize">{cellValue}</div>
+          <div className="text-bold text-sm capitalize text-default-400">
+            {rows.nim}
+          </div>
+        </div>
+      );
+    case "judul":
+      return (
+        <div className="flex flex-col">
+          <div className="text-bold text-sm capitalize">{cellValue}</div>
+          <div className="text-bold text-sm capitalize text-default-400">
+            {rows.jenisKTI}
+          </div>
+        </div>
+      );
+    case "namaPenerbit":
+      return (
+        <div className="flex flex-col">
+          <div className="text-bold text-sm capitalize">{cellValue}</div>
+          <div className="text-bold text-sm capitalize text-default-400">
+            <div>
+              {rows.tingkat} | {rows.tahun}
+            </div>
+          </div>
+        </div>
+      );
+    case "action":
+      return (
+        <div className="relative flex items-center gap-2">
+          <ModalDashboard
+            icon="eye"
+            data={rows}
+            jenisPrestasi={jenisPrestasi}
+          />
+          <ModalDashboard icon="delete" />
+        </div>
+      );
+    default:
+      return (
+        <div className="flex flex-col">
+          <div className="text-bold text-sm capitalize">{cellValue}</div>
+        </div>
+      );
+  }
+};
 const SwitchRekognisi = (
   rows: any,
   columnKey: any,

@@ -84,6 +84,15 @@ const ModalDashboard = ({
           </div>
         </div>
       );
+    } else if (jenisPrestasi == "karyaIlmiah") {
+      return (
+        <div>
+          <h1 className="text-2xl">{data?.judul}</h1>
+          <div className="text-sm font-light text-darkApp">
+            {data?.nama} | {data?.nim}
+          </div>
+        </div>
+      );
     } else if (jenisPrestasi == "rekognisi") {
       return (
         <div>
@@ -171,6 +180,59 @@ const ModalDashboard = ({
             <TableCell>{data?.tahun}</TableCell>
           </TableRow>
           <TableRow key="8">
+            <TableCell>Timestamp</TableCell>
+            <TableCell>{data?.timestamp}</TableCell>
+          </TableRow>
+        </TableBody>
+      );
+    } else if (jenisPrestasi == "karyaIlmiah") {
+      return (
+        <TableBody>
+          <TableRow key="1">
+            <TableCell>ID Prestasi</TableCell>
+            <TableCell>{data?.idPrestasi}</TableCell>
+          </TableRow>
+          <TableRow key="2">
+            <TableCell>Email</TableCell>
+            <TableCell>{data?.email}</TableCell>
+          </TableRow>
+          <TableRow key="3">
+            <TableCell>Demand Key</TableCell>
+            <TableCell>{data?.demandKey}</TableCell>
+          </TableRow>
+          <TableRow key="4">
+            <TableCell>Judul</TableCell>
+            <TableCell>{data?.judul}</TableCell>
+          </TableRow>
+          <TableRow key="5">
+            <TableCell>Jenis KTI</TableCell>
+            <TableCell>{data?.jenisKTI}</TableCell>
+          </TableRow>
+          <TableRow key="6">
+            <TableCell>Status KTI</TableCell>
+            <TableCell>{data?.statusKTI}</TableCell>
+          </TableRow>
+          <TableRow key="7">
+            <TableCell>Status Penulis</TableCell>
+            <TableCell>{data?.statusPenulis}</TableCell>
+          </TableRow>
+          <TableRow key="8">
+            <TableCell>Dosen Pembimbing</TableCell>
+            <TableCell>{data?.dosenPembimbing}</TableCell>
+          </TableRow>
+          <TableRow key="9">
+            <TableCell>Penerbit</TableCell>
+            <TableCell>{data?.namaPenerbit}</TableCell>
+          </TableRow>
+          <TableRow key="10">
+            <TableCell>Tingkat</TableCell>
+            <TableCell>{data?.tingkat}</TableCell>
+          </TableRow>
+          <TableRow key="11">
+            <TableCell>Tahun</TableCell>
+            <TableCell>{data?.tahun}</TableCell>
+          </TableRow>
+          <TableRow key="12">
             <TableCell>Timestamp</TableCell>
             <TableCell>{data?.timestamp}</TableCell>
           </TableRow>
