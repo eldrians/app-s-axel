@@ -35,7 +35,7 @@ import DataRekognisi from "./Dashboard/DataPrestasi/DataRekognisi";
 import DataPenobatan from "./Dashboard/DataPrestasi/DataPenobatan";
 import DataOrganisasi from "./Dashboard/DataPrestasi/DataOrganisasi";
 import DataAksiKemanusiaan from "./Dashboard/DataPrestasi/DataAksiKemanusiaan";
-// import DataKewirausahaan from "./Dashboard/DataPrestasi/DataKewirausahaan";
+import DataKewirausahaan from "./Dashboard/DataPrestasi/DataKewirausahaan";
 import ModalDashboard from "./Dashboard/ModalDashboard";
 
 // chart
@@ -75,7 +75,7 @@ export {
   DataPenobatan,
   DataOrganisasi,
   DataAksiKemanusiaan,
-  // DataKewirausahaan,
+  DataKewirausahaan,
   ModalDashboard,
   LineChart,
   PieChart,

@@ -126,6 +126,15 @@ const ModalDashboard = ({
           </div>
         </div>
       );
+    } else if (jenisPrestasi == "kewirausahaan") {
+      return (
+        <div>
+          <h1 className="text-2xl">{data?.namaUsaha}</h1>
+          <div className="text-sm font-light text-darkApp">
+            {data?.nama} | {data?.nim}
+          </div>
+        </div>
+      );
     }
   };
 
@@ -312,6 +321,43 @@ const ModalDashboard = ({
           <TableRow key="7">
             <TableCell>Tahun</TableCell>
             <TableCell>{data?.tahun}</TableCell>
+          </TableRow>
+          <TableRow key="8">
+            <TableCell>Timestamp</TableCell>
+            <TableCell>{data?.timestamp}</TableCell>
+          </TableRow>
+        </TableBody>
+      );
+    } else if (jenisPrestasi == "kewirausahaan") {
+      return (
+        <TableBody>
+          <TableRow key="1">
+            <TableCell>ID Prestasi</TableCell>
+            <TableCell>{data?.idPrestasi}</TableCell>
+          </TableRow>
+          <TableRow key="2">
+            <TableCell>Email</TableCell>
+            <TableCell>{data?.email}</TableCell>
+          </TableRow>
+          <TableRow key="3">
+            <TableCell>Demand Key</TableCell>
+            <TableCell>{data?.demandKey}</TableCell>
+          </TableRow>
+          <TableRow key="4">
+            <TableCell>Bidang</TableCell>
+            <TableCell>{data?.bidang}</TableCell>
+          </TableRow>
+          <TableRow key="5">
+            <TableCell>Status Hukum</TableCell>
+            <TableCell>{data?.statusHukum}</TableCell>
+          </TableRow>
+          <TableRow key="6">
+            <TableCell>Jumlah Karyawan</TableCell>
+            <TableCell>{data?.jumlahKaryawan}</TableCell>
+          </TableRow>
+          <TableRow key="7">
+            <TableCell>Tingkat</TableCell>
+            <TableCell>{data?.tingkat}</TableCell>
           </TableRow>
           <TableRow key="8">
             <TableCell>Timestamp</TableCell>
