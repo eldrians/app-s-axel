@@ -43,66 +43,34 @@ const DataKompetisi = () => {
     fetchDataKompetisi();
   }, []);
 
-  const rowsKompetisi = dataKompetisi.map(
-    ({
-      idPrestasi,
-      nama,
-      demandKey,
-      capaian,
-      kategori,
-      namaKompetisi,
-      tingkat,
-    }) => ({
-      idPrestasi,
-      nama,
-      demandKey,
-      capaian,
-      kategori,
-      namaKompetisi,
-      tingkat,
-    })
-  );
-
   const newColumns = [
-    {
-      key: "idPrestasi",
-      label: "ID Prestasi",
-    },
     {
       key: "nama",
       label: "Nama",
-    },
-    {
-      key: "demandKey",
-      label: "Demand Key",
     },
     {
       key: "capaian",
       label: "Capaian",
     },
     {
-      key: "kategori",
-      label: "Kategori",
-    },
-    {
       key: "namaKompetisi",
       label: "Nama Kompetisi",
     },
     {
-      key: "tingkat",
-      label: "Tingkat",
+      key: "action",
+      label: "Action",
     },
   ];
 
   return (
-    <div className="w-full h-full flex flex-col justify-center items-start px-12 py-8 bg-slate-100">
+    <div className="w-full h-screen flex flex-col justify-center items-start px-12 pb-8 pt-2 bg-slate-100">
       <div className="px-4">
         <h1 className="font-bold text-3xl text-darkApp mb-6">
           TABEL KOMPETISI
         </h1>
       </div>
-      <div className="w-full h-[450px] overflow-scroll bg-white">
-        <TableComponent columns={newColumns} rows={rowsKompetisi} />
+      <div className="w-full h-5/6 overflow-scroll ">
+        <TableComponent columns={newColumns} rows={dataKompetisi} />
       </div>
     </div>
   );

@@ -32,7 +32,7 @@ export default function RootLayout({
             <div className="w-1/5 h-full">
               <SidebarDashboard />
             </div>
-            <div className="w-4/5 h-full">
+            <div className="w-4/5 h-screen overflow-hidden">
               <div className="w-full h-[50px] border-b shadow-lg">
                 <HeaderDashboard />
               </div>
