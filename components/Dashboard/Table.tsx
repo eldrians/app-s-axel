@@ -22,6 +22,7 @@ import {
 } from "@nextui-org/react";
 import {
   SwitchKompetisi,
+  SwitchOrganisasi,
   SwitchPenobatan,
   SwitchRekognisi,
 } from "./RenderCell";
@@ -193,6 +194,8 @@ const TableComponent = ({
       return SwitchRekognisi(rows, columnKey, cellValue, jenisPrestasi);
     } else if (jenisPrestasi == "penobatan") {
       return SwitchPenobatan(rows, columnKey, cellValue, jenisPrestasi);
+    } else if (jenisPrestasi == "organisasi") {
+      return SwitchOrganisasi(rows, columnKey, cellValue, jenisPrestasi);
     }
   }, []);
   return (
