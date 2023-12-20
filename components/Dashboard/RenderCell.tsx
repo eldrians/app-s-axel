@@ -243,7 +243,54 @@ const SwitchAksiKemanusiaan = (
   columnKey: any,
   cellValue: any,
   jenisPrestasi: string
-) => {};
+) => {
+  switch (columnKey) {
+    case "nama":
+      return (
+        <div className="flex flex-col">
+          <div className="text-bold text-sm capitalize">{cellValue}</div>
+          <div className="text-bold text-sm capitalize text-default-400">
+            {rows.nim}
+          </div>
+        </div>
+      );
+    case "peran":
+      return (
+        <div className="flex flex-col">
+          <div className="text-bold text-sm capitalize">{cellValue}</div>
+          <div className="text-bold text-sm capitalize text-default-400">
+            {rows.namaKegiatan}
+          </div>
+        </div>
+      );
+    case "tingkat":
+      return (
+        <div className="flex flex-col">
+          <div className="text-bold text-sm capitalize">{cellValue}</div>
+          <div className="text-bold text-sm capitalize text-default-400">
+            <div>{rows.tahun}</div>
+          </div>
+        </div>
+      );
+    case "action":
+      return (
+        <div className="relative flex items-center gap-2">
+          <ModalDashboard
+            icon="eye"
+            data={rows}
+            jenisPrestasi={jenisPrestasi}
+          />
+          <ModalDashboard icon="delete" />
+        </div>
+      );
+    default:
+      return (
+        <div className="flex flex-col">
+          <div className="text-bold text-sm capitalize">{cellValue}</div>
+        </div>
+      );
+  }
+};
 const SwitchKewirausahaan = (
   rows: any,
   columnKey: any,

@@ -21,6 +21,7 @@ import {
   Button,
 } from "@nextui-org/react";
 import {
+  SwitchAksiKemanusiaan,
   SwitchKompetisi,
   SwitchOrganisasi,
   SwitchPenobatan,
@@ -196,6 +197,8 @@ const TableComponent = ({
       return SwitchPenobatan(rows, columnKey, cellValue, jenisPrestasi);
     } else if (jenisPrestasi == "organisasi") {
       return SwitchOrganisasi(rows, columnKey, cellValue, jenisPrestasi);
+    } else if (jenisPrestasi == "aksiKemanusiaan") {
+      return SwitchAksiKemanusiaan(rows, columnKey, cellValue, jenisPrestasi);
     }
   }, []);
   return (

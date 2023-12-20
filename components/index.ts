@@ -34,7 +34,7 @@ import DataKompetisi from "./Dashboard/DataPrestasi/DataKompetisi";
 import DataRekognisi from "./Dashboard/DataPrestasi/DataRekognisi";
 import DataPenobatan from "./Dashboard/DataPrestasi/DataPenobatan";
 import DataOrganisasi from "./Dashboard/DataPrestasi/DataOrganisasi";
-// import DataAksiKemanusiaan from "./Dashboard/DataPrestasi/DataAksiKemanusiaan";
+import DataAksiKemanusiaan from "./Dashboard/DataPrestasi/DataAksiKemanusiaan";
 // import DataKewirausahaan from "./Dashboard/DataPrestasi/DataKewirausahaan";
 import ModalDashboard from "./Dashboard/ModalDashboard";
 
@@ -74,7 +74,7 @@ export {
   DataRekognisi,
   DataPenobatan,
   DataOrganisasi,
-  // DataAksiKemanusiaan,
+  DataAksiKemanusiaan,
   // DataKewirausahaan,
   ModalDashboard,
   LineChart,
