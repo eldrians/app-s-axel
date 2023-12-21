@@ -5,10 +5,10 @@ import { Button } from "@nextui-org/react";
 import Cookies from "js-cookie";
 import { useRouter } from "next/navigation";
 
-const DashboardMenu = () => {
+const DashboardMenu = (role: string) => {
   let checkRole = Cookies.get("role");
 
-  if (checkRole == "dosen") {
+  if (role == "dosen") {
     return (
       <li>
         <a
@@ -23,9 +23,7 @@ const DashboardMenu = () => {
     return null;
   }
 };
-function LoginMenu() {
-  let checkLogin = Cookies.get("loggedin");
-
+function LoginMenu(checkLogin: string) {
   if (checkLogin == "success") {
     return (
       <li>
@@ -70,6 +68,8 @@ function LoginMenu() {
   }
 }
 const Header = () => {
+  const [role, setRole] = useState("");
+  const [checkLogin, setCheckLogin] = useState("");
   const [visible, setVisible] = useState(true);
   const [prevScrollPos, setPrevScrollPos] = useState(0);
   const [inRangeScroll, setInRangeScroll] = useState(false);
@@ -111,6 +111,12 @@ const Header = () => {
   }
 
   useEffect(() => {
+    if (typeof window !== "undefined") {
+      const roleUser = Cookies.get("role");
+      const checkLogin = Cookies.get("loggedin");
+      setRole(roleUser || "Axel");
+      setCheckLogin(checkLogin || "");
+    }
     window.addEventListener("scroll", handleScroll);
     return () => {
       window.removeEventListener("scroll", handleScroll);
@@ -149,8 +155,8 @@ const Header = () => {
               Dokumentasi
             </a>
           </li>
-          {DashboardMenu()}
-          {LoginMenu()}
+          {DashboardMenu(role)}
+          {LoginMenu(checkLogin)}
         </ul>
       </div>
     </header>

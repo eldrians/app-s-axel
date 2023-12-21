@@ -9,6 +9,7 @@ import {
 } from "@/components";
 import Cookies from "js-cookie";
 const Dashboard = () => {
+  const [role, setRole] = useState("");
   const [jumlahMahasiswa, setJumlahMahasiswa] = useState(0);
   const [jumlahPrestasi, setJumlahPrestasi] = useState(0);
   const [dataDashboard, setDataDashboard] = useState({
@@ -38,6 +39,10 @@ const Dashboard = () => {
     const fetchDataDashboard = async () => {
       try {
         let checkRole = Cookies.get("role");
+        if (typeof window !== "undefined") {
+          const roleUser = Cookies.get("role");
+          setRole(roleUser || "Axel");
+        }
         if (checkRole == "dosen") {
           let dataMahasiswaDosenAwal: any =
             localStorage.getItem("mahasiswa-dosen");
@@ -220,8 +225,7 @@ const Dashboard = () => {
   };
 
   const DashboardComponent = () => {
-    let checkRole = Cookies.get("role");
-    if (checkRole == "dosen") {
+    if (role == "dosen") {
       return (
         <DashboardDosen
           nMahasiswa={jumlahMahasiswa}
