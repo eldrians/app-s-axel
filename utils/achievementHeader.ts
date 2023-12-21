@@ -1,3 +1,5 @@
+export const RegisterHeaders = ["nama", "email", "password", "confirmPassword"];
+
 export const KompetisiHeaders = [
   "jenisPrestasi",
 

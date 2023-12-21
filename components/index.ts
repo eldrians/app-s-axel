@@ -43,6 +43,10 @@ import LineChart from "./Chart/LineChart";
 import PieChart from "./Chart/PieChart";
 import BarChart from "./Chart/BarChart";
 
+// register
+import Register from "./Register/Register";
+import Login from "./Login/Login";
+
 export {
   Header,
   Hero,
@@ -80,4 +84,6 @@ export {
   LineChart,
   PieChart,
   BarChart,
+  Register,
+  Login
 };
