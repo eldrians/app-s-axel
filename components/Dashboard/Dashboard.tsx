@@ -1,8 +1,10 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import { BarChart, LineChart, PieChart } from "@/components";
-
+import Cookies from "js-cookie";
 const Dashboard = () => {
+  const [jumlahMahasiswa, setJumlahMahasiswa] = useState(0);
+  const [jumlahPrestasi, setJumlahPrestasi] = useState(0);
   const [dataDashboard, setDataDashboard] = useState({
     mahasiswa: 0,
     prestasi: 0,
@@ -18,14 +20,33 @@ const Dashboard = () => {
     mahasiswa2022: 0,
     mahasiswa2023: 0,
   });
+
+  const [n_k, setN_k] = useState(0);
+  const [n_ki, setN_ki] = useState(0);
+  const [n_r, setN_r] = useState(0);
+  const [n_p, setN_p] = useState(0);
+  const [n_o, setN_o] = useState(0);
+  const [n_ak, setN_ak] = useState(0);
+  const [n_u, setN_u] = useState(0);
   useEffect(() => {
     const fetchDataDashboard = async () => {
       try {
-        const res = await fetch(
-          "https://script.google.com/macros/s/AKfycbzrbq690QFoaWsidjc1S4Wf-tT-qtYtN70ObrT1f6JJwE87KsovLFL7U_5f8AOhxZnT_Q/exec"
-        );
-        const data = await res.json();
-        setDataDashboard(data.data[0]);
+        let checkRole = Cookies.get("role");
+        if (checkRole == "dosen") {
+          let dataMahasiswaDosenAwal: any =
+            localStorage.getItem("mahasiswa-dosen");
+          let dataMahasiwaDosen = JSON.parse(dataMahasiswaDosenAwal);
+          let totalData = dataMahasiwaDosen.length;
+          setJumlahMahasiswa(totalData);
+          getSeluruhDataPrestasiMahasiswaDosen();
+          setJumlahPrestasi(getTotalPrestasiMahasiswaDosen());
+        } else {
+          const res = await fetch(
+            "https://script.google.com/macros/s/AKfycbzrbq690QFoaWsidjc1S4Wf-tT-qtYtN70ObrT1f6JJwE87KsovLFL7U_5f8AOhxZnT_Q/exec"
+          );
+          const data = await res.json();
+          setDataDashboard(data.data[0]);
+        }
       } catch (error) {
         console.log(error);
       }
@@ -33,11 +54,201 @@ const Dashboard = () => {
 
     fetchDataDashboard();
   }, []);
+
+  const getTotalPrestasiMahasiswaDosen = () => {
+    //kompetisi
+    let data_k: any = localStorage.getItem("data-kompetisi");
+    setN_k(JSON.parse(data_k).length);
+
+    //karya-ilmiah
+    let data_ki: any = localStorage.getItem("data-karya-ilmiah");
+    setN_ki(JSON.parse(data_ki).length);
+
+    //rekognisi
+    let data_r: any = localStorage.getItem("data-rekognisi");
+    setN_r(JSON.parse(data_r).length);
+
+    //penobatan
+    let data_p: any = localStorage.getItem("data-penobatan");
+    setN_p(JSON.parse(data_p).length);
+
+    //organisasi
+    let data_o: any = localStorage.getItem("data-organisasi");
+    setN_o(JSON.parse(data_o).length);
+
+    //aksi-kemanusiaan
+    let data_ak: any = localStorage.getItem("data-aksi-kemanusiaan");
+    setN_ak(JSON.parse(data_ak).length);
+
+    //kewirausahaan
+    let data_u: any = localStorage.getItem("data-kewirausahaan");
+    setN_u(JSON.parse(data_u).length);
+
+    let total_n = n_k + n_ki + n_r + n_p + n_o + n_ak + n_u;
+    return total_n;
+  };
+  const getSeluruhDataPrestasiMahasiswaDosen = async () => {
+    let dataMahasiswaDosenAwal: any = localStorage.getItem("mahasiswa-dosen");
+    let dataMahasiwaDosen = JSON.parse(dataMahasiswaDosenAwal);
+    // kompetisi
+    const res_kompetisi = await fetch(
+      "https://script.google.com/macros/s/AKfycbzMec1oHDLO-exHQ5F2pE_4IddsTx9qx4EeFzM4uRtAPaqIztHfM-gic2KVXhOsWNJm/exec?type=k"
+    );
+    const data_kompetisi = await res_kompetisi.json();
+    const filteredData_kompetisi = data_kompetisi.data.filter((item: any) =>
+      dataMahasiwaDosen.some((mhs: any) => mhs.nim == item.nim)
+    );
+    localStorage.setItem(
+      "data-kompetisi",
+      JSON.stringify(filteredData_kompetisi)
+    );
+
+    // karyaIlmiah
+    const res_karyaIlmiah = await fetch(
+      "https://script.google.com/macros/s/AKfycbzMec1oHDLO-exHQ5F2pE_4IddsTx9qx4EeFzM4uRtAPaqIztHfM-gic2KVXhOsWNJm/exec?type=ki"
+    );
+    const data_karyaIlmiah = await res_karyaIlmiah.json();
+    const filteredData_karyaIlmiah = data_karyaIlmiah.data.filter((item: any) =>
+      dataMahasiwaDosen.some((mhs: any) => mhs.nim == item.nim)
+    );
+    localStorage.setItem(
+      "data-karya-ilmiah",
+      JSON.stringify(filteredData_karyaIlmiah)
+    );
+
+    // rekognisi
+    const res_rekognisi = await fetch(
+      "https://script.google.com/macros/s/AKfycbzMec1oHDLO-exHQ5F2pE_4IddsTx9qx4EeFzM4uRtAPaqIztHfM-gic2KVXhOsWNJm/exec?type=r"
+    );
+    const data_rekognisi = await res_rekognisi.json();
+    const filteredData_rekognisi = data_rekognisi.data.filter((item: any) =>
+      dataMahasiwaDosen.some((mhs: any) => mhs.nim == item.nim)
+    );
+    localStorage.setItem(
+      "data-rekognisi",
+      JSON.stringify(filteredData_rekognisi)
+    );
+
+    // penobatan
+    const res_penobatan = await fetch(
+      "https://script.google.com/macros/s/AKfycbzMec1oHDLO-exHQ5F2pE_4IddsTx9qx4EeFzM4uRtAPaqIztHfM-gic2KVXhOsWNJm/exec?type=p"
+    );
+    const data_penobatan = await res_penobatan.json();
+    const filteredData_penobatan = data_penobatan.data.filter((item: any) =>
+      dataMahasiwaDosen.some((mhs: any) => mhs.nim == item.nim)
+    );
+    localStorage.setItem(
+      "data-penobatan",
+      JSON.stringify(filteredData_penobatan)
+    );
+
+    // organisasi
+    const res_organisasi = await fetch(
+      "https://script.google.com/macros/s/AKfycbzMec1oHDLO-exHQ5F2pE_4IddsTx9qx4EeFzM4uRtAPaqIztHfM-gic2KVXhOsWNJm/exec?type=o"
+    );
+    const data_organisasi = await res_organisasi.json();
+    const filteredData_organisasi = data_organisasi.data.filter((item: any) =>
+      dataMahasiwaDosen.some((mhs: any) => mhs.nim == item.nim)
+    );
+    localStorage.setItem(
+      "data-organisasi",
+      JSON.stringify(filteredData_organisasi)
+    );
+
+    // aksi-kemanusiaan
+    const res_aksiKemanusiaan = await fetch(
+      "https://script.google.com/macros/s/AKfycbzMec1oHDLO-exHQ5F2pE_4IddsTx9qx4EeFzM4uRtAPaqIztHfM-gic2KVXhOsWNJm/exec?type=ak"
+    );
+    const data_aksiKemanusiaan = await res_aksiKemanusiaan.json();
+    const filteredData_aksiKemanusiaan = data_aksiKemanusiaan.data.filter(
+      (item: any) => dataMahasiwaDosen.some((mhs: any) => mhs.nim == item.nim)
+    );
+    localStorage.setItem(
+      "data-aksi-kemanusiaan",
+      JSON.stringify(filteredData_aksiKemanusiaan)
+    );
+
+    // kewirausahaan
+    const res_kewirausahaan = await fetch(
+      "https://script.google.com/macros/s/AKfycbzMec1oHDLO-exHQ5F2pE_4IddsTx9qx4EeFzM4uRtAPaqIztHfM-gic2KVXhOsWNJm/exec?type=u"
+    );
+    const data_kewirausahaan = await res_kewirausahaan.json();
+    const filteredData_kewirausahaan = data_kewirausahaan.data.filter(
+      (item: any) => dataMahasiwaDosen.some((mhs: any) => mhs.nim == item.nim)
+    );
+    localStorage.setItem(
+      "data-kewirausahaan",
+      JSON.stringify(filteredData_kewirausahaan)
+    );
+  };
+
+  const angkaJumlahMahasiswa = () => {
+    let checkRole = Cookies.get("role");
+    if (checkRole == "dosen") {
+      return <div className="text-4xl font-bold">{jumlahMahasiswa}</div>;
+    } else {
+      return (
+        <div className="text-4xl font-bold">{dataDashboard.mahasiswa}</div>
+      );
+    }
+  };
+
+  const angkaJumlahPrestasi = () => {
+    let checkRole = Cookies.get("role");
+    if (checkRole == "dosen") {
+      return <div className="text-4xl font-bold">{jumlahPrestasi}</div>;
+    } else {
+      return <div className="text-4xl font-bold">{dataDashboard.prestasi}</div>;
+    }
+  };
+
+  const BarChartComponent = () => {
+    let checkRole = Cookies.get("role");
+    if (checkRole == "dosen") {
+      return (
+        <BarChart
+          labels={[
+            "Kompetisi",
+            "Karya Ilmiah",
+            "Rekognisi",
+            "Penobatan",
+            "Organisasi",
+            "Kewiraushaan",
+            "Aksi Kemanusiaan",
+          ]}
+          data={[n_k, n_ki, n_r, n_p, n_o, n_u, n_ak]}
+        />
+      );
+    } else {
+      return (
+        <BarChart
+          labels={[
+            "Kompetisi",
+            "Karya Ilmiah",
+            "Rekognisi",
+            "Penobatan",
+            "Organisasi",
+            "Kewiraushaan",
+            "Aksi Kemanusiaan",
+          ]}
+          data={[
+            dataDashboard.kompetisi,
+            dataDashboard.karyaIlmiah,
+            dataDashboard.rekognisi,
+            dataDashboard.penobatan,
+            dataDashboard.organisasi,
+            dataDashboard.kewirausahaan,
+            dataDashboard.aksiKemanusiaan,
+          ]}
+        />
+      );
+    }
+  };
   return (
     <div className="w-full h-full p-12 flex flex-col gap-8">
       {/* bagian 1 */}
       <div className="w-full flex flex-row gap-4">
-        <div className="w-1/3 h-[130px] rounded shadow-lg flex flex-row">
+        <div className="w-1/2 h-[130px] rounded shadow-lg flex flex-row">
           <div className="w-2/5 h-full flex justify-center items-center">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -55,13 +266,13 @@ const Dashboard = () => {
             </svg>
           </div>
           <div className="w-3/5 h-full flex flex-col py-4 items-start justify-center text-darkApp">
-            <div className="text-4xl font-bold">{dataDashboard.mahasiswa}</div>
+            {angkaJumlahMahasiswa()}
             <div className="text-sm flex items-center gap-2 text-gray-500">
               <p>mahasiswa berprestasi</p>
             </div>
           </div>
         </div>
-        <div className="w-1/3 h-[130px] rounded shadow-lg flex flex-row">
+        <div className="w-1/2 h-[130px] rounded shadow-lg flex flex-row">
           <div className="w-2/5 h-full flex justify-center items-center">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -79,63 +290,19 @@ const Dashboard = () => {
             </svg>
           </div>
           <div className="w-3/5 h-full flex flex-col py-4 items-start justify-center text-darkApp">
-            <div className="text-4xl font-bold">{dataDashboard.prestasi}</div>
+            {angkaJumlahPrestasi()}
             <div className="text-sm flex items-center gap-2 text-gray-500">
               <p>prestasi</p>
             </div>
           </div>
         </div>
-        <div className="w-1/3 h-[130px] rounded shadow-lg flex flex-row">
-          <div className="w-2/5 h-full flex justify-center items-center">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth={1.5}
-              stroke="currentColor"
-              className="w-20 h-20 text-greenApp"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M11.35 3.836c-.065.21-.1.433-.1.664 0 .414.336.75.75.75h4.5a.75.75 0 00.75-.75 2.25 2.25 0 00-.1-.664m-5.8 0A2.251 2.251 0 0113.5 2.25H15c1.012 0 1.867.668 2.15 1.586m-5.8 0c-.376.023-.75.05-1.124.08C9.095 4.01 8.25 4.973 8.25 6.108V8.25m8.9-4.414c.376.023.75.05 1.124.08 1.131.094 1.976 1.057 1.976 2.192V16.5A2.25 2.25 0 0118 18.75h-2.25m-7.5-10.5H4.875c-.621 0-1.125.504-1.125 1.125v11.25c0 .621.504 1.125 1.125 1.125h9.75c.621 0 1.125-.504 1.125-1.125V18.75m-7.5-10.5h6.375c.621 0 1.125.504 1.125 1.125v9.375m-8.25-3l1.5 1.5 3-3.75"
-              />
-            </svg>
-          </div>
-          <div className="w-3/5 h-full flex flex-col py-4 items-start justify-center text-darkApp">
-            <div className="text-4xl font-bold">47</div>
-            <div className="text-sm flex items-center gap-2 text-gray-500">
-              <p>prestasi diproses</p>
-            </div>
-          </div>
-        </div>
       </div>
 
+      <div>Hai {n_k}</div>
       {/* bagian 2 */}
       <div className="w-full flex flex-row gap-4">
         <div className="w-3/5 h-fit  p-4 rounded shadow-lg border border-greenApp">
-          <div>
-            <BarChart
-              labels={[
-                "Kompetisi",
-                "Karya Ilmiah",
-                "Rekognisi",
-                "Penobatan",
-                "Organisasi",
-                "Kewiraushaan",
-                "Aksi Kemanusiaan",
-              ]}
-              data={[
-                dataDashboard.kompetisi,
-                dataDashboard.karyaIlmiah,
-                dataDashboard.rekognisi,
-                dataDashboard.penobatan,
-                dataDashboard.organisasi,
-                dataDashboard.kewirausahaan,
-                dataDashboard.aksiKemanusiaan,
-              ]}
-            />
-          </div>
+          <div>{BarChartComponent()}</div>
         </div>
         <div className="w-2/5 h-full bg-red-300 ">
           <div className="bg-white p-2 border border-greenApp rounded shadow-lg w-full flex flex-col justify-center items-center">

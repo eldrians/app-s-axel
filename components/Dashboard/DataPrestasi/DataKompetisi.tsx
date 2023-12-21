@@ -36,7 +36,6 @@ const DataKompetisi = () => {
           const data = await res.json();
 
           let checkRole = Cookies.get("role");
-          console.log("checkRole", checkRole);
 
           if (checkRole == "dosen") {
             let dataMahasiswaDosenAwal: any =
