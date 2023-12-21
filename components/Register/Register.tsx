@@ -16,10 +16,12 @@ function Register() {
   const router = useRouter();
   let onSuccess = false;
   const [registerData, setRegisterData] = useState({
+    nim: "",
     nama: "",
     email: "",
     password: "",
     confirmPassword: "",
+    role: "",
   });
 
   const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -31,10 +33,14 @@ function Register() {
     e.preventDefault();
     const data: Record<string, any> = {};
     RegisterHeaders.forEach((header) => {
-      const inputElement = e.currentTarget.elements.namedItem(
-        header
-      ) as HTMLInputElement;
-      data[header] = inputElement.value;
+      if (header == "role") {
+        data[header] = "mahasiswa";
+      } else {
+        const inputElement = e.currentTarget.elements.namedItem(
+          header
+        ) as HTMLInputElement;
+        data[header] = inputElement.value;
+      }
     });
 
     try {
@@ -51,10 +57,12 @@ function Register() {
 
       if (info.message == "done") {
         setRegisterData({
+          nim: "",
           nama: "",
           email: "",
           password: "",
           confirmPassword: "",
+          role: "",
         });
         onSuccess = true;
         ToastSuccess("Register Berhasil");
@@ -75,6 +83,17 @@ function Register() {
       </CardHeader>
       <CardBody>
         <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+          <Input
+            id="nim"
+            name="nim"
+            value={registerData.nim}
+            onChange={handleInputChange}
+            type="text"
+            label="NIM / NIP"
+            size="sm"
+            variant="bordered"
+            isRequired
+          />
           <Input
             id="nama"
             name="nama"

@@ -1,15 +1,17 @@
 import { NextResponse } from "next/server";
 
 type FormData = {
+  nim?: string;
   nama?: string;
   email?: string;
   password?: string;
   confirmPassword?: string;
+  role?: string;
 };
 
 export async function POST(request: Request) {
   const data: FormData = await request.json();
-  const { nama, email, password, confirmPassword } = data;
+  const { nim, nama, email, password, confirmPassword, role } = data;
   try {
     const response = await fetch(
       "https://script.google.com/macros/s/AKfycbyoyKwV_BQuHVrpgznv4ThDEfFAgZNnXqGrO23WekhstGxdl6k-IPrsHF0BhMhsBBbS/exec",
@@ -32,10 +34,12 @@ export async function POST(request: Request) {
     });
   }
   return NextResponse.json({
+    nim,
     nama,
     email,
     password,
     confirmPassword,
+    role,
     message: "done",
   });
 }

@@ -1,4 +1,11 @@
-export const RegisterHeaders = ["nama", "email", "password", "confirmPassword"];
+export const RegisterHeaders = [
+  "nim",
+  "nama",
+  "email",
+  "password",
+  "confirmPassword",
+  "role",
+];
 export const LoginHeaders = ["email", "password"];
 
 export const KompetisiHeaders = [
