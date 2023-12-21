@@ -1,7 +1,63 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
+import { Button } from "@nextui-org/react";
+import Cookies from "js-cookie";
+import { useRouter } from "next/navigation";
 
+const DashboardMenu = () => {
+  let checkDosen = true;
+
+  if (checkDosen) {
+    return (
+      <li>
+        <a
+          href="/dashboard"
+          className={` py-2 px-1 hover:border-b-2 hover:border-greenApp`}
+        >
+          Dashboard
+        </a>
+      </li>
+    );
+  } else {
+    return null;
+  }
+};
+function LoginMenu() {
+  let checkLogin = Cookies.get("loggedin");
+
+  if (checkLogin == "success") {
+    return (
+      <li>
+        <a href="/">
+          <Button
+            className="text-red-600 border border-red-600 bg-transparent hover:bg-red-600 hover:text-white"
+            size="md"
+            onClick={() => {
+              Cookies.remove("loggedin");
+              useRouter().push("/login");
+            }}
+          >
+            Logout
+          </Button>
+        </a>
+      </li>
+    );
+  } else {
+    return (
+      <li>
+        <a href="/login">
+          <Button
+            className="text-greenApp border border-greenApp bg-transparent hover:bg-darkGreenApp hover:text-white"
+            size="md"
+          >
+            Login
+          </Button>
+        </a>
+      </li>
+    );
+  }
+}
 const Header = () => {
   const [visible, setVisible] = useState(true);
   const [prevScrollPos, setPrevScrollPos] = useState(0);
@@ -82,6 +138,8 @@ const Header = () => {
               Dokumentasi
             </a>
           </li>
+          {DashboardMenu()}
+          {LoginMenu()}
         </ul>
       </div>
     </header>

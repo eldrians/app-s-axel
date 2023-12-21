@@ -10,6 +10,7 @@ import {
 } from "@nextui-org/react";
 import { useRouter } from "next/navigation";
 import { LoginHeaders } from "@/utils/achievementHeader";
+import Cookies from "js-cookie";
 
 const Login = () => {
   const router = useRouter();
@@ -62,6 +63,7 @@ const Login = () => {
     } else {
       let checkPassword = data.password == result.password;
       if (checkPassword) {
+        Cookies.set("loggedin", "success");
         router.push("/");
       } else {
         console.log("pass/email salah");
