@@ -44,6 +44,8 @@ function LoginMenu() {
               localStorage.removeItem("data-organisasi");
               localStorage.removeItem("data-aksi-kemanusiaan");
               localStorage.removeItem("data-kewirausahaan");
+              localStorage.removeItem("data-user-nama");
+              localStorage.removeItem("data-user-nim");
               useRouter().push("/login");
             }}
           >

@@ -79,6 +79,8 @@ const Login = () => {
       if (checkPassword) {
         Cookies.set("loggedin", "success");
         Cookies.set("role", result.role);
+        localStorage.setItem("data-user-nim",result.nim);
+        localStorage.setItem("data-user-nama",result.nama);
         if (result.role == "dosen") {
           getMahasiswaDosen(result.nim);
         }

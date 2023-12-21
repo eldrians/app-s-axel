@@ -38,6 +38,10 @@ import DataAksiKemanusiaan from "./Dashboard/DataPrestasi/DataAksiKemanusiaan";
 import DataKewirausahaan from "./Dashboard/DataPrestasi/DataKewirausahaan";
 import ModalDashboard from "./Dashboard/ModalDashboard";
 
+// jenis Dashboard
+import DashboardDosen from "./Dashboard/Jenis_Dashboard/DashboardDosen";
+import DashboardUPI from "./Dashboard/Jenis_Dashboard/DashboardUPI";
+
 // chart
 import LineChart from "./Chart/LineChart";
 import PieChart from "./Chart/PieChart";
@@ -81,9 +85,11 @@ export {
   DataAksiKemanusiaan,
   DataKewirausahaan,
   ModalDashboard,
+  DashboardDosen,
+  DashboardUPI,
   LineChart,
   PieChart,
   BarChart,
   Register,
-  Login
+  Login,
 };
