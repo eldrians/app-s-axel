@@ -1,6 +1,7 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import { TableComponent } from "@/components";
+import Cookies from "js-cookie";
 const DataKompetisi = () => {
   const [dataKompetisi, setDataKompetisi] = useState([
     {
@@ -21,7 +22,6 @@ const DataKompetisi = () => {
       timestamp: "",
     },
   ]);
-
   useEffect(() => {
     const fetchDataKompetisi = async () => {
       try {
@@ -35,8 +35,25 @@ const DataKompetisi = () => {
           );
           const data = await res.json();
 
-          setDataKompetisi(data.data);
-          localStorage.setItem("data-kompetisi", JSON.stringify(data.data));
+          let checkRole = Cookies.get("role");
+          console.log("checkRole", checkRole);
+
+          if (checkRole == "dosen") {
+            let dataMahasiswaDosenAwal: any =
+              localStorage.getItem("mahasiswa-dosen");
+            let dataMahasiwaDosen = JSON.parse(dataMahasiswaDosenAwal);
+            const filteredData = data.data.filter((item: any) =>
+              dataMahasiwaDosen.some((mhs: any) => mhs.nim == item.nim)
+            );
+            setDataKompetisi(filteredData);
+            localStorage.setItem(
+              "data-kompetisi",
+              JSON.stringify(filteredData)
+            );
+          } else {
+            setDataKompetisi(data.data);
+            localStorage.setItem("data-kompetisi", JSON.stringify(data.data));
+          }
         }
       } catch (error) {
         console.log(error);

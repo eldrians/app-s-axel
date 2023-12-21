@@ -49,6 +49,18 @@ const Login = () => {
     setLoginData({ ...loginData, [name]: value });
   };
 
+  async function getMahasiswaDosen(nip: any) {
+    try {
+      const res = await fetch(
+        `https://script.google.com/macros/s/AKfycbziRm_DhObWTXSY8CeRuS9-IyB4bZl8KOxUonOhtHYFFM9WodLJUunT5kOkcpK-93vk/exec?nip=${nip}`
+      );
+      const data = await res.json();
+      localStorage.setItem("mahasiswa-dosen", JSON.stringify(data.mahasiswa));
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
     const data: Record<string, any> = {};
@@ -67,6 +79,9 @@ const Login = () => {
       if (checkPassword) {
         Cookies.set("loggedin", "success");
         Cookies.set("role", result.role);
+        if (result.role == "dosen") {
+          getMahasiswaDosen(result.nim);
+        }
         router.push("/");
       } else {
         console.log("pass/email salah");

@@ -1,6 +1,7 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import { TableComponent } from "@/components";
+import Cookies from "js-cookie";
 // rubah nama
 const DataRekognisi = () => {
   // rubah isi dan nama
@@ -39,8 +40,25 @@ const DataRekognisi = () => {
             "https://script.google.com/macros/s/AKfycbzMec1oHDLO-exHQ5F2pE_4IddsTx9qx4EeFzM4uRtAPaqIztHfM-gic2KVXhOsWNJm/exec?type=r"
           );
           const data = await res.json();
-          setDataRekognisi(data.data);
-          localStorage.setItem("data-rekognisi", JSON.stringify(data.data));
+          let checkRole = Cookies.get("role");
+          console.log("checkRole", checkRole);
+
+          if (checkRole == "dosen") {
+            let dataMahasiswaDosenAwal: any =
+              localStorage.getItem("mahasiswa-dosen");
+            let dataMahasiwaDosen = JSON.parse(dataMahasiswaDosenAwal);
+            const filteredData = data.data.filter((item: any) =>
+              dataMahasiwaDosen.some((mhs: any) => mhs.nim == item.nim)
+            );
+            setDataRekognisi(filteredData);
+            localStorage.setItem(
+              "data-rekognisi",
+              JSON.stringify(filteredData)
+            );
+          } else {
+            setDataRekognisi(data.data);
+            localStorage.setItem("data-rekognisi", JSON.stringify(data.data));
+          }
         }
       } catch (error) {
         console.log(error);

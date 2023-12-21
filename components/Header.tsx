@@ -36,6 +36,14 @@ function LoginMenu() {
             onClick={() => {
               Cookies.remove("loggedin");
               Cookies.remove("role");
+              localStorage.removeItem("mahasiswa-dosen");
+              localStorage.removeItem("data-kompetisi");
+              localStorage.removeItem("data-karya-ilmiah");
+              localStorage.removeItem("data-rekognisi");
+              localStorage.removeItem("data-penobatan");
+              localStorage.removeItem("data-organisasi");
+              localStorage.removeItem("data-aksi-kemanusiaan");
+              localStorage.removeItem("data-kewirausahaan");
               useRouter().push("/login");
             }}
           >

@@ -1,6 +1,7 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import { TableComponent } from "@/components";
+import Cookies from "js-cookie";
 // rubah nama
 const DataKaryaIlmiah = () => {
   // rubah isi dan nama
@@ -37,8 +38,29 @@ const DataKaryaIlmiah = () => {
             "https://script.google.com/macros/s/AKfycbzMec1oHDLO-exHQ5F2pE_4IddsTx9qx4EeFzM4uRtAPaqIztHfM-gic2KVXhOsWNJm/exec?type=ki"
           );
           const data = await res.json();
-          setDataKaryaIlmiah(data.data);
-          localStorage.setItem("data-karya-ilmiah", JSON.stringify(data.data));
+
+          let checkRole = Cookies.get("role");
+          console.log("checkRole", checkRole);
+
+          if (checkRole == "dosen") {
+            let dataMahasiswaDosenAwal: any =
+              localStorage.getItem("mahasiswa-dosen");
+            let dataMahasiwaDosen = JSON.parse(dataMahasiswaDosenAwal);
+            const filteredData = data.data.filter((item: any) =>
+              dataMahasiwaDosen.some((mhs: any) => mhs.nim == item.nim)
+            );
+            setDataKaryaIlmiah(filteredData);
+            localStorage.setItem(
+              "data-karya-ilmiah",
+              JSON.stringify(filteredData)
+            );
+          } else {
+            setDataKaryaIlmiah(data.data);
+            localStorage.setItem(
+              "data-karya-ilmiah",
+              JSON.stringify(data.data)
+            );
+          }
         }
       } catch (error) {
         console.log(error);
