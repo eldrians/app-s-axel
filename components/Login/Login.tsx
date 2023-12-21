@@ -14,16 +14,17 @@ import Cookies from "js-cookie";
 
 const Login = () => {
   const router = useRouter();
-  let onSuccess = false;
   const [loginData, setLoginData] = useState({
-    email: "",
+    nim: "",
     password: "",
   });
   const [dataAccount, setDataAccount] = useState([
     {
+      nim: "",
       email: "",
       nama: "",
       password: "",
+      role: "",
     },
   ]);
   useEffect(() => {
@@ -57,13 +58,15 @@ const Login = () => {
       ) as HTMLInputElement;
       data[header] = inputElement.value;
     });
-    let result = dataAccount.find((item) => item.email === data.email);
+
+    let result = dataAccount.find((item) => item.nim == data.nim);
     if (result == undefined) {
       console.log("data tidak ditemukan");
     } else {
       let checkPassword = data.password == result.password;
       if (checkPassword) {
         Cookies.set("loggedin", "success");
+        Cookies.set("role", result.role);
         router.push("/");
       } else {
         console.log("pass/email salah");
@@ -78,12 +81,12 @@ const Login = () => {
       <CardBody>
         <form onSubmit={handleSubmit} className="flex flex-col gap-4">
           <Input
-            id="email"
-            name="email"
-            value={loginData.email}
+            id="nim"
+            name="nim"
+            value={loginData.nim}
             onChange={handleInputChange}
-            type="email"
-            label="Email"
+            type="text"
+            label="NIM / NIP"
             size="sm"
             variant="bordered"
             isRequired

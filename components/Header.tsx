@@ -6,9 +6,9 @@ import Cookies from "js-cookie";
 import { useRouter } from "next/navigation";
 
 const DashboardMenu = () => {
-  let checkDosen = true;
+  let checkRole = Cookies.get("role");
 
-  if (checkDosen) {
+  if (checkRole == "dosen") {
     return (
       <li>
         <a
@@ -35,6 +35,7 @@ function LoginMenu() {
             size="md"
             onClick={() => {
               Cookies.remove("loggedin");
+              Cookies.remove("role");
               useRouter().push("/login");
             }}
           >
