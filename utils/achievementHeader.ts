@@ -8,6 +8,8 @@ export const RegisterHeaders = [
 ];
 export const LoginHeaders = ["nim", "password"];
 
+export const ProsesMahasiswaHeaders = ["nim", "prestasi"];
+
 export const KompetisiHeaders = [
   "jenisPrestasi",
 

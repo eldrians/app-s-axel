@@ -74,7 +74,6 @@ const DashboardDosen = ({
       nama: "Muhammad Hasbi Sabilulhaq",
       kategori: "Penobatan",
     },
-    
   ];
   const dataMahasiswa = [
     {
@@ -144,7 +143,7 @@ const DashboardDosen = ({
           <div className="w-3/5 h-full flex flex-col py-4 items-start justify-center text-darkApp">
             <div className="text-4xl font-bold">{nPrestasi}</div>
             <div className="text-sm flex items-center gap-2 text-gray-500">
-              <p>prestasi {nPrestasi}</p>
+              <p>prestasi</p>
             </div>
           </div>
         </div>

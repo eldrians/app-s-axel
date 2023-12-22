@@ -1,5 +1,5 @@
 "use client";
-import React, { ChangeEvent, FormEvent, useEffect, useState } from "react";
+import { ChangeEvent, FormEvent, useEffect, useState } from "react";
 import {
   Card,
   CardHeader,
@@ -79,8 +79,8 @@ const Login = () => {
       if (checkPassword) {
         Cookies.set("loggedin", "success");
         Cookies.set("role", result.role);
-        localStorage.setItem("data-user-nim",result.nim);
-        localStorage.setItem("data-user-nama",result.nama);
+        localStorage.setItem("data-user-nim", result.nim);
+        localStorage.setItem("data-user-nama", result.nama);
         if (result.role == "dosen") {
           getMahasiswaDosen(result.nim);
         }

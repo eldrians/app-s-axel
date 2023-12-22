@@ -38,6 +38,9 @@ import DataAksiKemanusiaan from "./Dashboard/DataPrestasi/DataAksiKemanusiaan";
 import DataKewirausahaan from "./Dashboard/DataPrestasi/DataKewirausahaan";
 import ModalDashboard from "./Dashboard/ModalDashboard";
 
+// Proses
+import ProsesMahasiswa from "./Dashboard/Proses/ProsesMahasiswa";
+
 // jenis Dashboard
 import DashboardDosen from "./Dashboard/Jenis_Dashboard/DashboardDosen";
 import DashboardUPI from "./Dashboard/Jenis_Dashboard/DashboardUPI";
@@ -85,6 +88,7 @@ export {
   DataAksiKemanusiaan,
   DataKewirausahaan,
   ModalDashboard,
+  ProsesMahasiswa,
   DashboardDosen,
   DashboardUPI,
   LineChart,
