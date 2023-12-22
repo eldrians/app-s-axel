@@ -41,9 +41,9 @@ export default function RootLayout({
           </div>
         ) : pathName.startsWith("/register") ||
           pathName.startsWith("/login") ? (
-            <div className="w-full h-screen flex justify-center items-center bg-gradient-to-br from-darkGreenApp to-greenApp/50">
-              {children}
-            </div>
+          <div className="w-full h-screen flex justify-center items-center bg-gradient-to-br from-darkGreenApp to-greenApp/50">
+            {children}
+          </div>
         ) : (
           <div>
             <Header />

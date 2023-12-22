@@ -19,6 +19,7 @@ import {
   ChipProps,
   SortDescriptor,
   Button,
+  getKeyValue,
 } from "@nextui-org/react";
 import {
   SwitchAksiKemanusiaan,
@@ -41,10 +42,12 @@ const TableComponent = ({
   columns,
   rows,
   jenisPrestasi,
+  type = "kompleks",
 }: {
   columns: ColumnsProps[];
   rows: any[];
-  jenisPrestasi: string;
+  jenisPrestasi?: string;
+  type?: string;
 }) => {
   type Row = (typeof rows)[0];
   const [filterValue, setFilterValue] = useState("");
@@ -207,35 +210,63 @@ const TableComponent = ({
       return SwitchKewirausahaan(rows, columnKey, cellValue, jenisPrestasi);
     }
   }, []);
-  return (
-    <Table
-      aria-label="table"
-      topContent={topContent}
-      topContentPlacement="outside"
-      bottomContent={bottomContent}
-      bottomContentPlacement="outside"
-    >
-      <TableHeader columns={columns}>
-        {(column) => (
-          <TableColumn
-            key={column.key}
-            align={column.label === "Action" ? "center" : "start"}
-          >
-            {column.label}
-          </TableColumn>
-        )}
-      </TableHeader>
-      <TableBody items={sortedItems} emptyContent={"tidak ada data prestasi"}>
-        {(item) => (
-          <TableRow key={item.idPrestasi}>
-            {(columnKey) => (
-              <TableCell>{renderCell(item, columnKey)}</TableCell>
+
+  const TableOutput = () => {
+    if (type == "kompleks") {
+      return (
+        <Table
+          aria-label="table"
+          topContent={topContent}
+          topContentPlacement="outside"
+          bottomContent={bottomContent}
+          bottomContentPlacement="outside"
+        >
+          <TableHeader columns={columns}>
+            {(column) => (
+              <TableColumn
+                key={column.key}
+                align={column.label === "Action" ? "center" : "start"}
+              >
+                {column.label}
+              </TableColumn>
             )}
-          </TableRow>
-        )}
-      </TableBody>
-    </Table>
-  );
+          </TableHeader>
+          <TableBody
+            items={sortedItems}
+            emptyContent={"tidak ada data prestasi"}
+          >
+            {(item) => (
+              <TableRow key={item.idPrestasi}>
+                {(columnKey) => (
+                  <TableCell>{renderCell(item, columnKey)}</TableCell>
+                )}
+              </TableRow>
+            )}
+          </TableBody>
+        </Table>
+      );
+    } else if (type == "simple") {
+      return (
+        <Table aria-label="table">
+          <TableHeader columns={columns}>
+            {(column) => (
+              <TableColumn key={column.key}>{column.label}</TableColumn>
+            )}
+          </TableHeader>
+          <TableBody items={rows} emptyContent={"tidak ada data prestasi"}>
+            {(item) => (
+              <TableRow key={item.nim}>
+                {(columnKey) => (
+                  <TableCell>{getKeyValue(item, columnKey)}</TableCell>
+                )}
+              </TableRow>
+            )}
+          </TableBody>
+        </Table>
+      );
+    }
+  };
+  return <>{TableOutput()}</>;
 };
 
 export default TableComponent;

@@ -11,7 +11,7 @@ import {
   Legend,
 } from "chart.js";
 import { Pie } from "react-chartjs-2";
-
+import ChartDataLabels from "chartjs-plugin-datalabels";
 ChartJS.register(
   ArcElement,
   CategoryScale,
@@ -19,7 +19,8 @@ ChartJS.register(
   PointElement,
   LineElement,
   Legend,
-  Tooltip
+  Tooltip,
+  ChartDataLabels
 );
 
 const PieChart = ({ labels, data }: { labels: String[]; data: Number[] }) => {
@@ -32,7 +33,18 @@ const PieChart = ({ labels, data }: { labels: String[]; data: Number[] }) => {
       },
     ],
   };
-  return <Pie data={dataPieChart} options={{}} />;
+  return (
+    <Pie
+      data={dataPieChart}
+      options={{
+        plugins: {
+          datalabels: {
+            color: "black",
+          },
+        },
+      }}
+    />
+  );
 };
 
 export default PieChart;

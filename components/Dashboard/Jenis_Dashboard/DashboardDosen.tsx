@@ -1,4 +1,4 @@
-import { BarChart } from "@/components";
+import { BarChart, TableComponent } from "@/components";
 import React from "react";
 
 const DashboardDosen = ({
@@ -22,15 +22,84 @@ const DashboardDosen = ({
   n_u: number;
   n_ak: number;
 }) => {
+  const newColumns = [
+    {
+      key: "nim",
+      label: "NIM",
+    },
+    {
+      key: "nama",
+      label: "Nama",
+    },
+    {
+      key: "totalPrestasi",
+      label: "Prestasi",
+    },
+  ];
+
+  const newColumns_prestasiTerbaru = [
+    {
+      key: "idPrestasi",
+      label: "ID Prestasi",
+    },
+    {
+      key: "nim",
+      label: "NIM",
+    },
+    {
+      key: "nama",
+      label: "Nama",
+    },
+    {
+      key: "kategori",
+      label: "Kategori",
+    },
+  ];
+  const dataPrestasiTerbaru = [
+    {
+      idPrestasi: 21026659185056,
+      nim: "2102211",
+      nama: "Dwi Novia Al Husaeni",
+      kategori: "Rekognisi",
+    },
+    {
+      idPrestasi: 2107944160552,
+      nim: "2102211",
+      nama: "Dwi Novia Al Husaeni",
+      kategori: "Karya Ilmiah",
+    },
+    {
+      idPrestasi: 2107944160817,
+      nim: "2107944",
+      nama: "Muhammad Hasbi Sabilulhaq",
+      kategori: "Penobatan",
+    },
+    
+  ];
+  const dataMahasiswa = [
+    {
+      nim: "2102211",
+      nama: "Dwi Novia Al Husaeni",
+      totalPrestasi: 4,
+    },
+    {
+      nim: "2102665",
+      nama: "Muhammad Cahyana Bintang Fajar",
+      totalPrestasi: 5,
+    },
+    {
+      nim: "2107944",
+      nama: "Muhammad Hasbi Sabilulhaq",
+      totalPrestasi: 7,
+    },
+  ];
   return (
     <div className="w-full h-full p-12 flex flex-col gap-8">
       <div className="px-4">
-        <h1 className="font-bold text-3xl text-darkApp">
-          DASHBOARD DOSEN
-        </h1>
+        <h1 className="font-bold text-3xl text-darkApp">DASHBOARD DOSEN</h1>
       </div>
       {/* bagian 1 */}
-      <div className="w-full flex flex-row gap-4">
+      <div className="w-full h-full flex flex-row gap-4">
         <div className="w-1/2 h-[130px] rounded shadow-lg flex flex-row">
           <div className="w-2/5 h-full flex justify-center items-center">
             <svg
@@ -80,10 +149,14 @@ const DashboardDosen = ({
           </div>
         </div>
       </div>
-
       {/* bagian 2 */}
-      <div className="w-full flex flex-row gap-4">
-        <div className="w-full h-fit  p-4 rounded shadow-lg border border-greenApp">
+      <div className="w-full h-fit flex flex-row gap-4">
+        <div className="w-1/2 h-full p-4 rounded shadow-lg border border-greenApp">
+          <div className="w-full h-full text-darkApp text-center pb-4">
+            <h2 className="font-bold">
+              Distribusi Prestasi berdasarkan Kategori
+            </h2>
+          </div>
           <div>
             <BarChart
               labels={[
@@ -99,10 +172,35 @@ const DashboardDosen = ({
             />
           </div>
         </div>
+        <div className="w-1/2 h-auto p-4 rounded shadow-lg border border-greenApp">
+          <div className="w-full text-darkApp text-center">
+            <h2 className="font-bold">Prestasi Terbaru</h2>
+          </div>
+          <div className="h-[220px] overflow-y-scroll">
+            <TableComponent
+              columns={newColumns_prestasiTerbaru}
+              rows={dataPrestasiTerbaru}
+              type="simple"
+            />
+          </div>
+        </div>
       </div>
 
       {/* bagian 3 */}
-      <div></div>
+      <div className="w-full h-[300px] p-4 rounded shadow-lg border border-greenApp">
+        <div className="w-full text-darkApp text-center">
+          <h2 className="font-bold">Perolehan Prestasi Mahasiswa</h2>
+        </div>
+        <div className="h-[220px] overflow-y-scroll">
+          <TableComponent
+            columns={newColumns}
+            rows={dataMahasiswa.sort(
+              (a, b) => b.totalPrestasi - a.totalPrestasi
+            )}
+            type="simple"
+          />
+        </div>
+      </div>
     </div>
   );
 };

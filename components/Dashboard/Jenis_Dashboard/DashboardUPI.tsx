@@ -1,4 +1,4 @@
-import { BarChart } from "@/components";
+import { BarChart, PieChart, TableComponent } from "@/components";
 import React from "react";
 
 const DashboardUPI = ({
@@ -22,6 +22,38 @@ const DashboardUPI = ({
   n_u: number;
   n_ak: number;
 }) => {
+  const newColumns = [
+    {
+      key: "nim",
+      label: "NIM",
+    },
+    {
+      key: "nama",
+      label: "Nama",
+    },
+    {
+      key: "totalPrestasi",
+      label: "Prestasi",
+    },
+  ];
+
+  const dataDosen = [
+    {
+      nim: "123456789",
+      nama: "Jajang, M.T",
+      totalPrestasi: 4,
+    },
+    {
+      nim: "987654321",
+      nama: "Dr. Ronald, M.T",
+      totalPrestasi: 5,
+    },
+    {
+      nim: "9875465123",
+      nama: "Dr. Rani Megasari, M.T",
+      totalPrestasi: 12,
+    },
+  ];
   return (
     <div className="w-full h-full p-12 flex flex-col gap-8">
       <div className="px-4">
@@ -80,9 +112,14 @@ const DashboardUPI = ({
       </div>
 
       {/* bagian 2 */}
-      <div className="w-full flex flex-row gap-4">
-        <div className="w-full h-fit  p-4 rounded shadow-lg border border-greenApp">
-          <div>
+      <div className="w-full h-fit flex flex-row gap-4">
+        <div className="w-3/5 h-full p-4 rounded shadow-lg border border-greenApp">
+          <div className="w-full h-full text-darkApp text-center pb-4">
+            <h2 className="font-bold">
+              Distribusi Prestasi berdasarkan Kategori
+            </h2>
+          </div>
+          <div className="w-full">
             <BarChart
               labels={[
                 "Kompetisi",
@@ -97,10 +134,31 @@ const DashboardUPI = ({
             />
           </div>
         </div>
+        <div className="w-2/5 h-auto p-4 rounded shadow-lg border border-greenApp">
+          <div className="w-full text-darkApp text-center pb-4">
+            <h2 className="font-bold">Prestasi Terbaru</h2>
+          </div>
+          <div className="h-[220px] w-full flex justify-center">
+            <PieChart labels={["2020", "2021", "2022"]} data={[43, 12, 29]} />
+          </div>
+        </div>
       </div>
 
       {/* bagian 3 */}
-      <div></div>
+      <div className="w-full h-[300px] p-4 rounded shadow-lg border border-greenApp">
+        <div className="w-full text-darkApp text-center">
+          <h2 className="font-bold">
+            Distribusi Prestasi Berdasarkan Pembimbing Akademik
+          </h2>
+        </div>
+        <div className="h-[220px] overflow-y-scroll">
+          <TableComponent
+            columns={newColumns}
+            rows={dataDosen.sort((a, b) => b.totalPrestasi - a.totalPrestasi)}
+            type="simple"
+          />
+        </div>
+      </div>
     </div>
   );
 };

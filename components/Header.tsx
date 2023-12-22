@@ -8,7 +8,7 @@ import { useRouter } from "next/navigation";
 const DashboardMenu = (role: string) => {
   let checkRole = Cookies.get("role");
 
-  if (role == "dosen") {
+  if (role == "dosen" || role =="admin") {
     return (
       <li>
         <a
