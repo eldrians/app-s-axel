@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from "react";
 import { TableComponent } from "@/components";
 import Cookies from "js-cookie";
+import { TableAksiKemanusiaanHeaders } from "@/utils/tablePrestasiHeaders";
 // rubah nama
 const DataAksiKemanusiaan = () => {
   // rubah isi dan nama
@@ -70,24 +71,6 @@ const DataAksiKemanusiaan = () => {
   }, []);
 
   // rubah
-  const newColumns = [
-    {
-      key: "nama",
-      label: "Nama",
-    },
-    {
-      key: "peran",
-      label: "Peran",
-    },
-    {
-      key: "tingkat",
-      label: "Tingkat",
-    },
-    {
-      key: "action",
-      label: "Action",
-    },
-  ];
 
   return (
     <div className="w-full h-screen flex flex-col justify-center items-start px-12 pb-8 pt-2 bg-slate-100">
@@ -100,7 +83,7 @@ const DataAksiKemanusiaan = () => {
       <div className="w-full h-5/6 overflow-scroll">
         {/* rubah */}
         <TableComponent
-          columns={newColumns}
+          columns={TableAksiKemanusiaanHeaders}
           rows={dataAksiKemanusiaan}
           jenisPrestasi="aksiKemanusiaan"
         />

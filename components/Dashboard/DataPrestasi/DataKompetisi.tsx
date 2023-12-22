@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from "react";
 import { TableComponent } from "@/components";
 import Cookies from "js-cookie";
+import { TableKompetisiHeaders } from "@/utils/tablePrestasiHeaders";
 const DataKompetisi = () => {
   const [dataKompetisi, setDataKompetisi] = useState([
     {
@@ -62,25 +63,6 @@ const DataKompetisi = () => {
     fetchDataKompetisi();
   }, []);
 
-  const newColumns = [
-    {
-      key: "nama",
-      label: "Nama",
-    },
-    {
-      key: "capaian",
-      label: "Capaian",
-    },
-    {
-      key: "namaKompetisi",
-      label: "Nama Kompetisi",
-    },
-    {
-      key: "action",
-      label: "Action",
-    },
-  ];
-
   return (
     <div className="w-full h-screen flex flex-col justify-center items-start px-12 pb-8 pt-2 bg-slate-100">
       <div className="px-4">
@@ -90,7 +72,7 @@ const DataKompetisi = () => {
       </div>
       <div className="w-full h-5/6 overflow-scroll">
         <TableComponent
-          columns={newColumns}
+          columns={TableKompetisiHeaders}
           rows={dataKompetisi}
           jenisPrestasi="kompetisi"
         />

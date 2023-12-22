@@ -8,6 +8,7 @@ import {
   Radio,
   Button,
 } from "@nextui-org/react";
+import TableComponent from "../Table";
 import { ProsesMahasiswaHeaders } from "@/utils/achievementHeader";
 
 const ProsesMahasiswa = () => {
@@ -124,8 +125,39 @@ const ProsesMahasiswa = () => {
 
     console.log(dataHasil[0]);
   }
+  const dataMahasiswa = [
+    {
+      nim: "2102211",
+      nama: "Dwi Novia Al Husaeni",
+      totalPrestasi: 4,
+    },
+    {
+      nim: "2102665",
+      nama: "Muhammad Cahyana Bintang Fajar",
+      totalPrestasi: 5,
+    },
+    {
+      nim: "2107944",
+      nama: "Muhammad Hasbi Sabilulhaq",
+      totalPrestasi: 7,
+    },
+  ];
+  const newColumns = [
+    {
+      key: "nim",
+      label: "NIM",
+    },
+    {
+      key: "nama",
+      label: "Nama",
+    },
+    {
+      key: "totalPrestasi",
+      label: "Prestasi",
+    },
+  ];
   return (
-    <div className="w-full h-screen flex justify-center items-start p-12">
+    <div className="w-full h-full flex flex-col justify-center items-start p-12">
       <form onSubmit={handleSubmit} className="w-full h-fit">
         <div className="w-full h-fit rounded border border-darkGreenApp p-6 flex flex-col">
           <div>
@@ -190,6 +222,16 @@ const ProsesMahasiswa = () => {
           </div>
         </div>
       </form>
+      <div className="w-full h-fit p-8">
+        <div>
+          <h4>Data Kompetisi</h4>
+        </div>
+        <TableComponent
+          columns={newColumns}
+          rows={dataMahasiswa.sort((a, b) => b.totalPrestasi - a.totalPrestasi)}
+          type="simple"
+        />
+      </div>
     </div>
   );
 };

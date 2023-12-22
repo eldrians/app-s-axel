@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from "react";
 import { TableComponent } from "@/components";
 import Cookies from "js-cookie";
+import { TableRekognisiHeaders } from "@/utils/tablePrestasiHeaders";
 // rubah nama
 const DataRekognisi = () => {
   // rubah isi dan nama
@@ -68,26 +69,6 @@ const DataRekognisi = () => {
     fetchDataRekognisi();
   }, []);
 
-  // rubah
-  const newColumns = [
-    {
-      key: "nama",
-      label: "Nama",
-    },
-    {
-      key: "peran",
-      label: "Peran",
-    },
-    {
-      key: "namaKegiatan",
-      label: "Nama Kegiatan",
-    },
-    {
-      key: "action",
-      label: "Action",
-    },
-  ];
-
   return (
     <div className="w-full h-screen flex flex-col justify-center items-start px-12 pb-8 pt-2 bg-slate-100">
       <div className="px-4">
@@ -99,7 +80,7 @@ const DataRekognisi = () => {
       <div className="w-full h-5/6 overflow-scroll">
         {/* rubah */}
         <TableComponent
-          columns={newColumns}
+          columns={TableRekognisiHeaders}
           rows={dataRekognisi}
           jenisPrestasi="rekognisi"
         />
