@@ -245,6 +245,30 @@ const TableComponent = ({
           </TableBody>
         </Table>
       );
+    } else if (type == "semi-kompleks") {
+      return (
+        <Table aria-label="table">
+          <TableHeader columns={columns}>
+            {(column) => (
+              <TableColumn
+                key={column.key}
+                align={column.label === "Action" ? "center" : "start"}
+              >
+                {column.label}
+              </TableColumn>
+            )}
+          </TableHeader>
+          <TableBody items={rows} emptyContent={"tidak ada data prestasi"}>
+            {(item) => (
+              <TableRow key={item.idPrestasi}>
+                {(columnKey) => (
+                  <TableCell>{renderCell(item, columnKey)}</TableCell>
+                )}
+              </TableRow>
+            )}
+          </TableBody>
+        </Table>
+      );
     } else if (type == "simple") {
       return (
         <Table aria-label="table">

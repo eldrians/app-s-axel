@@ -10,10 +10,25 @@ import {
 } from "@nextui-org/react";
 import TableComponent from "../Table";
 import { ProsesMahasiswaHeaders } from "@/utils/achievementHeader";
+import {
+  TableKompetisiHeaders,
+  TableKaryaIlmiahHeaders,
+  TableRekognisiHeaders,
+  TablePenobatanHeaders,
+  TableOrganisasiHeaders,
+  TableAksiKemanusiaanHeaders,
+  TableKewirausahaanHeaders,
+} from "@/utils/tablePrestasiHeaders";
 
 const ProsesMahasiswa = () => {
   const [prestasi, setPrestasi]: any = useState([]);
-  const [tahun, setTahun]: any = useState([]);
+  const [dataKompetisi, setDataKompetisi] = useState([]);
+  const [dataKaryaIlmiah, setDataKaryaIlmiah] = useState([]);
+  const [dataRekognisi, setDataRekognisi] = useState([]);
+  const [dataPenobatan, setDataPenobatan] = useState([]);
+  const [dataOrganisasi, setDataOrganisasi] = useState([]);
+  const [dataAksiKemanusiaan, setDataAksiKemanusiaan] = useState([]);
+  const [dataKewirausahaan, setDataKewirausahaan] = useState([]);
   const [formData, setFormData] = useState({
     nim: "",
     prestasi: [""],
@@ -27,9 +42,7 @@ const ProsesMahasiswa = () => {
     e.preventDefault();
     const data: Record<string, any> = {};
     ProsesMahasiswaHeaders.forEach((header) => {
-      if (header == "tahun") {
-        data[header] = tahun;
-      } else if (header == "prestasi") {
+      if (header == "prestasi") {
         data[header] = prestasi;
       } else {
         const inputElement = e.currentTarget.elements.namedItem(
@@ -54,6 +67,7 @@ const ProsesMahasiswa = () => {
       if (value_k) {
         k = JSON.parse(value_k);
         k = k.filter((item: any) => item.nim == data.nim);
+        setDataKompetisi(k);
       } else {
         k = [];
       }
@@ -63,6 +77,7 @@ const ProsesMahasiswa = () => {
       if (value_ki) {
         ki = JSON.parse(value_ki);
         ki = ki.filter((item: any) => item.nim == data.nim);
+        setDataKaryaIlmiah(ki);
       } else {
         ki = [];
       }
@@ -72,6 +87,7 @@ const ProsesMahasiswa = () => {
       if (value_r) {
         r = JSON.parse(value_r);
         r = r.filter((item: any) => item.nim == data.nim);
+        setDataRekognisi(r);
       } else {
         r = [];
       }
@@ -81,6 +97,7 @@ const ProsesMahasiswa = () => {
       if (value_p) {
         p = JSON.parse(value_p);
         p = p.filter((item: any) => item.nim == data.nim);
+        setDataPenobatan(p);
       } else {
         p = [];
       }
@@ -90,6 +107,7 @@ const ProsesMahasiswa = () => {
       if (value_o) {
         o = JSON.parse(value_o);
         o = o.filter((item: any) => item.nim == data.nim);
+        setDataOrganisasi(o);
       } else {
         o = [];
       }
@@ -99,6 +117,7 @@ const ProsesMahasiswa = () => {
       if (value_ak) {
         ak = JSON.parse(value_ak);
         ak = ak.filter((item: any) => item.nim == data.nim);
+        setDataAksiKemanusiaan(ak);
       } else {
         ak = [];
       }
@@ -108,6 +127,7 @@ const ProsesMahasiswa = () => {
       if (value_u) {
         u = JSON.parse(value_u);
         u = u.filter((item: any) => item.nim == data.nim);
+        setDataKewirausahaan(u);
       } else {
         u = [];
       }
@@ -125,37 +145,6 @@ const ProsesMahasiswa = () => {
 
     console.log(dataHasil[0]);
   }
-  const dataMahasiswa = [
-    {
-      nim: "2102211",
-      nama: "Dwi Novia Al Husaeni",
-      totalPrestasi: 4,
-    },
-    {
-      nim: "2102665",
-      nama: "Muhammad Cahyana Bintang Fajar",
-      totalPrestasi: 5,
-    },
-    {
-      nim: "2107944",
-      nama: "Muhammad Hasbi Sabilulhaq",
-      totalPrestasi: 7,
-    },
-  ];
-  const newColumns = [
-    {
-      key: "nim",
-      label: "NIM",
-    },
-    {
-      key: "nama",
-      label: "Nama",
-    },
-    {
-      key: "totalPrestasi",
-      label: "Prestasi",
-    },
-  ];
   return (
     <div className="w-full h-full flex flex-col justify-center items-start p-12">
       <form onSubmit={handleSubmit} className="w-full h-fit">
@@ -222,15 +211,98 @@ const ProsesMahasiswa = () => {
           </div>
         </div>
       </form>
-      <div className="w-full h-fit p-8">
-        <div>
-          <h4>Data Kompetisi</h4>
+      <div className="w-full h-fit flex flex-col gap-4 mt-4">
+        <div className="w-full h-fit p-8 border rounded">
+          <div className="w-full flex justify-start">
+            <h4 className="font-semibold text-darkApp mb-2">Data Kompetisi</h4>
+          </div>
+          <div className="w-full h-[250px] overflow-y-scroll">
+            <TableComponent
+              columns={TableKompetisiHeaders}
+              rows={dataKompetisi}
+              type="semi-kompleks"
+              jenisPrestasi="kompetisi"
+            />
+          </div>
         </div>
-        <TableComponent
-          columns={newColumns}
-          rows={dataMahasiswa.sort((a, b) => b.totalPrestasi - a.totalPrestasi)}
-          type="simple"
-        />
+        <div className="w-full h-fit p-8 border rounded">
+          <div className="w-full flex justify-start">
+            <h4 className="font-semibold text-darkApp mb-2">Data Karya Ilmiah</h4>
+          </div>
+          <div className="w-full h-[250px] overflow-y-scroll">
+            <TableComponent
+              columns={TableKaryaIlmiahHeaders}
+              rows={dataKaryaIlmiah}
+              type="semi-kompleks"
+              jenisPrestasi="karyaIlmiah"
+            />
+          </div>
+        </div>
+        <div className="w-full h-fit p-8 border rounded">
+          <div className="w-full flex justify-start">
+            <h4 className="font-semibold text-darkApp mb-2">Data Rekognisi</h4>
+          </div>
+          <div className="w-full h-[250px] overflow-y-scroll">
+            <TableComponent
+              columns={TableRekognisiHeaders}
+              rows={dataRekognisi}
+              type="semi-kompleks"
+              jenisPrestasi="rekognisi"
+            />
+          </div>
+        </div>
+        <div className="w-full h-fit p-8 border rounded">
+          <div className="w-full flex justify-start">
+            <h4 className="font-semibold text-darkApp mb-2">Data Penobatan</h4>
+          </div>
+          <div>
+            <TableComponent
+              columns={TablePenobatanHeaders}
+              rows={dataPenobatan}
+              type="semi-kompleks"
+              jenisPrestasi="penobatan"
+            />
+          </div>
+        </div>
+        <div className="w-full h-fit p-8 border rounded">
+          <div className="w-full flex justify-start">
+            <h4 className="font-semibold text-darkApp mb-2">Data Organisasi</h4>
+          </div>
+          <div className="w-full h-[250px] overflow-y-scroll">
+            <TableComponent
+              columns={TableOrganisasiHeaders}
+              rows={dataOrganisasi}
+              type="semi-kompleks"
+              jenisPrestasi="organisasi"
+            />
+          </div>
+        </div>
+        <div className="w-full h-fit p-8 border rounded">
+          <div className="w-full flex justify-start">
+            <h4 className="font-semibold text-darkApp mb-2">Data Aksi Kemanusiaan</h4>
+          </div>
+          <div className="w-full h-[250px] overflow-y-scroll">
+            <TableComponent
+              columns={TableAksiKemanusiaanHeaders}
+              rows={dataAksiKemanusiaan}
+              type="semi-kompleks"
+              jenisPrestasi="aksiKemanusiaan"
+            />
+          </div>
+        </div>
+        <div className="w-full h-fit p-8 border rounded">
+          <div className="w-full flex justify-start">
+            <h4 className="font-semibold text-darkApp mb-2">Data Kewirausahaan</h4>
+          </div>
+          <div className="w-full h-[250px] overflow-y-scroll">
+            <TableComponent
+              columns={TableKewirausahaanHeaders}
+              rows={dataKewirausahaan}
+              type="semi-kompleks"
+              jenisPrestasi="kewirausahaan"
+            />
+          </div>
+        </div>
       </div>
     </div>
   );
