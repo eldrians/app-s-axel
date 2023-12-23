@@ -16,8 +16,12 @@ const DataKaryaIlmiah = () => {
       idPrestasi: "",
       demandKey: "",
 
-      peran: "",
-      namaKegiatan: "",
+      judul: "",
+      jenisKTI: "",
+      statusKTI: "",
+      statusPenulis: "",
+      dosenPembimbing: "",
+      namaPenerbit: "",
       tingkat: "",
       tahun: 0,
 

@@ -16,9 +16,12 @@ const DataOrganisasi = () => {
       idPrestasi: "",
       demandKey: "",
 
-      tandaKehormatan: "",
+      jabatan: "",
+      bidang: "",
+      namaOrganisasi: "",
       tingkat: "",
-      lembaga: "",
+      tahun: "",
+
       url: "",
       timestamp: "",
     },

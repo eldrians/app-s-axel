@@ -19,6 +19,7 @@ const DataPenobatan = () => {
       tandaKehormatan: "",
       tingkat: "",
       lembaga: "",
+      
       url: "",
       timestamp: "",
     },

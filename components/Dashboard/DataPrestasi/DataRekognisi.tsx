@@ -22,6 +22,7 @@ const DataRekognisi = () => {
       jumlahPeserta: 0,
       tingkat: "",
       tahun: 0,
+      
       url: "",
       timestamp: "",
     },
