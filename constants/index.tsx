@@ -73,6 +73,7 @@ export const SIDENAV_ITEMS: SideNavItem[] = [
     submenu: true,
     subMenuItems: [
       { title: "Per Mahasiswa", path: "/dashboard/proses/mahasiswa" },
+      { title: "Per Demand Key", path: "/dashboard/proses/demand" },
     ],
   },
 ];

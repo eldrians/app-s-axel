@@ -40,6 +40,7 @@ import ModalDashboard from "./Dashboard/ModalDashboard";
 
 // Proses
 import ProsesMahasiswa from "./Dashboard/Proses/ProsesMahasiswa";
+import ProsesDemand from "./Dashboard/Proses/ProsesDemand";
 
 // jenis Dashboard
 import DashboardDosen from "./Dashboard/Jenis_Dashboard/DashboardDosen";
@@ -89,6 +90,7 @@ export {
   DataKewirausahaan,
   ModalDashboard,
   ProsesMahasiswa,
+  ProsesDemand,
   DashboardDosen,
   DashboardUPI,
   LineChart,
