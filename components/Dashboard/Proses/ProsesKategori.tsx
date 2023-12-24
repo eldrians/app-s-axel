@@ -1,7 +1,14 @@
 "use client";
 
 import { useState, ChangeEvent, FormEvent } from "react";
-import { Input, Button, CheckboxGroup, Checkbox } from "@nextui-org/react";
+import {
+  Input,
+  Button,
+  CheckboxGroup,
+  Checkbox,
+  RadioGroup,
+  Radio,
+} from "@nextui-org/react";
 import { TableComponent } from "@/components";
 import {
   TableKompetisiHeaders,
@@ -14,9 +21,9 @@ import {
 } from "@/utils/tablePrestasiHeaders";
 
 import { GeneratePDFTema } from "@/components/Pdf/GeneratePDF";
-import { ProsesDemandHeaders } from "@/utils/achievementHeader";
+import { ProsesKategoriHeaders } from "@/utils/achievementHeader";
 
-const ProsesDemand = () => {
+const ProsesKategori = () => {
   const [prestasi, setPrestasi]: any = useState([]);
   const [dataKompetisi, setDataKompetisi] = useState([]);
   const [dataKaryaIlmiah, setDataKaryaIlmiah] = useState([]);
@@ -25,14 +32,6 @@ const ProsesDemand = () => {
   const [dataOrganisasi, setDataOrganisasi] = useState([]);
   const [dataAksiKemanusiaan, setDataAksiKemanusiaan] = useState([]);
   const [dataKewirausahaan, setDataKewirausahaan] = useState([]);
-  const [formData, setFormData] = useState({
-    demandKey: "",
-    prestasi: [""],
-  });
-  const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
-  };
 
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -44,14 +43,9 @@ const ProsesDemand = () => {
     setDataAksiKemanusiaan([]);
     setDataKewirausahaan([]);
     const data: Record<string, any> = {};
-    ProsesDemandHeaders.forEach((header) => {
+    ProsesKategoriHeaders.forEach((header) => {
       if (header == "prestasi") {
         data[header] = prestasi;
-      } else {
-        const inputElement = e.currentTarget.elements.namedItem(
-          header
-        ) as HTMLInputElement;
-        data[header] = inputElement.value;
       }
     });
 
@@ -69,9 +63,6 @@ const ProsesDemand = () => {
       value_k = localStorage.getItem("data-kompetisi");
       if (value_k) {
         k = JSON.parse(value_k);
-        k = k.filter((item: any) =>
-          item.demandKey.toLowerCase().includes(data.demandKey.toLowerCase())
-        );
         setDataKompetisi(k);
       } else {
         k = [];
@@ -81,9 +72,6 @@ const ProsesDemand = () => {
       value_ki = localStorage.getItem("data-karya-ilmiah");
       if (value_ki) {
         ki = JSON.parse(value_ki);
-        ki = ki.filter((item: any) =>
-          item.demandKey.toLowerCase().includes(data.demandKey.toLowerCase())
-        );
         setDataKaryaIlmiah(ki);
       } else {
         ki = [];
@@ -93,9 +81,6 @@ const ProsesDemand = () => {
       value_r = localStorage.getItem("data-rekognisi");
       if (value_r) {
         r = JSON.parse(value_r);
-        r = r.filter((item: any) =>
-          item.demandKey.toLowerCase().includes(data.demandKey.toLowerCase())
-        );
         setDataRekognisi(r);
       } else {
         r = [];
@@ -105,9 +90,6 @@ const ProsesDemand = () => {
       value_p = localStorage.getItem("data-penobatan");
       if (value_p) {
         p = JSON.parse(value_p);
-        p = p.filter((item: any) =>
-          item.demandKey.toLowerCase().includes(data.demandKey.toLowerCase())
-        );
         setDataPenobatan(p);
       } else {
         p = [];
@@ -117,9 +99,6 @@ const ProsesDemand = () => {
       value_o = localStorage.getItem("data-organisasi");
       if (value_o) {
         o = JSON.parse(value_o);
-        o = o.filter((item: any) =>
-          item.demandKey.toLowerCase().includes(data.demandKey.toLowerCase())
-        );
         setDataOrganisasi(o);
       } else {
         o = [];
@@ -129,9 +108,6 @@ const ProsesDemand = () => {
       value_ak = localStorage.getItem("data-aksi-kemanusiaan");
       if (value_ak) {
         ak = JSON.parse(value_ak);
-        ak = ak.filter((item: any) =>
-          item.demandKey.toLowerCase().includes(data.demandKey.toLowerCase())
-        );
         setDataAksiKemanusiaan(ak);
       } else {
         ak = [];
@@ -141,9 +117,6 @@ const ProsesDemand = () => {
       value_u = localStorage.getItem("data-kewirausahaan");
       if (value_u) {
         u = JSON.parse(value_u);
-        u = u.filter((item: any) =>
-          item.demandKey.toLowerCase().includes(data.demandKey.toLowerCase())
-        );
         setDataKewirausahaan(u);
       } else {
         u = [];
@@ -320,68 +293,38 @@ const ProsesDemand = () => {
     <div className="w-full h-full flex flex-col justify-center items-start p-12">
       <div className="w-full mb-6">
         <h1 className="text-3xl text-darkApp font-bold">
-          Prestasi Berdasarkan Tema
+          Prestasi Berdasarkan Kategori
         </h1>
         <div className="w-1/2 mt-1">
           <p>
-            Dapatkan prestasi berdasarkan tema prestasi yang diinginkan dan
-            masukkan tema prestasi yang diinginkan pada kolom input dibawah.
+            Dapatkan prestasi berdasarkan kategori prestasi yang diinginkan dan
+            pilih kategori yang diinginkan.
           </p>
         </div>
       </div>
       <form onSubmit={handleSubmit} className="w-full h-fit">
         <div className="w-full h-fit rounded border border-darkGreenApp p-6 flex flex-col">
-          <div>
-            <Input
-              id="demandKey"
-              name="demandKey"
-              value={formData.demandKey}
-              onChange={handleInputChange}
-              type="text"
-              size="sm"
-              variant="bordered"
-              label="Tema"
-              labelPlacement="outside"
-              placeholder="Masukan Tema Prestasi"
-              isRequired
-            />
-          </div>
-          <div className="pt-4 flex flex-row gap-12 h-auto">
-            <div className="pt-4 h-auto">
+          <div className=" flex flex-row gap-12 h-auto">
+            <div className=" h-auto">
               <div>
                 <h3 className="text-darkApp font-semibold pb-2">
                   Kebutuhan Prestasi
                 </h3>
               </div>
               <div className="flex flex-col gap-3">
-                <CheckboxGroup
-                  color="success"
+                <RadioGroup
                   value={prestasi}
                   onValueChange={setPrestasi}
                   size="sm"
                 >
-                  <Checkbox value="kompetisi">
-                    <div className="text-sm">Kompetisi</div>
-                  </Checkbox>
-                  <Checkbox value="karyaIlmiah">
-                    <div className="text-sm">Karya Ilmiah</div>
-                  </Checkbox>
-                  <Checkbox value="rekognisi">
-                    <div className="text-sm">Rekognisi</div>
-                  </Checkbox>
-                  <Checkbox value="penobatan">
-                    <div className="text-sm">Penobatan</div>
-                  </Checkbox>
-                  <Checkbox value="organisasi">
-                    <div className="text-sm">Organisasi</div>
-                  </Checkbox>
-                  <Checkbox value="aksiKemanusiaan">
-                    <div className="text-sm">Aksi Kemanusiaan</div>
-                  </Checkbox>
-                  <Checkbox value="kewirausahaan">
-                    <div className="text-sm">Kewirausahaan</div>
-                  </Checkbox>
-                </CheckboxGroup>
+                  <Radio value="kompetisi">Kompetisi</Radio>
+                  <Radio value="karyaIlmiah">Karya Ilmiah</Radio>
+                  <Radio value="rekognisi">Rekognisi</Radio>
+                  <Radio value="penobatan">Penobatan</Radio>
+                  <Radio value="organisasi">Organisasi</Radio>
+                  <Radio value="aksiKemanusiaan">Aksi Kemanusiaan</Radio>
+                  <Radio value="kewirausahaan">Kewirausahaan</Radio>
+                </RadioGroup>
               </div>
             </div>
           </div>
@@ -397,7 +340,7 @@ const ProsesDemand = () => {
             <Button
               onClick={() =>
                 GeneratePDFTema(
-                  formData.demandKey,
+                  prestasi,
                   dataKompetisi.map((item: any) => ({
                     nama: item.nama,
                     email: item.email,
@@ -502,4 +445,4 @@ const ProsesDemand = () => {
   );
 };
 
-export default ProsesDemand;
+export default ProsesKategori;

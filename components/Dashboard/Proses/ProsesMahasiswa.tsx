@@ -311,6 +311,17 @@ const ProsesMahasiswa = () => {
   };
   return (
     <div className="w-full h-full flex flex-col justify-center items-start p-12">
+      <div className="w-full mb-6">
+        <h1 className="text-3xl text-darkApp font-bold">
+          Prestasi Berdasarkan Mahasiswa
+        </h1>
+        <div className="w-1/2 mt-1">
+          <p>
+            Dapatkan prestasi spesifik berdasarkan nim mahasiswa, masukkan nim
+            mahasiswa pada kolom input dibawah.
+          </p>
+        </div>
+      </div>
       <form onSubmit={handleSubmit} className="w-full h-fit">
         <div className="w-full h-fit rounded border border-darkGreenApp p-6 flex flex-col">
           <div>

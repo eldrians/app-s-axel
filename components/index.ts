@@ -41,6 +41,7 @@ import ModalDashboard from "./Dashboard/ModalDashboard";
 // Proses
 import ProsesMahasiswa from "./Dashboard/Proses/ProsesMahasiswa";
 import ProsesDemand from "./Dashboard/Proses/ProsesDemand";
+import ProsesKategori from "./Dashboard/Proses/ProsesKategori";
 
 // Kegiatan
 import InfoPilmapres from "./Dashboard/Kegiatan/PILMAPRES/InfoPilmapres";
@@ -95,6 +96,7 @@ export {
   ModalDashboard,
   ProsesMahasiswa,
   ProsesDemand,
+  ProsesKategori,
   InfoPilmapres,
   FormPilmapres,
   DashboardDosen,

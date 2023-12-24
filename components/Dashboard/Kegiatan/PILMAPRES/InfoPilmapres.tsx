@@ -25,7 +25,7 @@ const InfoPilmapres = () => {
               target="_blank"
             >
               <Button color="default" size="sm" className="text-darkApp">
-                Eksplor
+                Website Resmi
               </Button>
             </Link>
             <Link
