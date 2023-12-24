@@ -99,7 +99,6 @@ export const SIDENAV_ITEMS: SideNavItem[] = [
     submenu: true,
     subMenuItems: [
       { title: "PILMAPRES", path: "/dashboard/kegiatan/pilmapres" },
-      { title: "Per Demand Key", path: "/dashboard/proses/demand" },
     ],
   },
 ];

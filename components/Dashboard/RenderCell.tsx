@@ -1,7 +1,10 @@
 "use client";
 import React, { useState } from "react";
 
+import { Tooltip, Button } from "@nextui-org/react";
 import { ModalDashboard } from "@/components";
+import { DeleteIcon } from "../Icon";
+import Link from "next/link";
 
 const SwitchKompetisi = (
   rows: any,
@@ -47,7 +50,13 @@ const SwitchKompetisi = (
             data={rows}
             jenisPrestasi={jenisPrestasi}
           />
-          <ModalDashboard icon="delete" />
+          <Tooltip content="Proses">
+            <Link href={rows.url} target="_blank">
+              <Button size="sm" color="success">
+                <DeleteIcon />
+              </Button>
+            </Link>
+          </Tooltip>
         </div>
       );
     default:
@@ -102,7 +111,13 @@ const SwitchKaryaIlmiah = (
             data={rows}
             jenisPrestasi={jenisPrestasi}
           />
-          <ModalDashboard icon="delete" />
+          <Tooltip content="Proses">
+            <Link href={rows.url} target="_blank">
+              <Button size="sm" color="success">
+                <DeleteIcon />
+              </Button>
+            </Link>
+          </Tooltip>
         </div>
       );
     default:
@@ -169,7 +184,13 @@ const SwitchRekognisi = (
             data={rows}
             jenisPrestasi={jenisPrestasi}
           />
-          <ModalDashboard icon="delete" />
+          <Tooltip content="Proses">
+            <Link href={rows.url} target="_blank">
+              <Button size="sm" color="success">
+                <DeleteIcon />
+              </Button>
+            </Link>
+          </Tooltip>
         </div>
       );
     default:
@@ -221,7 +242,13 @@ const SwitchPenobatan = (
             data={rows}
             jenisPrestasi={jenisPrestasi}
           />
-          <ModalDashboard icon="delete" />
+          <Tooltip content="Proses">
+            <Link href={rows.url} target="_blank">
+              <Button size="sm" color="success">
+                <DeleteIcon />
+              </Button>
+            </Link>
+          </Tooltip>
         </div>
       );
     default:
@@ -276,7 +303,13 @@ const SwitchOrganisasi = (
             data={rows}
             jenisPrestasi={jenisPrestasi}
           />
-          <ModalDashboard icon="delete" />
+          <Tooltip content="Proses">
+            <Link href={rows.url} target="_blank">
+              <Button size="sm" color="success">
+                <DeleteIcon />
+              </Button>
+            </Link>
+          </Tooltip>
         </div>
       );
     default:
@@ -329,7 +362,13 @@ const SwitchAksiKemanusiaan = (
             data={rows}
             jenisPrestasi={jenisPrestasi}
           />
-          <ModalDashboard icon="delete" />
+          <Tooltip content="Proses">
+            <Link href={rows.url} target="_blank">
+              <Button size="sm" color="success">
+                <DeleteIcon />
+              </Button>
+            </Link>
+          </Tooltip>
         </div>
       );
     default:
@@ -373,7 +412,13 @@ const SwitchKewirausahaan = (
             data={rows}
             jenisPrestasi={jenisPrestasi}
           />
-          <ModalDashboard icon="delete" />
+          <Tooltip content="Proses">
+            <Link href={rows.url} target="_blank">
+              <Button size="sm" color="success">
+                <DeleteIcon />
+              </Button>
+            </Link>
+          </Tooltip>
         </div>
       );
     default:
