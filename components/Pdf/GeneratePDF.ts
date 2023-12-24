@@ -1,6 +1,7 @@
 import jsPDF from "jspdf";
 import autoTable from "jspdf-autotable";
 export const GeneratePDF = (
+  type: string,
   dataKompetisi: any,
   dataKaryaIlmiah: any,
   dataRekognisi: any,
@@ -162,237 +163,251 @@ export const GeneratePDF = (
     margin: { left: 20, right: 20 },
   });
 
-  // KOMPETISI
-  autoTable(doc, {
-    head: [
-      [
-        {
-          content: "Kompetisi",
-          styles: {
-            halign: "left",
-            font: "times",
-            fontStyle: "bold",
-            fontSize: 12,
-            textColor: "#000",
-            cellPadding: { top: 4, bottom: 0 },
+  if (dataKompetisi.length > 0) {
+    // KOMPETISI
+    autoTable(doc, {
+      head: [
+        [
+          {
+            content: "Kompetisi",
+            styles: {
+              halign: "left",
+              font: "times",
+              fontStyle: "bold",
+              fontSize: 12,
+              textColor: "#000",
+              cellPadding: { top: 4, bottom: 0 },
+            },
           },
-        },
+        ],
       ],
-    ],
-    theme: "plain",
-    margin: { left: 20, right: 20 },
-  });
-  autoTable(doc, {
-    columns: [
-      { header: "Capaian", dataKey: "capaian" },
-      { header: "Kategori", dataKey: "kategori" },
-      { header: "Tim", dataKey: "statusTim" },
-      { header: "Kompetisi", dataKey: "namaKompetisi" },
-      { header: "Tingkat", dataKey: "tingkat" },
-      { header: "Score", dataKey: "score" },
-    ],
-    body: dataKompetisi,
-    theme: "striped",
-    margin: { left: 20, right: 20 },
-  });
-
-  // KARYA ILMIAH
-  autoTable(doc, {
-    head: [
-      [
-        {
-          content: "Karya Ilmiah",
-          styles: {
-            halign: "left",
-            font: "times",
-            fontStyle: "bold",
-            fontSize: 12,
-            textColor: "#000",
-            cellPadding: { top: 2, bottom: 0 },
+      theme: "plain",
+      margin: { left: 20, right: 20 },
+    });
+    autoTable(doc, {
+      columns: [
+        { header: "Capaian", dataKey: "capaian" },
+        { header: "Kategori", dataKey: "kategori" },
+        { header: "Tim", dataKey: "statusTim" },
+        { header: "Kompetisi", dataKey: "namaKompetisi" },
+        { header: "Tingkat", dataKey: "tingkat" },
+        { header: "Score", dataKey: "score" },
+      ],
+      body: dataKompetisi,
+      theme: "striped",
+      margin: { left: 20, right: 20 },
+    });
+  }
+  if (dataKaryaIlmiah.length > 0) {
+    // KARYA ILMIAH
+    autoTable(doc, {
+      head: [
+        [
+          {
+            content: "Karya Ilmiah",
+            styles: {
+              halign: "left",
+              font: "times",
+              fontStyle: "bold",
+              fontSize: 12,
+              textColor: "#000",
+              cellPadding: { top: 2, bottom: 0 },
+            },
           },
-        },
+        ],
       ],
-    ],
-    theme: "plain",
-    margin: { left: 20, right: 20 },
-  });
-  autoTable(doc, {
-    columns: [
-      { header: "Judul", dataKey: "judul" },
-      { header: "Jenis", dataKey: "jenisKTI" },
-      { header: "Penerbit", dataKey: "namaPenerbit" },
-      { header: "Tingkat", dataKey: "tingkat" },
-      { header: "Score", dataKey: "score" },
-    ],
-    body: dataKaryaIlmiah,
-    theme: "striped",
-    margin: { left: 20, right: 20 },
-  });
-
-  // REKOGNISI
-  autoTable(doc, {
-    head: [
-      [
-        {
-          content: "REKOGNISI",
-          styles: {
-            halign: "left",
-            font: "times",
-            fontStyle: "bold",
-            fontSize: 12,
-            textColor: "#000",
-            cellPadding: { top: 2, bottom: 0 },
+      theme: "plain",
+      margin: { left: 20, right: 20 },
+    });
+    autoTable(doc, {
+      columns: [
+        { header: "Judul", dataKey: "judul" },
+        { header: "Jenis", dataKey: "jenisKTI" },
+        { header: "Penerbit", dataKey: "namaPenerbit" },
+        { header: "Tingkat", dataKey: "tingkat" },
+        { header: "Score", dataKey: "score" },
+      ],
+      body: dataKaryaIlmiah,
+      theme: "striped",
+      margin: { left: 20, right: 20 },
+    });
+  }
+  if (dataRekognisi.length > 0) {
+    // REKOGNISI
+    autoTable(doc, {
+      head: [
+        [
+          {
+            content: "REKOGNISI",
+            styles: {
+              halign: "left",
+              font: "times",
+              fontStyle: "bold",
+              fontSize: 12,
+              textColor: "#000",
+              cellPadding: { top: 2, bottom: 0 },
+            },
           },
-        },
+        ],
       ],
-    ],
-    theme: "plain",
-    margin: { left: 20, right: 20 },
-  });
-  autoTable(doc, {
-    columns: [
-      { header: "Peran", dataKey: "peran" },
-      { header: "Materi", dataKey: "materi" },
-      { header: "Kegiatan", dataKey: "namaKegiatan" },
-      { header: "Tingkat", dataKey: "tingkat" },
-      { header: "Score", dataKey: "score" },
-    ],
-    body: dataRekognisi,
-    theme: "striped",
-    margin: { left: 20, right: 20 },
-  });
-
-  // PENOBATAN
-  autoTable(doc, {
-    head: [
-      [
-        {
-          content: "PENOBATAN",
-          styles: {
-            halign: "left",
-            font: "times",
-            fontStyle: "bold",
-            fontSize: 12,
-            textColor: "#000",
-            cellPadding: { top: 2, bottom: 0 },
+      theme: "plain",
+      margin: { left: 20, right: 20 },
+    });
+    autoTable(doc, {
+      columns: [
+        { header: "Peran", dataKey: "peran" },
+        { header: "Materi", dataKey: "materi" },
+        { header: "Kegiatan", dataKey: "namaKegiatan" },
+        { header: "Tingkat", dataKey: "tingkat" },
+        { header: "Score", dataKey: "score" },
+      ],
+      body: dataRekognisi,
+      theme: "striped",
+      margin: { left: 20, right: 20 },
+    });
+  }
+  if (dataPenobatan.length > 0) {
+    // PENOBATAN
+    autoTable(doc, {
+      head: [
+        [
+          {
+            content: "PENOBATAN",
+            styles: {
+              halign: "left",
+              font: "times",
+              fontStyle: "bold",
+              fontSize: 12,
+              textColor: "#000",
+              cellPadding: { top: 2, bottom: 0 },
+            },
           },
-        },
+        ],
       ],
-    ],
-    theme: "plain",
-    margin: { left: 20, right: 20 },
-  });
-  autoTable(doc, {
-    columns: [
-      { header: "ID", dataKey: "idPrestasi" },
-      { header: "Tanda Kehormatan", dataKey: "tandaKehormatan" },
-      { header: "Tingkat", dataKey: "tingkat" },
-      { header: "Lembaga", dataKey: "lembaga" },
-      { header: "Score", dataKey: "score" },
-    ],
-    body: dataPenobatan,
-    theme: "striped",
-    margin: { left: 20, right: 20 },
-  });
-
-  // ORGANISASI
-  autoTable(doc, {
-    head: [
-      [
-        {
-          content: "ORGANISASI",
-          styles: {
-            halign: "left",
-            font: "times",
-            fontStyle: "bold",
-            fontSize: 12,
-            textColor: "#000",
-            cellPadding: { top: 2, bottom: 0 },
+      theme: "plain",
+      margin: { left: 20, right: 20 },
+    });
+    autoTable(doc, {
+      columns: [
+        { header: "ID", dataKey: "idPrestasi" },
+        { header: "Tanda Kehormatan", dataKey: "tandaKehormatan" },
+        { header: "Tingkat", dataKey: "tingkat" },
+        { header: "Lembaga", dataKey: "lembaga" },
+        { header: "Score", dataKey: "score" },
+      ],
+      body: dataPenobatan,
+      theme: "striped",
+      margin: { left: 20, right: 20 },
+    });
+  }
+  if (dataOrganisasi.length > 0) {
+    // ORGANISASI
+    autoTable(doc, {
+      head: [
+        [
+          {
+            content: "ORGANISASI",
+            styles: {
+              halign: "left",
+              font: "times",
+              fontStyle: "bold",
+              fontSize: 12,
+              textColor: "#000",
+              cellPadding: { top: 2, bottom: 0 },
+            },
           },
-        },
+        ],
       ],
-    ],
-    theme: "plain",
-    margin: { left: 20, right: 20 },
-  });
-  autoTable(doc, {
-    columns: [
-      { header: "Jabatan", dataKey: "jabatan" },
-      { header: "Bidang", dataKey: "bidang" },
-      { header: "Organisasi", dataKey: "namaOrganisasi" },
-      { header: "Tingkat", dataKey: "tingkat" },
-      { header: "Score", dataKey: "score" },
-    ],
-    body: dataOrganisasi,
-    theme: "striped",
-    margin: { left: 20, right: 20 },
-  });
-
-  // AKSI KEMANUSIAAN
-  autoTable(doc, {
-    head: [
-      [
-        {
-          content: "AKSI KEMANUSIAAN",
-          styles: {
-            halign: "left",
-            font: "times",
-            fontStyle: "bold",
-            fontSize: 12,
-            textColor: "#000",
-            cellPadding: { top: 2, bottom: 0 },
+      theme: "plain",
+      margin: { left: 20, right: 20 },
+    });
+    autoTable(doc, {
+      columns: [
+        { header: "Jabatan", dataKey: "jabatan" },
+        { header: "Bidang", dataKey: "bidang" },
+        { header: "Organisasi", dataKey: "namaOrganisasi" },
+        { header: "Tingkat", dataKey: "tingkat" },
+        { header: "Score", dataKey: "score" },
+      ],
+      body: dataOrganisasi,
+      theme: "striped",
+      margin: { left: 20, right: 20 },
+    });
+  }
+  if (dataAksiKemanusiaan.length > 0) {
+    // AKSI KEMANUSIAAN
+    autoTable(doc, {
+      head: [
+        [
+          {
+            content: "AKSI KEMANUSIAAN",
+            styles: {
+              halign: "left",
+              font: "times",
+              fontStyle: "bold",
+              fontSize: 12,
+              textColor: "#000",
+              cellPadding: { top: 2, bottom: 0 },
+            },
           },
-        },
+        ],
       ],
-    ],
-    theme: "plain",
-    margin: { left: 20, right: 20 },
-  });
-  autoTable(doc, {
-    columns: [
-      { header: "Peran", dataKey: "peran" },
-      { header: "Nama Kegiatan", dataKey: "namaKegiatan" },
-      { header: "Tingkat", dataKey: "tingkat" },
-      { header: "Score", dataKey: "score" },
-    ],
-    body: dataAksiKemanusiaan,
-    theme: "striped",
-    margin: { left: 20, right: 20 },
-  });
-
-  // KEWIRAUSAHAAN
-  autoTable(doc, {
-    head: [
-      [
-        {
-          content: "KEWIRAUSAHAAN",
-          styles: {
-            halign: "left",
-            font: "times",
-            fontStyle: "bold",
-            fontSize: 12,
-            textColor: "#000",
-            cellPadding: { top: 2, bottom: 0 },
+      theme: "plain",
+      margin: { left: 20, right: 20 },
+    });
+    autoTable(doc, {
+      columns: [
+        { header: "Peran", dataKey: "peran" },
+        { header: "Nama Kegiatan", dataKey: "namaKegiatan" },
+        { header: "Tingkat", dataKey: "tingkat" },
+        { header: "Score", dataKey: "score" },
+      ],
+      body: dataAksiKemanusiaan,
+      theme: "striped",
+      margin: { left: 20, right: 20 },
+    });
+  }
+  if (dataKewirausahaan.length > 0) {
+    // KEWIRAUSAHAAN
+    autoTable(doc, {
+      head: [
+        [
+          {
+            content: "KEWIRAUSAHAAN",
+            styles: {
+              halign: "left",
+              font: "times",
+              fontStyle: "bold",
+              fontSize: 12,
+              textColor: "#000",
+              cellPadding: { top: 2, bottom: 0 },
+            },
           },
-        },
+        ],
       ],
-    ],
-    theme: "plain",
-    margin: { left: 20, right: 20 },
-  });
-  autoTable(doc, {
-    columns: [
-      { header: "Nama Usaha", dataKey: "namaUsaha" },
-      { header: "Bidang", dataKey: "bidang" },
-      { header: "Tingkat", dataKey: "tingkat" },
-      { header: "Score", dataKey: "score" },
-    ],
-    body: dataKewirausahaan,
-    theme: "striped",
-    margin: { left: 20, right: 20 },
-  });
+      theme: "plain",
+      margin: { left: 20, right: 20 },
+    });
+    autoTable(doc, {
+      columns: [
+        { header: "Nama Usaha", dataKey: "namaUsaha" },
+        { header: "Bidang", dataKey: "bidang" },
+        { header: "Tingkat", dataKey: "tingkat" },
+        { header: "Score", dataKey: "score" },
+      ],
+      body: dataKewirausahaan,
+      theme: "striped",
+      margin: { left: 20, right: 20 },
+    });
+  }
 
-  let namaFile = nim + "_" + nama + "_Prestasi";
+  let namaFile;
+
+  if (type == "mahasiswa") {
+    namaFile = nim + "_" + nama + "_Prestasi";
+  } else {
+    namaFile = "Data Prestasi";
+  }
 
   return doc.save(namaFile);
 };

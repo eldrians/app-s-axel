@@ -386,6 +386,7 @@ const ProsesDemand = () => {
             <Button
               onClick={() =>
                 GeneratePDF(
+                  "demand",
                   dataKompetisi.map((item: any) => ({
                     nama: item.nama,
                     email: item.email,

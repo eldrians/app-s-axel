@@ -380,6 +380,7 @@ const ProsesMahasiswa = () => {
             <Button
               onClick={() =>
                 GeneratePDF(
+                  "mahasiswa",
                   dataKompetisi.map((item: any) => ({
                     nama: item.nama,
                     email: item.email,
