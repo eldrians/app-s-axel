@@ -42,6 +42,10 @@ import ModalDashboard from "./Dashboard/ModalDashboard";
 import ProsesMahasiswa from "./Dashboard/Proses/ProsesMahasiswa";
 import ProsesDemand from "./Dashboard/Proses/ProsesDemand";
 
+// Kegiatan
+import InfoPilmapres from "./Dashboard/Kegiatan/PILMAPRES/InfoPilmapres";
+import FormPilmapres from "./Dashboard/Kegiatan/PILMAPRES/FormPilmapres";
+
 // jenis Dashboard
 import DashboardDosen from "./Dashboard/Jenis_Dashboard/DashboardDosen";
 import DashboardUPI from "./Dashboard/Jenis_Dashboard/DashboardUPI";
@@ -91,6 +95,8 @@ export {
   ModalDashboard,
   ProsesMahasiswa,
   ProsesDemand,
+  InfoPilmapres,
+  FormPilmapres,
   DashboardDosen,
   DashboardUPI,
   LineChart,
