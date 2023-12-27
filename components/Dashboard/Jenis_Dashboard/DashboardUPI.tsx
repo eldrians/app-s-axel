@@ -57,7 +57,9 @@ const DashboardUPI = ({
   return (
     <div className="w-full h-full p-12 flex flex-col gap-8">
       <div className="px-4">
-        <h1 className="font-bold text-3xl text-darkApp mb-6">DASHBOARD UPI</h1>
+        <h1 className="font-bold text-3xl text-darkApp mb-6">
+          DASHBOARD PRESTASI MAHASISWA
+        </h1>
       </div>
       {/* bagian 1 */}
       <div className="w-full flex flex-row gap-4">
@@ -136,7 +138,9 @@ const DashboardUPI = ({
         </div>
         <div className="w-2/5 h-auto p-4 rounded shadow-lg border border-greenApp">
           <div className="w-full text-darkApp text-center pb-4">
-            <h2 className="font-bold">Distribusi Prestasi Berdasarkan Tahun Angkatan Mahasiswa</h2>
+            <h2 className="font-bold">
+              Distribusi Prestasi Berdasarkan Tahun Angkatan Mahasiswa
+            </h2>
           </div>
           <div className="h-[220px] w-full flex justify-center">
             <PieChart labels={["2020", "2021", "2022"]} data={[43, 12, 29]} />

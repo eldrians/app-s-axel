@@ -427,7 +427,7 @@ const ProsesKategori = () => {
               size="sm"
               color="danger"
             >
-              Generate PDF
+              Buat PDF
             </Button>
           </div>
         </div>

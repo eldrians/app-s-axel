@@ -95,7 +95,7 @@ const DashboardDosen = ({
   return (
     <div className="w-full h-full p-12 flex flex-col gap-8">
       <div className="px-4">
-        <h1 className="font-bold text-3xl text-darkApp">DASHBOARD DOSEN</h1>
+        <h1 className="font-bold text-3xl text-darkApp">DASHBOARD PRESTASI MAHASISWA</h1>
       </div>
       {/* bagian 1 */}
       <div className="w-full h-full flex flex-row gap-4">

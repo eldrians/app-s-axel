@@ -5,22 +5,20 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { Roboto } from "@next/font/google";
 import { usePathname } from "next/navigation";
+import { useEffect } from "react";
 
 const roboto = Roboto({
   subsets: ["latin"],
   weight: ["100", "300", "400", "500", "700", "900"],
 });
-export const metadata = {
-  title: "Neo Data Collection",
-  description: "On-Demand Service Platform",
-};
 
 export default function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  const pathName = usePathname();
+  const pathName = usePathname(); // Default value for pathName
+
   return (
     <html lang="en" style={{ scrollBehavior: "smooth" }}>
       <head>

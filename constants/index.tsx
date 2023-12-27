@@ -78,7 +78,7 @@ export const SIDENAV_ITEMS: SideNavItem[] = [
     ],
   },
   {
-    title: "Event",
+    title: "Kegiatan",
     path: "/dashboard/kegiatan/pilmapres",
     icon: (
       <svg
