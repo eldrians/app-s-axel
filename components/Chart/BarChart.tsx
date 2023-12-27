@@ -28,9 +28,7 @@ const BarChart = ({ labels, data }: { labels: String[]; data: Number[] }) => {
       {
         label: "Prestasi Mahasiswa",
         data: data,
-        backgroundColor: "white",
-        borderColor: "darkGreen",
-        borderWidth: 1,
+        backgroundColor: "#8bd3c7",
       },
     ],
   };
@@ -38,9 +36,14 @@ const BarChart = ({ labels, data }: { labels: String[]; data: Number[] }) => {
     <Bar
       data={dataBarChart}
       options={{
+        scales: {
+          y: {
+            beginAtZero: true,
+          },
+        },
         plugins: {
           datalabels: {
-            color: "black",
+            color: "white",
           },
         },
       }}

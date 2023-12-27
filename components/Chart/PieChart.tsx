@@ -29,7 +29,7 @@ const PieChart = ({ labels, data }: { labels: String[]; data: Number[] }) => {
     datasets: [
       {
         data: data,
-        backgroundColor: ["#26A668", "#36A2EB", "#FFCE56"],
+        backgroundColor: ["#ffee65", "#beb9db", "#fdcce5"],
       },
     ],
   };
