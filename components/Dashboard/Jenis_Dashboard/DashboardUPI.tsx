@@ -248,7 +248,7 @@ const DashboardUPI = ({
       </div>
 
       <div className="w-full h-fit flex flex-row gap-4">
-        <div className="w-2/5 h-auto p-4 rounded shadow-lg border bg-white">
+        <div className="w-2/4 h-auto p-4 rounded shadow-lg border bg-white">
           <div className="w-full text-darkApp text-center pb-4">
             <h2 className="font-bold">
               Distribusi Prestasi Berdasarkan Tahun Angkatan Mahasiswa
@@ -258,7 +258,7 @@ const DashboardUPI = ({
             <PieChart labels={["2020", "2021", "2022"]} data={[43, 12, 29]} />
           </div>
         </div>
-        <div className="w-2/5 h-auto p-4 rounded shadow-lg border bg-white">
+        <div className="w-2/4 h-auto p-4 rounded shadow-lg border bg-white">
           <div className="w-full text-darkApp text-center pb-4">
             <h2 className="font-bold">
               Distribusi Prestasi Berdasarkan Tahun Program Studi
@@ -269,16 +269,6 @@ const DashboardUPI = ({
               labels={["Ilmu Komputer", "Pendidikan Ilmu Komputer"]}
               data={[50, 100]}
             />
-          </div>
-        </div>
-        <div className="w-2/5 h-auto p-4 rounded shadow-lg border bg-white">
-          <div className="w-full text-darkApp text-center pb-4">
-            <h2 className="font-bold">
-              Distribusi Prestasi Berdasarkan Tahun Angkatan Mahasiswa
-            </h2>
-          </div>
-          <div className="h-[220px] w-full flex justify-center">
-            <PieChart labels={["2020", "2021", "2022"]} data={[43, 12, 29]} />
           </div>
         </div>
       </div>
