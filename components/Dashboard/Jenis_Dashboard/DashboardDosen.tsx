@@ -70,8 +70,8 @@ const DashboardDosen = ({
     },
     {
       idPrestasi: 2107944160817,
-      nim: "2107944",
-      nama: "Muhammad Hasbi Sabilulhaq",
+      nim: "2102372",
+      nama: "Rebina Putri",
       kategori: "Penobatan",
     },
   ];
@@ -95,7 +95,9 @@ const DashboardDosen = ({
   return (
     <div className="w-full h-full p-12 flex flex-col gap-8">
       <div className="px-4">
-        <h1 className="font-bold text-3xl text-darkApp">DASHBOARD PRESTASI MAHASISWA</h1>
+        <h1 className="font-bold text-3xl text-darkApp">
+          DASHBOARD PRESTASI MAHASISWA
+        </h1>
       </div>
       {/* bagian 1 */}
       <div className="w-full h-full flex flex-row gap-4">
@@ -186,7 +188,7 @@ const DashboardDosen = ({
       </div>
 
       {/* bagian 3 */}
-      <div className="w-full h-[300px] p-4 rounded shadow-lg border border-greenApp">
+      {/* <div className="w-full h-[300px] p-4 rounded shadow-lg border border-greenApp">
         <div className="w-full text-darkApp text-center">
           <h2 className="font-bold">Perolehan Prestasi Mahasiswa</h2>
         </div>
@@ -199,7 +201,7 @@ const DashboardDosen = ({
             type="simple"
           />
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };
