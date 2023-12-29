@@ -7,16 +7,16 @@ export default function middleware(req: any) {
   let role = req.cookies.get("role");
 
   if (!verify && url.includes("/dashboard")) {
-    return NextResponse.redirect("http://localhost:3000/login");
+    return NextResponse.redirect("/login");
   }
 
   if (verify && url.includes("/dashboard")) {
     if (role.value == "mahasiswa") {
-      return NextResponse.redirect("http://localhost:3000/");
+      return NextResponse.redirect("/");
     }
   }
 
   if (!verify && url.includes("/dokumentasi")) {
-    return NextResponse.redirect("http://localhost:3000/login");
+    return NextResponse.redirect("/login");
   }
 }
