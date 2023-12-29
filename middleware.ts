@@ -6,9 +6,9 @@ export default function middleware(req: any) {
   let url = req.url;
   let role = req.cookies.get("role");
 
-  if (!verify && url.includes("/dashboard")) {
-    return NextResponse.redirect("/login");
-  }
+  // if (!verify && url.includes("/dashboard")) {
+  //   return NextResponse.redirect("/login");
+  // }
 
   if (verify && url.includes("/dashboard")) {
     if (role.value == "mahasiswa") {
@@ -16,7 +16,7 @@ export default function middleware(req: any) {
     }
   }
 
-  if (!verify && url.includes("/dokumentasi")) {
-    return NextResponse.redirect("/login");
-  }
+  // if (!verify && url.includes("/dokumentasi")) {
+  //   return NextResponse.redirect("/login");
+  // }
 }
