@@ -248,7 +248,7 @@ const DashboardUPI = ({
       </div>
 
       <div className="w-full h-fit flex flex-row gap-4">
-        <div className="w-2/4 h-auto p-4 rounded shadow-lg border bg-white">
+        <div className="w-1/2 h-auto p-4 rounded shadow-lg border bg-white">
           <div className="w-full text-darkApp text-center pb-4">
             <h2 className="font-bold">
               Distribusi Prestasi Berdasarkan Tahun Angkatan Mahasiswa
@@ -258,7 +258,7 @@ const DashboardUPI = ({
             <PieChart labels={["2020", "2021", "2022"]} data={[43, 12, 29]} />
           </div>
         </div>
-        <div className="w-2/4 h-auto p-4 rounded shadow-lg border bg-white">
+        <div className="w-1/2 h-auto p-4 rounded shadow-lg border bg-white">
           <div className="w-full text-darkApp text-center pb-4">
             <h2 className="font-bold">
               Distribusi Prestasi Berdasarkan Tahun Program Studi
@@ -268,6 +268,128 @@ const DashboardUPI = ({
             <PieChart
               labels={["Ilmu Komputer", "Pendidikan Ilmu Komputer"]}
               data={[50, 100]}
+            />
+          </div>
+        </div>
+      </div>
+
+      <div className="w-full h-fit flex flex-row gap-4">
+        <div className="w-1/2 h-auto p-4 rounded shadow-lg border bg-white">
+          <div className="w-full text-darkApp text-center ">
+            <h2 className="font-bold">
+              Distribusi Data Total Mahasiswa Berdasarkan Sertifikasi TOEFL
+            </h2>
+          </div>
+          <div className="w-full">
+            <Bar
+              data={{
+                labels: ["2020", "2021", "2022", "2023"],
+                datasets: [
+                  {
+                    label: "TOEFL",
+                    data: [25, 41, 29, 10],
+                    datalabels: {
+                      align: "end",
+                      anchor: "start",
+                    },
+                    backgroundColor: "#fd7f6f",
+                  },
+                  {
+                    label: "IELTS",
+                    data: [12, 16, 11, 14],
+                    datalabels: {
+                      align: "center",
+                      anchor: "center",
+                    },
+                    backgroundColor: "#7eb0d5",
+                  },
+                  {
+                    label: "PTESOL",
+                    data: [80, 54, 25, 21],
+                    datalabels: {
+                      align: "center",
+                      anchor: "center",
+                    },
+                    backgroundColor: "#b2e061",
+                  },
+                  {
+                    label: "Belum pernah mengikuti",
+                    data: [48, 56, 65, 96],
+                    datalabels: {
+                      align: "center",
+                      anchor: "center",
+                    },
+                    backgroundColor: "#bd7ebe",
+                  },
+                ],
+              }}
+              options={{
+                plugins: {
+                  datalabels: {
+                    color: "black",
+                  },
+                },
+                aspectRatio: 5 / 3,
+                layout: {
+                  padding: {
+                    top: 24,
+                    right: 16,
+                    bottom: 0,
+                    left: 8,
+                  },
+                },
+              }}
+            />
+          </div>
+        </div>
+        <div className="w-1/2 h-auto p-4 rounded shadow-lg border bg-white">
+          <div className="w-full text-darkApp text-center pb-4">
+            <h2 className="font-bold">
+              Distribusi Data Total Mahasiswa Berdasarkan Sertifikasi
+              Internasional
+            </h2>
+          </div>
+          <div className="w-full">
+            <Bar
+              data={{
+                labels: ["2020", "2021", "2022", "2023"],
+                datasets: [
+                  {
+                    label: "Sudah",
+                    data: [45, 61, 89, 50],
+                    datalabels: {
+                      align: "end",
+                      anchor: "start",
+                    },
+                    backgroundColor: "#fd7f6f",
+                  },
+                  {
+                    label: "Belum",
+                    data: [42, 66, 51, 54],
+                    datalabels: {
+                      align: "center",
+                      anchor: "center",
+                    },
+                    backgroundColor: "#7eb0d5",
+                  },
+                ],
+              }}
+              options={{
+                plugins: {
+                  datalabels: {
+                    color: "black",
+                  },
+                },
+                aspectRatio: 5 / 3,
+                layout: {
+                  padding: {
+                    top: 24,
+                    right: 16,
+                    bottom: 0,
+                    left: 8,
+                  },
+                },
+              }}
             />
           </div>
         </div>
