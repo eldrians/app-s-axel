@@ -4,6 +4,7 @@ type FormData = {
   email?: string;
   judulPrestasi?: string;
   nama?: string;
+  jenis?: string;
 };
 export async function GET() {
   return NextResponse.json({
@@ -13,7 +14,7 @@ export async function GET() {
 
 export async function POST(request: Request) {
   const data: FormData = await request.json();
-  const { email, judulPrestasi, nama } = data;
+  const { email, judulPrestasi, nama, jenis } = data;
   try {
     const response = await fetch(
       "https://script.google.com/macros/s/AKfycbxnjuGonM9Ei1tt70wmgm54NYTtAAiLvBrRQ14qHAws-dhkmNfzG-uvriNAZl1WUxwoCA/exec",
@@ -39,5 +40,6 @@ export async function POST(request: Request) {
     email,
     judulPrestasi,
     nama,
+    jenis,
   });
 }

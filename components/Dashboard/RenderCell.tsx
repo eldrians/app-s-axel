@@ -26,42 +26,49 @@ const handleSubmit = async ({
       email: "eldrianaxel1@gmail.com",
       judulPrestasi: rows.capaian + " " + rows.namaKompetisi,
       nama: rows.nama,
+      jenis: jenisPrestasi,
     };
   } else if (jenisPrestasi == "karyaIlmiah") {
     data = {
       email: "eldrianaxel1@gmail.com",
       judulPrestasi: rows.judul,
       nama: rows.nama,
+      jenis: jenisPrestasi,
     };
   } else if (jenisPrestasi == "rekognisi") {
     data = {
       email: "eldrianaxel1@gmail.com",
       judulPrestasi: rows.peran + " " + rows.namaKegiatan,
       nama: rows.nama,
+      jenis: jenisPrestasi,
     };
   } else if (jenisPrestasi == "penobatan") {
     data = {
       email: "eldrianaxel1@gmail.com",
       judulPrestasi: rows.tandaKehormatan + " " + rows.lembaga,
       nama: rows.nama,
+      jenis: jenisPrestasi,
     };
   } else if (jenisPrestasi == "organisasi") {
     data = {
       email: "eldrianaxel1@gmail.com",
       judulPrestasi: rows.jabatan + " " + rows.namaOrganisasi,
       nama: rows.nama,
+      jenis: jenisPrestasi,
     };
   } else if (jenisPrestasi == "aksiKemanusiaan") {
     data = {
       email: "eldrianaxel1@gmail.com",
       judulPrestasi: rows.peran + " " + rows.namaKegiatan,
       nama: rows.nama,
+      jenis: jenisPrestasi,
     };
   } else if (jenisPrestasi == "kewirausahaan") {
     data = {
       email: "eldrianaxel1@gmail.com",
       judulPrestasi: rows.namaUsaha,
       nama: rows.nama,
+      jenis: jenisPrestasi,
     };
   }
 
