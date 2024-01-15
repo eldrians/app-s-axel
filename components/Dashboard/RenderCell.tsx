@@ -1,10 +1,84 @@
 "use client";
-import React, { useState } from "react";
+import { FormEvent } from "react";
 
 import { Tooltip, Button } from "@nextui-org/react";
 import { ModalDashboard } from "@/components";
 import { DeleteIcon } from "../Icon";
 import Link from "next/link";
+
+const test = () => {
+  return console.log("kepencet");
+};
+const handleSubmit = async ({
+  rows,
+  jenisPrestasi,
+  e,
+}: {
+  rows?: any;
+  jenisPrestasi?: any;
+  e: FormEvent<HTMLFormElement>;
+}) => {
+  e.preventDefault();
+
+  let data = {};
+  if (jenisPrestasi == "kompetisi") {
+    data = {
+      email: "eldrianaxel1@gmail.com",
+      judulPrestasi: rows.capaian + " " + rows.namaKompetisi,
+      nama: rows.nama,
+    };
+  } else if (jenisPrestasi == "karyaIlmiah") {
+    data = {
+      email: "eldrianaxel1@gmail.com",
+      judulPrestasi: rows.judul,
+      nama: rows.nama,
+    };
+  } else if (jenisPrestasi == "rekognisi") {
+    data = {
+      email: "eldrianaxel1@gmail.com",
+      judulPrestasi: rows.peran + " " + rows.namaKegiatan,
+      nama: rows.nama,
+    };
+  } else if (jenisPrestasi == "penobatan") {
+    data = {
+      email: "eldrianaxel1@gmail.com",
+      judulPrestasi: rows.tandaKehormatan + " " + rows.lembaga,
+      nama: rows.nama,
+    };
+  } else if (jenisPrestasi == "organisasi") {
+    data = {
+      email: "eldrianaxel1@gmail.com",
+      judulPrestasi: rows.jabatan + " " + rows.namaOrganisasi,
+      nama: rows.nama,
+    };
+  } else if (jenisPrestasi == "aksiKemanusiaan") {
+    data = {
+      email: "eldrianaxel1@gmail.com",
+      judulPrestasi: rows.peran + " " + rows.namaKegiatan,
+      nama: rows.nama,
+    };
+  } else if (jenisPrestasi == "kewirausahaan") {
+    data = {
+      email: "eldrianaxel1@gmail.com",
+      judulPrestasi: rows.namaUsaha,
+      nama: rows.nama,
+    };
+  }
+
+  try {
+    const response = await fetch("/api/notif", {
+      method: "POST",
+      body: JSON.stringify(data),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+
+    console.log(response.json());
+  } catch (error: any) {
+    console.log("error " + error.message);
+  }
+};
 
 const SwitchKompetisi = (
   rows: any,
@@ -51,11 +125,11 @@ const SwitchKompetisi = (
             jenisPrestasi={jenisPrestasi}
           />
           <Tooltip content="Proses">
-            <Link href={rows.url} target="_blank">
-              <Button size="sm" color="success">
+            <form onSubmit={(e) => handleSubmit({ rows, jenisPrestasi, e })}>
+              <Button size="sm" color="success" type="submit">
                 <DeleteIcon />
               </Button>
-            </Link>
+            </form>
           </Tooltip>
         </div>
       );
@@ -112,11 +186,11 @@ const SwitchKaryaIlmiah = (
             jenisPrestasi={jenisPrestasi}
           />
           <Tooltip content="Proses">
-            <Link href={rows.url} target="_blank">
-              <Button size="sm" color="success">
+            <form onSubmit={(e) => handleSubmit({ rows, jenisPrestasi, e })}>
+              <Button size="sm" color="success" type="submit">
                 <DeleteIcon />
               </Button>
-            </Link>
+            </form>
           </Tooltip>
         </div>
       );
@@ -185,11 +259,11 @@ const SwitchRekognisi = (
             jenisPrestasi={jenisPrestasi}
           />
           <Tooltip content="Proses">
-            <Link href={rows.url} target="_blank">
-              <Button size="sm" color="success">
+            <form onSubmit={(e) => handleSubmit({ rows, jenisPrestasi, e })}>
+              <Button size="sm" color="success" type="submit">
                 <DeleteIcon />
               </Button>
-            </Link>
+            </form>
           </Tooltip>
         </div>
       );
@@ -243,11 +317,11 @@ const SwitchPenobatan = (
             jenisPrestasi={jenisPrestasi}
           />
           <Tooltip content="Proses">
-            <Link href={rows.url} target="_blank">
-              <Button size="sm" color="success">
+            <form onSubmit={(e) => handleSubmit({ rows, jenisPrestasi, e })}>
+              <Button size="sm" color="success" type="submit">
                 <DeleteIcon />
               </Button>
-            </Link>
+            </form>
           </Tooltip>
         </div>
       );
@@ -304,11 +378,11 @@ const SwitchOrganisasi = (
             jenisPrestasi={jenisPrestasi}
           />
           <Tooltip content="Proses">
-            <Link href={rows.url} target="_blank">
-              <Button size="sm" color="success">
+            <form onSubmit={(e) => handleSubmit({ rows, jenisPrestasi, e })}>
+              <Button size="sm" color="success" type="submit">
                 <DeleteIcon />
               </Button>
-            </Link>
+            </form>
           </Tooltip>
         </div>
       );
@@ -363,11 +437,11 @@ const SwitchAksiKemanusiaan = (
             jenisPrestasi={jenisPrestasi}
           />
           <Tooltip content="Proses">
-            <Link href={rows.url} target="_blank">
-              <Button size="sm" color="success">
+            <form onSubmit={(e) => handleSubmit({ rows, jenisPrestasi, e })}>
+              <Button size="sm" color="success" type="submit">
                 <DeleteIcon />
               </Button>
-            </Link>
+            </form>
           </Tooltip>
         </div>
       );
@@ -413,11 +487,11 @@ const SwitchKewirausahaan = (
             jenisPrestasi={jenisPrestasi}
           />
           <Tooltip content="Proses">
-            <Link href={rows.url} target="_blank">
-              <Button size="sm" color="success">
+            <form onSubmit={(e) => handleSubmit({ rows, jenisPrestasi, e })}>
+              <Button size="sm" color="success" type="submit">
                 <DeleteIcon />
               </Button>
-            </Link>
+            </form>
           </Tooltip>
         </div>
       );
