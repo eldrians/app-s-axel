@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { FormEvent } from "react";
 import {
   Modal,
   ModalContent,
@@ -436,6 +436,84 @@ const ModalDashboard = ({
           </TableRow>
         </TableBody>
       );
+    }
+  };
+
+  const handleSubmit = async ({
+    datax,
+    jenisPrestasi,
+    e,
+  }: {
+    datax?: any;
+    jenisPrestasi?: any;
+    e: FormEvent<HTMLFormElement>;
+  }) => {
+    e.preventDefault();
+
+    let data = {};
+    if (jenisPrestasi == "kompetisi") {
+      data = {
+        email: "eldrianaxel1@gmail.com",
+        judulPrestasi: datax.capaian + " " + datax.namaKompetisi,
+        nama: datax.nama,
+        jenis: jenisPrestasi,
+      };
+    } else if (jenisPrestasi == "karyaIlmiah") {
+      data = {
+        email: "eldrianaxel1@gmail.com",
+        judulPrestasi: datax.judul,
+        nama: datax.nama,
+        jenis: jenisPrestasi,
+      };
+    } else if (jenisPrestasi == "rekognisi") {
+      data = {
+        email: "eldrianaxel1@gmail.com",
+        judulPrestasi: datax.peran + " " + datax.namaKegiatan,
+        nama: datax.nama,
+        jenis: jenisPrestasi,
+      };
+    } else if (jenisPrestasi == "penobatan") {
+      data = {
+        email: "eldrianaxel1@gmail.com",
+        judulPrestasi: datax.tandaKehormatan + " " + datax.lembaga,
+        nama: datax.nama,
+        jenis: jenisPrestasi,
+      };
+    } else if (jenisPrestasi == "organisasi") {
+      data = {
+        email: "eldrianaxel1@gmail.com",
+        judulPrestasi: datax.jabatan + " " + datax.namaOrganisasi,
+        nama: datax.nama,
+        jenis: jenisPrestasi,
+      };
+    } else if (jenisPrestasi == "aksiKemanusiaan") {
+      data = {
+        email: "eldrianaxel1@gmail.com",
+        judulPrestasi: datax.peran + " " + datax.namaKegiatan,
+        nama: datax.nama,
+        jenis: jenisPrestasi,
+      };
+    } else if (jenisPrestasi == "kewirausahaan") {
+      data = {
+        email: "eldrianaxel1@gmail.com",
+        judulPrestasi: datax.namaUsaha,
+        nama: datax.nama,
+        jenis: jenisPrestasi,
+      };
+    }
+
+    try {
+      const response = await fetch("/api/notif", {
+        method: "POST",
+        body: JSON.stringify(data),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+
+      console.log(response.json());
+    } catch (error: any) {
+      console.log("error " + error.message);
     }
   };
 

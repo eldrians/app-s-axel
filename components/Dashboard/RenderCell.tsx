@@ -1,14 +1,11 @@
 "use client";
-import { FormEvent } from "react";
+import { FormEvent, useState } from "react";
 
 import { Tooltip, Button } from "@nextui-org/react";
 import { ModalDashboard } from "@/components";
 import { DeleteIcon } from "../Icon";
 import Link from "next/link";
 
-const test = () => {
-  return console.log("kepencet");
-};
 const handleSubmit = async ({
   rows,
   jenisPrestasi,
@@ -20,52 +17,55 @@ const handleSubmit = async ({
 }) => {
   e.preventDefault();
 
+  // diganti jadi rows.email dalam implementasi aslinya
+  const studentEmail = "eldrianaxel1@gmail.com";
+
   let data = {};
   if (jenisPrestasi == "kompetisi") {
     data = {
-      email: "eldrianaxel1@gmail.com",
+      email: studentEmail,
       judulPrestasi: rows.capaian + " " + rows.namaKompetisi,
       nama: rows.nama,
       jenis: jenisPrestasi,
     };
   } else if (jenisPrestasi == "karyaIlmiah") {
     data = {
-      email: "eldrianaxel1@gmail.com",
+      email: studentEmail,
       judulPrestasi: rows.judul,
       nama: rows.nama,
       jenis: jenisPrestasi,
     };
   } else if (jenisPrestasi == "rekognisi") {
     data = {
-      email: "eldrianaxel1@gmail.com",
+      email: studentEmail,
       judulPrestasi: rows.peran + " " + rows.namaKegiatan,
       nama: rows.nama,
       jenis: jenisPrestasi,
     };
   } else if (jenisPrestasi == "penobatan") {
     data = {
-      email: "eldrianaxel1@gmail.com",
+      email: studentEmail,
       judulPrestasi: rows.tandaKehormatan + " " + rows.lembaga,
       nama: rows.nama,
       jenis: jenisPrestasi,
     };
   } else if (jenisPrestasi == "organisasi") {
     data = {
-      email: "eldrianaxel1@gmail.com",
+      email: studentEmail,
       judulPrestasi: rows.jabatan + " " + rows.namaOrganisasi,
       nama: rows.nama,
       jenis: jenisPrestasi,
     };
   } else if (jenisPrestasi == "aksiKemanusiaan") {
     data = {
-      email: "eldrianaxel1@gmail.com",
+      email: studentEmail,
       judulPrestasi: rows.peran + " " + rows.namaKegiatan,
       nama: rows.nama,
       jenis: jenisPrestasi,
     };
   } else if (jenisPrestasi == "kewirausahaan") {
     data = {
-      email: "eldrianaxel1@gmail.com",
+      email: studentEmail,
       judulPrestasi: rows.namaUsaha,
       nama: rows.nama,
       jenis: jenisPrestasi,
