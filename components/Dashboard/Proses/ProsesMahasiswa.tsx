@@ -404,6 +404,7 @@ const ProsesMahasiswa = () => {
                     tingkat: item.tingkat,
                     tahun: item.tahun,
                     score: item.score,
+                    urlSheet: item.urlSheet,
                   })),
                   dataKaryaIlmiah.map((item: any) => ({
                     nama: item.nama,
@@ -417,6 +418,7 @@ const ProsesMahasiswa = () => {
                     tingkat: item.tingkat,
                     tahun: item.tahun,
                     score: item.score,
+                    urlSheet: item.urlSheet,
                   })),
                   dataRekognisi.map((item: any) => ({
                     nama: item.nama,
@@ -429,6 +431,7 @@ const ProsesMahasiswa = () => {
                     tingkat: item.tingkat,
                     tahun: item.tahun,
                     score: item.score,
+                    urlSheet: item.urlSheet,
                   })),
                   dataPenobatan.map((item: any) => ({
                     nama: item.nama,
@@ -439,6 +442,7 @@ const ProsesMahasiswa = () => {
                     tingkat: item.tingkat,
                     lembaga: item.lembaga,
                     score: item.score,
+                    urlSheet: item.urlSheet,
                   })),
                   dataOrganisasi.map((item: any) => ({
                     nama: item.nama,
@@ -451,6 +455,7 @@ const ProsesMahasiswa = () => {
                     tingkat: item.tingkat,
                     tahun: item.tahun,
                     score: item.score,
+                    urlSheet: item.urlSheet,
                   })),
                   dataAksiKemanusiaan.map((item: any) => ({
                     nama: item.nama,
@@ -462,6 +467,7 @@ const ProsesMahasiswa = () => {
                     tingkat: item.tingkat,
                     tahun: item.tahun,
                     score: item.score,
+                    urlSheet: item.urlSheet,
                   })),
                   dataKewirausahaan.map((item: any) => ({
                     nama: item.nama,
@@ -472,6 +478,7 @@ const ProsesMahasiswa = () => {
                     bidang: item.bidang,
                     tingkat: item.tingkat,
                     score: item.score,
+                    urlSheet: item.urlSheet,
                   }))
                 )
               }

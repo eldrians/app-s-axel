@@ -180,8 +180,8 @@ const ModalDashboard = ({
             <TableCell>{data?.tahun}</TableCell>
           </TableRow>
           <TableRow key="8">
-            <TableCell>Timestamp</TableCell>
-            <TableCell>{data?.timestamp}</TableCell>
+            <TableCell>urlSheet</TableCell>
+            <TableCell>{data?.urlSheet}</TableCell>
           </TableRow>
         </TableBody>
       );
